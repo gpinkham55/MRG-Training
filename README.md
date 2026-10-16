@@ -2,6 +2,8 @@
 
 Onboarding site for new Montgomery Rubber & Gasket inside sales, counter, and customer service hires.
 
+Exercises use real customer, order, item, and price data from P21 (pulled 10/16/2026). Costs, margins, and credit status are left out; trainees look those up in P21PLAY.
+
 **Live site:** https://gpinkham55.github.io/MRG-Training/
 
 ## Pages
