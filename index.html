@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MR&amp;G Call Desk Trainer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: order-desk split. Call transcript and question cards on the left, a live call ticket on the right that fills in like a P21 entry slip. */
+:root{
+  --bg:#eef1f3; --panel:#ffffff; --ink:#18242c; --muted:#5b6a74; --line:#cfd8de;
+  --steel:#1f4e5f; --steel-ink:#ffffff; --tag:#f2b705; --tag-ink:#1c1a10;
+  --good:#1d7a4a; --good-bg:#e3f3ea; --warn:#9a5b00; --warn-bg:#fdf0d8;
+  --cust-bg:#e4ebef; --you-bg:#1f4e5f; --you-ink:#ffffff;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f171c; --panel:#16222a; --ink:#e3eaee; --muted:#93a4ae; --line:#2b3b45;
+  --steel:#5fa9bf; --steel-ink:#0b1418; --tag:#f2b705; --tag-ink:#1c1a10;
+  --good:#5fd39a; --good-bg:#12321f; --warn:#f0b75a; --warn-bg:#3a2a0e;
+  --cust-bg:#1f2e37; --you-bg:#2d6f84; --you-ink:#ffffff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f171c; --panel:#16222a; --ink:#e3eaee; --muted:#93a4ae; --line:#2b3b45;
+  --steel:#5fa9bf; --steel-ink:#0b1418; --tag:#f2b705; --tag-ink:#1c1a10;
+  --good:#5fd39a; --good-bg:#12321f; --warn:#f0b75a; --warn-bg:#3a2a0e;
+  --cust-bg:#1f2e37; --you-bg:#2d6f84; --you-ink:#ffffff; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+h1{font-family:var(--display);font-weight:700;font-size:2.1rem;line-height:1;margin:0;letter-spacing:.01em;text-wrap:balance}
+h1 span{background:var(--tag);color:var(--tag-ink);padding:0 .25em;border-radius:3px}
+.sub{color:var(--muted);margin:4px 0 0;max-width:62ch}
+.score{display:flex;gap:16px;font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.score b{display:block;font-size:1.4rem;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:500}
+.picker{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 .95rem var(--body);border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 12px;border-radius:6px;cursor:pointer;text-align:left}
+.chip small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.chip[aria-pressed="true"]{border-color:var(--steel);box-shadow:inset 0 0 0 2px var(--steel)}
+.chip:focus-visible,.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+@media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
+.call{display:flex;flex-direction:column;gap:14px;min-width:0}
+.callhead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.callhead h2{font-family:var(--display);font-size:1.35rem;margin:0;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.callhead span{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.log{display:flex;flex-direction:column;gap:10px}
+.msg{max-width:88%;padding:10px 14px;border-radius:10px;min-width:0}
+.msg .who{display:block;font:600 .72rem var(--body);letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:2px}
+.cust{background:var(--cust-bg);align-self:flex-start;border-top-left-radius:2px}
+.you{background:var(--you-bg);color:var(--you-ink);align-self:flex-end;border-top-right-radius:2px}
+.sys{align-self:stretch;font-family:var(--mono);font-size:.82rem;white-space:pre-wrap;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--steel);border-radius:4px;padding:8px 12px}
+.sys .who{display:block;font:600 .72rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--steel);margin-bottom:2px}
+.coach{align-self:stretch;font-size:.92rem;padding:8px 12px;border-left:4px solid;border-radius:4px}
+.coach.g{border-color:var(--good);background:var(--good-bg)}
+.coach.w{border-color:var(--warn);background:var(--warn-bg)}
+.coach b{font-weight:700}
+.ask{display:flex;flex-direction:column;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+.ask h3{margin:0;font:600 .78rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.opts{display:grid;gap:8px}
+.opt{font:inherit;text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--steel)}
+.btn{font:600 .95rem var(--body);background:var(--steel);color:var(--steel-ink);border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+aside.ticket{background:var(--panel);border:1px solid var(--line);border-radius:8px;position:sticky;top:max(12px,env(safe-area-inset-top,0px));overflow:hidden}
+@media (max-width:880px){aside.ticket{position:static}}
+.tk-top{background:var(--tag);color:var(--tag-ink);padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.tk-top b{font-family:var(--display);font-size:1.25rem;letter-spacing:.04em;text-transform:uppercase}
+.tk-top span{font-family:var(--mono);font-size:.78rem}
+.tk{list-style:none;margin:0;padding:8px 14px 14px;display:flex;flex-direction:column}
+.tk li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.88rem}
+.tk li:last-child{border-bottom:0}
+.tk .k{color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.tk .v{font-family:var(--mono);font-size:.82rem;overflow-wrap:anywhere}
+.tk .v.empty{color:var(--muted)}
+.tk li.new .v{animation:pop .9s ease}
+@keyframes pop{from{background:var(--good-bg)}to{background:transparent}}
+@media (prefers-reduced-motion:reduce){.tk li.new .v{animation:none}}
+.done{display:flex;flex-direction:column;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+.done h3{font-family:var(--display);font-size:1.4rem;margin:0;text-transform:uppercase;letter-spacing:.02em}
+.done ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.foot{color:var(--muted);font-size:.82rem}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1><span>MR&amp;G</span> Call Desk Trainer</h1>
+      <p class="sub">A customer calls. Pick the best next question, listen to the answer, and build the call ticket until you have what you need to work it in P21PLAY.</p>
+    </div>
+    <div class="score" aria-live="polite">
+      <div>Score<b id="sc">0</b></div>
+      <div>On track<b id="ok">0</b></div>
+      <div>Off track<b id="bad">0</b></div>
+    </div>
+  </header>
+  <nav class="picker" id="picker" aria-label="Choose a call"></nav>
+  <div class="grid">
+    <section class="call">
+      <div class="callhead"><h2 id="ctitle"></h2><span id="cmeta"></span></div>
+      <div class="log" id="log" aria-live="polite"></div>
+      <div id="stage"></div>
+    </section>
+    <aside class="ticket" aria-label="Call ticket">
+      <div class="tk-top"><b>Call Ticket</b><span id="tkcount"></span></div>
+      <ul class="tk" id="tk"></ul>
+    </aside>
+  </div>
+  <p class="foot">Practice calls use made-up customers. All entries go in P21PLAY, never live P21. Scoring: +10 for a good question, -5 for an off-track question, +20 for the right P21 action.</p>
+</div>
+
+<script>
+const S = [
+{ id:"suction", title:"Suction Hose Assembly", tag:"Industrial hose + new ship-to",
+  caller:"Terrell", open:"Hey, this is Terrell over at River Bend Mill. I need a suction hose for a pump at our new wastewater building. Can you help me out?",
+  fields:[["cust","Customer"],["contact","Contact"],["size","Size"],["len","Length"],["media","Media / temp"],["app","Application"],["end1","End 1"],["end2","End 2"],["mat","Fitting material"],["attach","Attachment"],["ship","Ship-to"],["recv","Receiving"],["need","Need / next step"]],
+  good:[
+   {q:"Can I get your full title and confirm the account so I pull up the right record?",a:"Terrell Banks, maintenance planner. Same River Bend Mill account we always use.",g:{cust:"River Bend Mill (confirm bill-to)",contact:"Terrell Banks, Maint. Planner"},c:"Confirm the account and caller before anything else. Mills often have several accounts."},
+   {q:"What inside diameter do you need, and how long should the assembly be?",a:"Two-inch, and about twenty feet.",g:{size:"2\" ID",len:"20 ft OAL"},c:"Size is the S in STAMPED. Always confirm ID, not OD."},
+   {q:"What's going through the hose, and how hot does it get?",a:"Wastewater. Some sand and grit in it. Just ambient temperature, eighty degrees or so.",g:{media:"Wastewater w/ grit, ~80°F"},c:"Media and temperature drive the tube compound. Grit means you need abrasion resistance."},
+   {q:"Is the pump pulling from a sump, or pushing it out under pressure?",a:"Pulling from a sump. Full suction on this side.",g:{app:"Suction from sump, full vacuum (needs rigid helix)"},r:["media"],c:"Suction needs a hose with a rigid helix rated for vacuum. A discharge hose would collapse."},
+   {q:"What connects on each end of the hose?",a:"One end goes on the pump, and it's got one of those groove adapters. The other end screws into a pipe.",g:{end1:"Cam & groove Type C coupler (pump has adapter)",end2:"Pipe thread, details needed"},c:"Pump has the male groove adapter, so the hose gets a Type C coupler. Now get details on the pipe end."},
+   {q:"On the pipe end: is the pipe threaded male or female, and what size?",a:"The pipe has female threads. Two-inch.",g:{end2:"2\" male NPT hose shank"},r:["end2"],c:"Female pipe thread means a male NPT shank on the hose."},
+   {q:"What material is the adapter on the pump: aluminum, stainless, or brass?",a:"Stainless. Everything in that building is stainless.",g:{mat:"Stainless fittings"},r:["end1"],c:"Matching fitting material avoids galvanic issues and fits their plant standard."},
+   {q:"For grit under suction, are crimped ferrules OK, or do you want interlocking clamps you can service in the field?",a:"Crimped is fine as long as it holds.",g:{attach:"Crimped ferrules"},r:["app","end2"],c:"Attachment method is part of E in STAMPED. Ask, don't assume."},
+   {q:"Where should this ship?",a:"To the new wastewater building on Highway 82. I don't think you have it on file yet.",g:{ship:"NEW ship-to: Wastewater bldg, Hwy 82"},c:"A new physical site means a new ship-to with its own tax group."},
+   {q:"Who receives deliveries at that building, and should the driver call first?",a:"Ask for Leon at the roll-up door. Call him first at 334-555-0182.",g:{recv:"Leon, roll-up door, call ahead 334-555-0182"},r:["ship"],c:"Receiving details go in the ship-to delivery instructions, not the address lines."},
+   {q:"When do you need it, and do you want a quote first or are you ready to order?",a:"Inside a week. Send me a quote, I need approval before I can cut a PO.",g:{need:"Within 1 week; quote first, no PO yet"},c:"Delivery is the D in STAMPED, and it tells you whether this is a quote or an order."}
+  ],
+  weak:[
+   {q:"Do you want our standard red rubber water hose?",a:"I don't know, will that work for suction?",c:"Leading the customer before you know the media or that it's suction. Red water hose without a helix collapses under vacuum."},
+   {q:"What price are you hoping for?",a:"Whatever it costs, I just need it to work.",c:"Price comes after the spec. You can't price what you haven't defined."},
+   {q:"Should I just copy the last hose you bought?",a:"The last one was for the clarifier. Totally different job.",c:"Order history helps, but never skip STAMPED on a new application."},
+   {q:"Can you call back when you know more about it?",a:"I was kind of hoping you'd help me figure it out.",c:"The customer called for expertise. Walk them through the questions."}
+  ],
+  action:{q:"You have everything. What do you do in P21PLAY?",opts:[
+   {t:"Create the new Hwy 82 ship-to (tax group, receiving notes), then build a quote with a validity date and send it to Terrell.",ok:true,c:"Correct. New site first so tax and delivery are right, then a quote since there's no PO yet."},
+   {t:"Enter a sales order and release it so the shop can start.",c:"No PO and the customer asked for a quote. An order now would get rejected at invoice."},
+   {t:"Quote it to the main plant ship-to and fix the address after he orders.",c:"Wrong tax group and wrong delivery info on the quote. Set up the ship-to first."},
+   {t:"Special order the hose now so it's ready when he approves.",c:"Never buy for an unapproved quote. Wait for the PO."}],
+   steps:["Search ship-tos for River Bend Mill; confirm Hwy 82 is new","Ship To Maintenance: address, tax group for the Hwy 82 address, salesrep, carrier, delivery note (Leon, call ahead)","Quote: 20 ft 2\" suction hose (rigid helix), stainless Type C coupler, stainless 2\" male NPT shank, crimp ferrules, assembly labor","Set expiration date and lead time per line","Check margin and the extended total, then send to Terrell","Log a follow-up in 2 business days"]}
+},
+{ id:"press", title:"Hydraulic Press Hose", tag:"Hydraulic assembly order",
+  caller:"Marcus", open:"Our hydraulic press just blew a hose. Half inch, two-wire I think. About forty inches. Can you make me one?",
+  fields:[["cust","Customer"],["contact","Contact"],["hose","Hose"],["press","Pressure"],["media","Media / temp"],["oal","Length"],["end1","End 1"],["end2","End 2"],["orient","Orientation"],["need","Need / pickup"],["po","PO"]],
+  good:[
+   {q:"Let me pull up your account. Who am I speaking with?",a:"Marcus Reed, shop foreman at Prattville Fab and Machine.",g:{cust:"Prattville Fab & Machine",contact:"Marcus Reed, Shop Foreman"},c:"Account and caller first, every call."},
+   {q:"Can you read me the printing on the side of the old hose?",a:"Says 100R2AT, dash 8.",g:{hose:"-8 (1/2\") SAE 100R2AT, 2-wire braid"},c:"The layline is the fastest, most reliable way to identify a hydraulic hose."},
+   {q:"What's the working pressure on that circuit?",a:"Gauge reads about 3,000 at full stroke.",g:{press:"3,000 psi working (R2 -8 rated about 4,000: OK)"},r:["hose"],c:"Confirm the old hose was rated for the job before copying it."},
+   {q:"What fluid is it, and how hot does it run?",a:"AW46 hydraulic oil. Runs warm, maybe 150.",g:{media:"AW46 oil, ~150°F"},c:"Nitrile tube handles hydraulic oil, and 150°F is well inside the range."},
+   {q:"Can you measure the old assembly from sealing face to sealing face?",a:"Forty and a half inches.",g:{oal:"40.5\" OAL"},c:"OAL is measured fitting end to fitting end, not hose length."},
+   {q:"What's on each end of the old hose?",a:"One end has a nut that swivels. The other end screws into the cylinder port.",g:{end1:"Female swivel, thread needed",end2:"Male port end, thread needed"},c:"Good start. Now identify each thread."},
+   {q:"On the swivel end, can you measure the thread and check the seat angle?",a:"I've got calipers. Thread is about 3/4 inch, 16 threads per inch, and the cone inside looks like 37 degrees.",g:{end1:"-8 female JIC swivel (3/4-16, 37°)"},r:["end1"],c:"3/4-16 with a 37° seat is a -8 JIC."},
+   {q:"On the port end, is there an O-ring at the base of the threads, or do the threads taper?",a:"Straight threads, O-ring down at the bottom. About 3/4 inch too.",g:{end2:"-8 male SAE O-ring boss (3/4-16)"},r:["end2"],c:"O-ring at the thread base with straight threads is SAE O-ring boss."},
+   {q:"Are both ends straight, or is either one an elbow?",a:"Both straight.",g:{orient:"Both straight"},r:["end1","end2"],c:"Elbows need orientation. Always ask."},
+   {q:"When do you need it, and will you pick up or should we deliver?",a:"Press is down. I'll send somebody to pick it up the minute it's ready.",g:{need:"ASAP, will-call pickup"},c:"Down equipment means priority. Get the pickup plan."},
+   {q:"Do you have a PO number for this?",a:"Use PO 77231.",g:{po:"PO 77231"},r:["need"],c:"PO in hand means this is an order, not a quote."}
+  ],
+  weak:[
+   {q:"Is it a hydraulic hose?",a:"...Yeah. It's on a hydraulic press.",c:"Already answered in the opening. Listen first, then ask what you don't know."},
+   {q:"Want me to save you money with a one-wire hose?",a:"Will that hold?",c:"A -8 R1 is rated around 2,000 psi. On a 3,000 psi circuit it would fail. Never downgrade without the numbers."},
+   {q:"Can you read me the part numbers off the fittings?",a:"They're rusty. I can't make anything out.",c:"Fitting part numbers are often unreadable. Measure threads and seats instead."},
+   {q:"I'll have it ready in twenty minutes, OK?",a:"Great, I'll send my guy now.",c:"Never promise a time before checking the assembly bench queue with Eric."}
+  ],
+  action:{q:"You have the full spec and a PO. What do you do in P21PLAY?",opts:[
+   {t:"Enter a sales order with PO 77231, the assembly line (-8 R2, JIC swivel x ORB male, 40.5\" OAL), will-call, then check the bench with Eric before giving a ready time.",ok:true,c:"Correct. PO in hand, equipment down: order it, route it to the shop, then promise a real time."},
+   {t:"Send a quote first and wait for approval.",c:"He gave you a PO and his press is down. A quote only slows him down."},
+   {t:"Special order a factory assembly from the vendor.",c:"MR&G builds this in-house. A factory order takes days."},
+   {t:"Enter the order, then tell him 20 minutes.",c:"Check the bench queue with Eric before promising a time."}],
+   steps:["Order Entry: customer, contact Marcus Reed, PO 77231, will-call","Assembly line: -8 100R2AT hose, -8 female JIC swivel, -8 male ORB, 40.5\" OAL, both straight","Note media (AW46, 150°F) and pressure (3,000 psi) on the line","Route to the shop and confirm a ready time with Eric","Call Marcus back with the ready time"]}
+},
+{ id:"gasket", title:"Steam Header Gaskets", tag:"Gasket quote",
+  caller:"Dana", open:"Hi, I need pricing on some gaskets. Forty of the four-inch and twenty of the two-inch.",
+  fields:[["cust","Customer"],["contact","Contact"],["qty","Sizes / qty"],["cls","Flange class"],["face","Facing / type"],["svc","Service"],["mat","Material"],["thk","Thickness"],["pxt","P×T check"],["valid","Quote timing"],["ship","Ship-to"]],
+  good:[
+   {q:"Who am I speaking with, and which account is this for?",a:"Dana Whitfield, buyer at Tallassee Paperboard.",g:{cust:"Tallassee Paperboard",contact:"Dana Whitfield, Buyer"},c:"Account and caller first."},
+   {q:"Let me confirm: forty 4-inch and twenty 2-inch, correct?",a:"That's right.",g:{qty:"40 x 4\", 20 x 2\""},c:"Reading quantities back catches errors before they hit the quote."},
+   {q:"What pressure class are the flanges, 150 or 300?",a:"150 pound.",g:{cls:"Class 150"},c:"Class sets the gasket OD and bolt pattern."},
+   {q:"Raised face or full face flanges?",a:"Raised face. Steel pipe.",g:{face:"RF, ring gaskets (inside bolt circle)"},r:["cls"],c:"RF steel flanges take ring gaskets. FF flanges need full-face gaskets."},
+   {q:"What's running through the line, and at what pressure and temperature?",a:"Low pressure steam header. About 150 psi, 350 degrees.",g:{svc:"Steam, 150 psig, 350°F"},c:"Service conditions decide the material. This rules out rubber."},
+   {q:"What material are you using now?",a:"The blue fiber stuff.",g:{mat:"CNA (compressed non-asbestos), blue grade"},r:["svc"],c:"Blue fiber is compressed non-asbestos. Confirm it's rated for the service."},
+   {q:"1/16 or 1/8 thick?",a:"Sixteenth.",g:{thk:"1/16\""},r:["mat"],c:"1/16 is preferred on smooth RF flanges: less creep, better blowout resistance."},
+   {q:"Give me a second to check that against the P×T chart for that grade.",a:"Sure, take your time.",g:{pxt:"150 x 350 = 52,500: confirm on CNA chart"},r:["svc","thk"],c:"P×T plus the individual pressure and temperature limits must all pass."},
+   {q:"When do you need the quote, and how long should pricing hold?",a:"Back to me soon as you can. It needs to hold 60 days for our outage.",g:{valid:"Needs 60-day validity (above standard): get approval"},c:"Outage quotes often need longer validity. Flag anything past standard."},
+   {q:"Ship to your main storeroom like usual?",a:"Yes, main storeroom.",g:{ship:"Main storeroom (current ship-to)"},c:"Confirm ship-to even on routine requests."}
+  ],
+  weak:[
+   {q:"Want red rubber? It's the cheapest.",a:"Is that OK for steam?",c:"SBR tops out around 200°F. At 350°F steam it will fail. Never lead with price on a sealing job."},
+   {q:"These are for water, right?",a:"No, it's a steam header.",c:"Don't assume service. Ask open questions."},
+   {q:"Can I just send you our price sheet?",a:"I need a real quote for our outage file.",c:"Buyers need a formal quote with validity and lead time."},
+   {q:"Do you want them in 1/8 so they seal better?",a:"Is thicker better?",c:"Thicker gaskets creep more and blow out easier. 1/16 is preferred on good RF flanges."}
+  ],
+  action:{q:"You have the spec. What do you do in P21PLAY?",opts:[
+   {t:"Build a quote with two lines (4\" and 2\" Class 150 RF ring, 1/16 CNA), confirm the grade's P×T rating, get approval for 60-day validity, then send it to Dana.",ok:true,c:"Correct. Spec confirmed, validity approved, then quote."},
+   {t:"Enter a sales order so the waterjet can start cutting.",c:"No PO. She asked for pricing."},
+   {t:"Quote with the standard 30-day validity and don't mention it.",c:"She told you she needs 60 days. Get approval or tell her what you can hold."},
+   {t:"Quote 1/8 thick to be safe.",c:"She uses 1/16 and it's the better choice on smooth RF flanges."}],
+   steps:["Quote: customer, contact Dana Whitfield, ship-to main storeroom","Line 1: 40 ea 4\" Class 150 RF ring, 1/16 CNA (4.50\" ID x 6.88\" OD)","Line 2: 20 ea 2\" Class 150 RF ring, 1/16 CNA (2.38\" ID x 4.12\" OD); note 2\" nests in 4\" ring centers","Confirm P×T of 52,500 on the grade chart","Get Greg's OK on 60-day validity, set expiration","Check margin and extended total, send, log follow-up"]}
+},
+{ id:"steam", title:"Steam Hose Special Order", tag:"Special order + PO",
+  caller:"Jamal", open:"I need a 75-foot steam hose, inch and a half, with fittings. We had one burst out in the yard.",
+  fields:[["cust","Customer"],["contact","Contact"],["size","Size / length"],["svc","Steam service"],["ends","Ends"],["attach","Attachment"],["stock","Stock check"],["lead","Lead time"],["po","PO"],["ship","Ship-to"]],
+  good:[
+   {q:"Who am I speaking with, and what's the account?",a:"Jamal Ortiz, storeroom buyer at Lowndes Containerboard.",g:{cust:"Lowndes Containerboard",contact:"Jamal Ortiz, Storeroom Buyer"},c:"Account and caller first."},
+   {q:"Confirming: 1-1/2 inch ID, one continuous 75-foot length?",a:"Yes. One piece, 75 feet.",g:{size:"1-1/2\" ID, 75 ft continuous"},c:"Confirm continuous length. It changes how you fill it."},
+   {q:"What steam pressure and temperature?",a:"Saturated steam, 150 psi.",g:{svc:"Saturated steam 150 psig (about 366°F)"},c:"Steam hose needs a 10:1 design factor and steam-rated construction."},
+   {q:"What fittings do you need on each end?",a:"Same as before. The ground joint kind with the wing nut.",g:{ends:"Ground joint steam fittings, both ends"},c:"Ground joint fittings are the standard for steam service."},
+   {q:"We'll attach those with steam-rated interlocking clamps. Is that what you had before?",a:"Yes, that's what was on it.",g:{attach:"Interlocking clamps (retighten after first heat-up)"},r:["ends"],c:"Steam assemblies get interlocking clamps. Never bands or worm clamps."},
+   {q:"Can I put you on a short hold so I can check stock for a 75-foot continuous length?",a:"Sure.",g:{stock:"40 ft on reel; 75 ft continuous must be special ordered"},r:["size"],c:"Check stock before you promise anything."},
+   {q:"A continuous 75 feet is about 5 working days from the vendor. Does that work?",a:"It has to. Go ahead.",g:{lead:"About 5 working days, customer accepted"},r:["stock"],c:"Give the customer the real lead time and let them decide."},
+   {q:"Do you have a PO for this?",a:"PO 4410-889.",g:{po:"PO 4410-889"},r:["lead"],c:"Special orders need a PO before you buy anything."},
+   {q:"Ship to the storeroom?",a:"Yes, main storeroom.",g:{ship:"Main storeroom"},c:"Confirm ship-to."}
+  ],
+  weak:[
+   {q:"Could we couple two 40-foot pieces together instead?",a:"I'd rather not have another joint on a steam line.",c:"An extra steam joint is an extra failure point. Offer it only if the customer asks for options."},
+   {q:"We have 1-1/2 water hose in stock. Will that work?",a:"For steam? Is that safe?",c:"Never substitute a non-steam hose on steam service. It can burst and cause severe burns."},
+   {q:"Want worm gear clamps to save some money?",a:"On steam?",c:"Worm clamps are never used on steam. Interlocking clamps only."},
+   {q:"What's it for?",a:"I told you, steam.",c:"Already answered. Ask for pressure and temperature instead."}
+  ],
+  action:{q:"You have a PO and a lead time. What do you do in P21PLAY?",opts:[
+   {t:"Enter a sales order with PO 4410-889: hose line as a special order (disposition S) for 75 ft continuous, plus fittings and clamps, and note the lead time for the customer.",ok:true,c:"Correct. Special order disposition creates the purchase need for the continuous length."},
+   {t:"Ship the 40 feet in stock now and backorder 35 feet.",c:"He needs one continuous 75-foot length. Two pieces don't fill this order."},
+   {t:"Send a quote and wait.",c:"He already gave you a PO and accepted the lead time."},
+   {t:"Substitute water hose from stock so he gets it today.",c:"Never. Steam service requires steam hose."}],
+   steps:["Order Entry: customer, contact Jamal Ortiz, PO 4410-889, ship to main storeroom","Hose line: 1-1/2\" steam hose, 75 ft, disposition S (special order)","Add ground joint fittings (2 sets) and interlocking clamps; build as assembly when hose arrives","Note: about 5 working days; retighten clamps after first heat-up","Confirm the PO is generated for the vendor and tell Jamal the expected date"]}
+},
+{ id:"ap", title:"Missing Invoices", tag:"Contact maintenance",
+  caller:"Rachel", open:"Hi, I'm in accounts payable at Southern Fabrication. We aren't getting your invoices.",
+  fields:[["cust","Customer"],["contact","Caller"],["email","Email"],["phone","Phone"],["old","Old recipient"],["docs","Document routing"],["follow","Follow-up"]],
+  good:[
+   {q:"I can fix that. Who am I speaking with, and what's your role?",a:"Rachel Kim. I'm the new AP specialist at Southern Fabrication.",g:{cust:"Southern Fabrication",contact:"Rachel Kim, AP Specialist"},c:"Account and caller first."},
+   {q:"What email should invoices go to?",a:"rkim@sofab-example.com",g:{email:"rkim@sofab-example.com (read back)"},c:"Always read emails back letter by letter."},
+   {q:"What's the best phone number for you?",a:"334-555-0119, extension 12.",g:{phone:"334-555-0119 x12"},c:"Complete contact records save the next person a call."},
+   {q:"Who were invoices going to before?",a:"Probably Phil. He retired last month.",g:{old:"Phil (retired)"},c:"Find the current recipient so you can move the routing."},
+   {q:"Should I mark Phil inactive and move what he received over to you?",a:"Yes. But quotes go to purchasing, not me. I just want invoices and statements.",g:{docs:"Invoices + statements to Rachel; quotes stay with Purchasing"},r:["old"],c:"Never delete a contact. Mark inactive and move each document type to the right person."},
+   {q:"Do you need copies of any invoices you missed?",a:"Yes, anything still open past 30 days.",g:{follow:"Resend open invoices over 30 days (loop in accounting)"},r:["email"],c:"Fixing the record doesn't fix the past. Offer the resend."}
+  ],
+  weak:[
+   {q:"Can you call our accounting department instead?",a:"I was hoping you could just fix it.",c:"Contact records are an inside sales job. Own it and loop in accounting after."},
+   {q:"I'll just change Phil's record to your information.",a:"OK, if that works.",c:"Overwriting a contact rewrites history. Add Rachel as her own contact."},
+   {q:"Are you sure you're not getting them?",a:"Yes. I'm sure.",c:"Don't question the customer. Find the routing problem."}
+  ],
+  action:{q:"What do you do in P21PLAY?",opts:[
+   {t:"Search for duplicates, add Rachel in Contact Maintenance with the AP role and invoice/statement delivery, mark Phil inactive, add dated notes, and ask accounting to resend open invoices.",ok:true,c:"Correct. Clean record, right routing, history kept, and the missed invoices handled."},
+   {t:"Edit Phil's contact and replace his info with Rachel's.",c:"That erases Phil's history and ties his past activity to Rachel."},
+   {t:"Update the ship-to with her email.",c:"Ship-tos hold delivery info. Document routing lives on contacts."},
+   {t:"Email her the invoices by hand from now on.",c:"A manual fix breaks the next time you're out. Fix the record."}],
+   steps:["Contact Maintenance: search for Rachel and the email (no duplicates)","Add Rachel Kim: title, phone x12, email (read back), linked to Southern Fabrication","Role: AP. Delivery: invoices and statements","Phil: mark inactive, remove invoice delivery, add dated note","Confirm Purchasing contact still gets quotes","Ask accounting to resend open invoices over 30 days"]}
+},
+{ id:"history", title:"April Hose Reorder", tag:"Search sales history",
+  caller:"Brenda", open:"Hi, we got some hoses from y'all back in April. I need some more of the same fittings that were on that hose.",
+  fields:[["cust","Customer"],["contact","Contact"],["clue","Caller clues"],["search","History search"],["order","Order found"],["hose","Hose"],["fit","Fittings"],["qty","What to build"],["price","Price check"],["po","PO"],["ship","Ship-to"]],
+  good:[
+   {q:"Who am I speaking with, and which account is this?",a:"Brenda Cole. I'm the maintenance clerk at Elmore Kraft Mill.",g:{cust:"Elmore Kraft Mill",contact:"Brenda Cole, Maint. Clerk"},c:"Account first. You can't search history until you know whose history to search."},
+   {q:"Do you have the PO number or invoice from April? That's the fastest way to find it.",a:"I don't have the PO, sorry. It was for the lime kiln area, if that helps.",g:{clue:"No PO; for the lime kiln area"},c:"Ask for a PO or invoice first. When they don't have one, get any detail that helps you pick the right order."},
+   {q:"Let me pull your sales history for April. One second.",a:"",sys:"Customer Sales History, Elmore Kraft Mill, 4/1/2026 to 4/30/2026: 3 orders.\n#1048211 (4/8) gaskets and packing, PO STR-0408\n#1048530 (4/15) 2 hose assemblies, PO KLN-0415\n#1048902 (4/24) cam & groove fittings, PO STR-0424",g:{search:"Sales history, 4/1 to 4/30/2026: 3 orders"},r:["cust"],c:"Filter the history by date range. A vague memory plus a date is enough to find almost any order."},
+   {q:"I see hose assemblies on the 15th under PO KLN-0415, and loose cam and groove fittings on the 24th. Was it the assemblies for the kiln?",a:"Yes, the kiln assemblies. That's them.",g:{order:"#1048530 (4/15), PO KLN-0415, lime kiln"},r:["search"],c:"Read the candidates back. 'Fittings that were on a hose' could mean either order until the customer confirms."},
+   {q:"Let me open order 1048530 and read the lines.",a:"",sys:"Order #1048530, line 1: 2 ea hose assembly, 25 ft OAL.\nComponents per assembly: 25 ft 1\" 300 psi EPDM hot water hose; 2 ea 1\" 316SS male NPT crimp stem; 2 ea 1\" SS crimp ferrule.\nUnit prices (April): stem $38.40, ferrule $9.75.",g:{hose:"1\" 300 psi EPDM hot water hose, 25 ft",fit:"1\" 316SS male NPT crimp stem + 1\" SS ferrule"},r:["order"],c:"The order lines tell you exactly what was on the hose. No guessing from a description."},
+   {q:"Those are crimp fittings. They have to go on with our crimper. Do you want us to build the assembly, or did you only need parts?",a:"Oh. The guys were going to put them on a hose they already cut. Then you'd better build it. One more just like the others, 25 feet.",g:{qty:"1 more assembly, same as #1048530, MR&G builds"},r:["fit"],c:"Crimp fittings can't be installed in the field without a crimper and the spec chart. Steer the customer to a built assembly."},
+   {q:"Prices on these may have moved since April. Let me check current pricing.",a:"",sys:"Price inquiry: 1\" 316SS crimp stem now $40.10 (vendor increase 8/2026). Ferrule $9.75. Hose unchanged.",g:{price:"Stem up from $38.40 to $40.10; tell customer"},r:["fit"],c:"Never reuse an old price without checking. Tell the customer about any change before they hear it on the invoice."},
+   {q:"Do you have a PO for this one?",a:"Use KLN-1016.",g:{po:"PO KLN-1016"},r:["qty"],c:"PO in hand means order, not quote."},
+   {q:"Ship it to the mill storeroom like the April order?",a:"Yes, same place.",g:{ship:"Mill storeroom (same as #1048530)"},r:["order"],c:"Confirm ship-to even on repeat orders."}
+  ],
+  weak:[
+   {q:"What did the fittings look like?",a:"Silver? Metal? They screwed into something.",c:"Customer descriptions are unreliable. Search the sales history instead."},
+   {q:"Can you email me a picture of them?",a:"I'd have to go out to the kiln and find one.",c:"Slows everyone down. The answer is already in P21: search history first."},
+   {q:"I can't find anything without a PO number.",a:"Really? You can't look it up?",c:"You can. Search the customer's sales history by date range."},
+   {q:"I'll send you some brass fittings that should fit.",a:"Will those match what we have?",c:"Never guess on a repeat order. The original was 316 stainless, and the history shows it."}
+  ],
+  action:{q:"You found the order. What do you do in P21PLAY?",opts:[
+   {t:"Enter a new sales order (copy the assembly line from #1048530): 1 assembly, PO KLN-1016, current pricing, ship to the storeroom, and route it to Eric to build.",ok:true,c:"Correct. History gave you the exact spec, and current pricing keeps the invoice clean."},
+   {t:"Sell her 2 crimp stems and 2 ferrules as loose parts.",c:"She has no way to crimp them. A field-installed crimp fitting can blow off."},
+   {t:"Copy the April order at April prices.",c:"The stem price went up. Use current pricing and tell her."},
+   {t:"Send a quote and wait.",c:"She gave you a PO. Enter the order."}],
+   steps:["Customer Sales History: Elmore Kraft Mill, 4/1 to 4/30/2026","Open order #1048530 and confirm the assembly components","Order Entry: PO KLN-1016, ship to mill storeroom","Add 1 assembly: 25 ft 1\" EPDM hot water hose, 1\" 316SS male NPT crimp stems x2, SS ferrules x2","Let current pricing apply; confirm the stem increase with Brenda","Route to Eric for the build"]}
+},
+{ id:"walkin", title:"Counter Walk-In Adapter", tag:"Thread ID at the counter",
+  caller:"Hank", open:"Got this adapter off the hydraulic pump on a Japanese mini excavator. It sits between the pump and the hose. I need two of them.",
+  fields:[["cust","Customer"],["end1","Pump end"],["end2","Hose end"],["seal","Seals"],["qty","Quantity"],["stock","Stock"],["pay","Payment"]],
+  good:[
+   {q:"Do you have an account with us, or is this cash?",a:"No account. I'll pay with a card.",g:{cust:"Walk-in, cash/card"},c:"Know how the sale gets rung up before you start."},
+   {q:"Let me put calipers on the pump-end threads.",a:"",sys:"Pump-end male thread OD: 0.83\". Threads run straight (no taper).",g:{end1:"OD 0.83\", parallel, ID in progress"},c:"Measure; don't guess. A Japanese machine is a hint that it may be BSP."},
+   {q:"Now the pitch gauge on those same threads.",a:"",sys:"14 threads per inch. Thread form checks at 55°. Plain sealing face on the shoulder for a bonded washer.",g:{end1:"1/2\" BSPP male (bonded seal)"},r:["end1"],c:"0.83\" and 14 TPI fits both 1/2 NPT and 1/2 BSPP. No taper and a 55° form make it BSPP."},
+   {q:"What's on the other end, where the hose connects?",a:"Here, the hose nut screws onto this side.",sys:"Hose-end male thread: 3/4-16, 37° flare seat.",g:{end2:"-8 JIC male (3/4-16, 37°)"},c:"Identify both ends of an adapter."},
+   {q:"Was there a bonded washer on the pump end? Do you need new ones?",a:"Yeah, the old one tore coming off.",g:{seal:"2 x 1/2\" BSPP bonded seals"},r:["end1"],c:"BSPP ports seal with a bonded washer or O-ring. Never reuse a torn one."},
+   {q:"Two adapters, right?",a:"Two.",g:{qty:"2 adapters"},c:"Confirm quantity."},
+   {q:"Let me check stock.",a:"",sys:"-8 JIC male x 1/2 BSPP male adapter: 6 on hand, location 110.\n1/2\" BSPP bonded seal: 40 on hand.",g:{stock:"Both in stock at 110"},r:["end2","seal"],c:"Check stock before telling a walk-in to wait."},
+   {q:"I'll ring it up. Card at the counter OK?",a:"That works.",g:{pay:"Card at counter"},r:["stock","qty"],c:"Close the sale cleanly."}
+  ],
+  weak:[
+   {q:"It's probably NPT. Most of them are.",a:"Will NPT go in the pump?",c:"Never assume. NPT forced into a BSPP port galls the threads and leaks."},
+   {q:"Can you leave it and come back later?",a:"I've got a machine down on a job site.",c:"Measuring takes two minutes. Do it at the counter."},
+   {q:"What's the part number on it?",a:"There's nothing stamped on it.",c:"Most adapters aren't marked. Measure OD, pitch, thread form, and seat."}
+  ],
+  action:{q:"What do you do in P21PLAY?",opts:[
+   {t:"Enter a counter order under the cash customer account: 2 adapters (-8 JIC male x 1/2 BSPP male) and 2 bonded seals, then take the card payment.",ok:true,c:"Correct. Quick, accurate, and the seals keep the pump from leaking."},
+   {t:"Open a new customer account for Hank first.",c:"Walk-in cash sales go on the cash customer account. No new account needed."},
+   {t:"Sell him two 1/2 NPT x -8 JIC adapters.",c:"Wrong thread. It won't seal in a BSPP port."},
+   {t:"Send him a quote by email.",c:"He's standing at the counter with a machine down."}],
+   steps:["Order Entry: cash customer account, your own taker ID","Line 1: 2 ea -8 JIC male x 1/2\" BSPP male adapter","Line 2: 2 ea 1/2\" BSPP bonded seal","Take card payment and print the receipt"]}
+},
+{ id:"backorder", title:"Where's My Order?", tag:"Backorder follow-up",
+  caller:"Paula", open:"I placed an order two weeks ago for gaskets and some hose, and we only got part of it. Where's the rest?",
+  fields:[["cust","Customer"],["contact","Contact"],["po","PO"],["order","Order status"],["vendor","Vendor PO"],["option","Faster option"],["urgency","Urgency"],["notice","Notification"],["follow","Follow-up"]],
+  good:[
+   {q:"I'll find out. Who am I speaking with, and which account?",a:"Paula Greene, purchasing at Autauga Chemical.",g:{cust:"Autauga Chemical",contact:"Paula Greene, Purchasing"},c:"Account first."},
+   {q:"Do you have the PO or our order number?",a:"PO 22-5817.",g:{po:"PO 22-5817"},c:"The PO is the fastest way to the order."},
+   {q:"Let me pull that order up.",a:"",sys:"Order #1061144, PO 22-5817.\nLine 1: 1/16 PTFE gaskets, shipped 10/5.\nLine 2: 100 ft 1\" UHMWPE chemical hose. 40 ft shipped, 60 ft backordered (disposition B).",g:{order:"#1061144: 60 ft UHMWPE hose on backorder"},r:["po"],c:"Read the line dispositions. They tell you exactly what's open."},
+   {q:"Let me check the purchase order for that backordered hose.",a:"",sys:"Vendor PO #P-30882, due 10/22.\nTRG location 120 shows 75 ft of the same hose on hand.",g:{vendor:"Vendor PO P-30882 due 10/22; loc 120 has 75 ft"},r:["order"],c:"Check both the vendor PO and other TRG locations before you answer."},
+   {q:"How soon do you need the rest?",a:"Sooner the better. We have a turnaround coming up.",g:{urgency:"Needed for upcoming turnaround"},c:"Know the urgency before you offer options."},
+   {q:"Another TRG location has it. I can transfer it in instead of waiting on the vendor. Want me to do that?",a:"Yes, please. Faster is better.",g:{option:"Transfer 60 ft from location 120"},r:["vendor","urgency"],c:"A transfer often beats the vendor date. Offer it."},
+   {q:"Did you get a backorder notice with the first shipment?",a:"No. Nobody told me anything.",g:{notice:"Customer was not notified; note on order"},r:["order"],c:"Customers should always hear about a backorder from us first. Note it and fix the habit."},
+   {q:"I'll set up the transfer and call you back with a firm delivery date. Does that work?",a:"Thank you. That works.",g:{follow:"Call Paula back with firm date"},r:["option"],c:"Commit to a callback with real information, then keep it."}
+  ],
+  weak:[
+   {q:"It's probably on a truck somewhere.",a:"Probably? Can you check?",c:"Never guess on order status. Look it up."},
+   {q:"You'll need to call the vendor about that.",a:"I bought it from you, not the vendor.",c:"MR&G owns the order. Chase it for the customer."},
+   {q:"Let me cancel it and enter a new order.",a:"Won't that mess up our PO?",c:"Duplicating orders breaks the PO match and history. Work the open line."}
+  ],
+  action:{q:"What do you do in P21PLAY?",opts:[
+   {t:"Set up a transfer of 60 ft from location 120 against the backordered line, add a dated note to order #1061144, adjust the vendor PO if needed, then call Paula with the new date.",ok:true,c:"Correct. Fastest path to the customer, with the order and PO kept clean."},
+   {t:"Leave it on backorder; the vendor date is only a few days out.",c:"She has a turnaround coming and stock sits at another TRG location."},
+   {t:"Cancel the line and enter a new order for 60 ft.",c:"Creates a duplicate against her PO. Work the open line."},
+   {t:"Email her the vendor PO number.",c:"She doesn't need our vendor details. She needs a date."}],
+   steps:["Open order #1061144 (PO 22-5817)","Review line 2 disposition and vendor PO P-30882","Set up transfer of 60 ft from location 120 to 110","Add a dated note: customer not notified of backorder; transfer arranged","Reduce or cancel the vendor PO quantity if purchasing agrees","Call Paula with the firm delivery date"]}
+},
+{ id:"price", title:"Price Match Request", tag:"Margin + approval",
+  caller:"Ray", open:"I can get 100R2 dash 12 hose cheaper somewhere else. Can you match it?",
+  fields:[["cust","Customer"],["contact","Contact"],["item","Item / volume"],["comp","Competitor offer"],["ours","Our price / cost"],["proof","Written quote"],["vol","Commitment"],["margin","Margin math"]],
+  good:[
+   {q:"Let me look at it with you. Who am I speaking with?",a:"Ray Dobbs, buyer at Capitol Machine Works.",g:{cust:"Capitol Machine Works",contact:"Ray Dobbs, Buyer"},c:"Account first."},
+   {q:"How much of the -12 R2 do you buy, and how often?",a:"About 300 feet a quarter.",g:{item:"-12 100R2AT, ~300 ft/quarter"},c:"Volume tells you how much room you have to work with."},
+   {q:"What price did they give you, and what brand is it?",a:"$5.10 a foot. Not sure of the brand.",g:{comp:"$5.10/ft, brand unknown"},c:"Brand counts for the hose and the fittings it crimps with. Find out."},
+   {q:"Let me check your current price and our cost.",a:"",sys:"Price inquiry, Capitol Machine Works: -12 100R2AT at $6.25/ft.\nReplacement cost $4.30/ft. Margin 31.2%.",g:{ours:"$6.25/ft, cost $4.30 (31.2% margin)"},r:["item"],c:"Know your number before you talk price."},
+   {q:"Can you send me their written quote so I can compare it side by side?",a:"Sure, I'll email it over.",g:{proof:"Written competitor quote requested"},r:["comp"],c:"A written quote confirms brand, quantity, and terms. Verbal prices often leave things out."},
+   {q:"If I can get you a better price, would you commit to the 300 feet a quarter with us?",a:"Yes, if the price is right I'll commit.",g:{vol:"Will commit to 300 ft/quarter"},r:["item"],c:"Trade price for commitment. Never give a discount for nothing."},
+   {q:"Give me a minute to run the numbers at a few price points.",a:"",sys:"At $5.10/ft: (5.10 - 4.30) / 5.10 = 15.7% margin.\nAt $5.60/ft: (5.60 - 4.30) / 5.60 = 23.2% margin.",g:{margin:"$5.10 = 15.7%; $5.60 = 23.2%; needs Greg's approval"},r:["ours","vol"],c:"Margin = (sell - cost) / sell. Both prices fall below normal, so this needs approval."}
+  ],
+  weak:[
+   {q:"Sure, I'll match it.",a:"Great, change it today.",c:"Never match without checking margin and getting approval."},
+   {q:"Their hose is probably junk.",a:"It's worked fine for others.",c:"Don't knock competitors. Sell on service, spec, and availability."},
+   {q:"That's our price. Take it or leave it.",a:"Then I'll probably leave it.",c:"Work the deal. Volume and commitment give you room to move."}
+  ],
+  action:{q:"What do you do next in P21PLAY?",opts:[
+   {t:"Take the competitor quote and margin math to Greg for approval, then build a quote at the approved price tied to 300 ft/quarter, with an expiration date.",ok:true,c:"Correct. Approval first, then a quote that ties the price to the commitment."},
+   {t:"Change his customer price to $5.10 right now.",c:"No approval and no commitment locked in. That's 15.7% margin on every order."},
+   {t:"Tell him no and move on.",c:"You may lose the account over a deal that could have worked."},
+   {t:"Enter an order at $5.10.",c:"He hasn't ordered, and the price isn't approved."}],
+   steps:["Get the competitor's written quote from Ray","Run margin at $5.10 and at a counter price","Bring both to Greg for approval","Quote: -12 100R2AT at the approved price, note the 300 ft/quarter commitment","Set expiration date; send and log a follow-up"]}
+},
+{ id:"return", title:"Wrong Gaskets Shipped", tag:"Return + replacement",
+  caller:"Carla", open:"The gaskets you sent us are the wrong size. They don't fit our flanges.",
+  fields:[["cust","Customer"],["contact","Contact"],["order","Order shipped"],["need","Correct part"],["cause","Cause"],["cond","Condition"],["when","Need-by"],["fix","Resolution"]],
+  good:[
+   {q:"I'm sorry about that. Let's get it fixed. Who am I speaking with?",a:"Carla Mays, storeroom at Tallapoosa Board Mill.",g:{cust:"Tallapoosa Board Mill",contact:"Carla Mays, Storeroom"},c:"Own it, then get the account."},
+   {q:"What's the PO or order number?",a:"PO 8812.",sys:"Order #1059920, PO 8812: 12 ea 3\" Class 300 RF ring, 1/16 CNA. Shipped 10/9.",g:{order:"#1059920: 12 x 3\" Class 300 RF ring, 1/16 CNA"},c:"Pull the order and see what actually shipped."},
+   {q:"What size and pressure class are the flanges they go on?",a:"Three-inch, 150 pound.",g:{need:"3\" Class 150 RF ring, 1/16 CNA (5.38\" OD)"},c:"A Class 300 ring has a larger OD (5.88\") and won't fit inside a Class 150 bolt circle."},
+   {q:"Let me check what was originally requested.",a:"",sys:"Quote #Q-20455 notes: customer requested 3\" 150#. Order line keyed as Class 300.",g:{cause:"MR&G entry error: keyed 300# instead of 150#"},r:["order","need"],c:"Find the cause before you decide who pays. Here it's on us."},
+   {q:"Are the gaskets unused and still in the package?",a:"Yes, we didn't even get them on.",g:{cond:"Unused, in package"},c:"Condition decides whether they go back to stock."},
+   {q:"When do you need the correct ones?",a:"We have a job on that line next week.",g:{when:"Needed for next week's job"},c:"Get the deadline before you promise a ship date."},
+   {q:"We'll ship the correct gaskets right away at no charge and pick up the wrong ones on delivery. Does that work?",a:"That works. Thank you.",g:{fix:"No-charge replacement; pick up wrong parts at delivery"},r:["cause","cond","when"],c:"Our mistake, our cost. Make it easy for the customer."}
+  ],
+  weak:[
+   {q:"Are you sure you measured right?",a:"Yes. They don't fit.",c:"Check the order first. Questioning the customer before you look sounds defensive."},
+   {q:"There's a restocking fee on returns.",a:"For your mistake?",c:"MR&G keyed the wrong class. No restocking fee on our error."},
+   {q:"Can your guys trim them to fit?",a:"Cut down a gasket?",c:"Never. A trimmed gasket loses its rated dimensions and can blow out."}
+  ],
+  action:{q:"What do you do in P21PLAY?",opts:[
+   {t:"Enter an RMA for the 12 Class 300 gaskets, a no-charge replacement order for 12 ea 3\" Class 150 RF ring 1/16 CNA, note the cause on both, and schedule the pickup with delivery.",ok:true,c:"Correct. Return and replacement are linked, the customer pays nothing, and the cause is on record."},
+   {t:"Enter a new order for the correct gaskets at full price.",c:"Our entry error. The replacement is no charge."},
+   {t:"Issue a credit and tell her to reorder.",c:"She needs parts for next week. Ship the replacement now."},
+   {t:"Tell her to keep the wrong ones.",c:"They're unused and go back to stock. Pick them up."}],
+   steps:["Open order #1059920 and quote #Q-20455","RMA: 12 ea 3\" Class 300 RF ring, reason: MR&G entry error","Replacement order: 12 ea 3\" Class 150 RF ring, 1/16 CNA, no charge, PO 8812 reference","Note cause on both documents","Driver picks up the wrong gaskets at delivery","Confirm ship date with Carla"]}
+}
+
+];
+
+const $=id=>document.getElementById(id);
+let cur, st;
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function picker(){
+  $("picker").innerHTML=S.map(s=>`<button class="chip" id="pick-${s.id}" aria-pressed="${cur&&cur.id===s.id}" data-id="${s.id}">${esc(s.title)}<small>${esc(s.tag)}</small></button>`).join("");
+  $("picker").querySelectorAll(".chip").forEach(b=>b.onclick=()=>start(b.dataset.id));
+}
+function start(id){
+  cur=S.find(s=>s.id===id); st={vals:{},asked:new Set(),weakUsed:new Set(),score:0,ok:0,bad:0,fresh:new Set(),phase:"ask"};
+  picker();
+  $("ctitle").textContent=cur.title; $("cmeta").textContent="Incoming call: "+cur.caller;
+  $("log").innerHTML=""; add("cust",cur.caller,cur.open);
+  render();
+}
+function add(kind,who,text){
+  const d=document.createElement("div");
+  if(kind==="coach-g"||kind==="coach-w"){d.className="coach "+(kind==="coach-g"?"g":"w");d.innerHTML=`<b>${kind==="coach-g"?"Good call.":"Coach:"}</b> ${esc(text)}`}
+  else{d.className="msg "+kind;d.innerHTML=`<span class="who">${esc(who)}</span>${esc(text)}`}
+  $("log").appendChild(d);
+}
+function available(){return cur.good.filter((g,i)=>!st.asked.has(i)&&(g.r||[]).every(k=>st.vals[k])).map(g=>cur.good.indexOf(g))}
+function render(){
+  $("sc").textContent=st.score;$("ok").textContent=st.ok;$("bad").textContent=st.bad;
+  const filled=cur.fields.filter(([k])=>st.vals[k]).length;
+  $("tkcount").textContent=filled+" / "+cur.fields.length;
+  $("tk").innerHTML=cur.fields.map(([k,l])=>`<li class="${st.fresh.has(k)?"new":""}"><span class="k">${esc(l)}</span><span class="v ${st.vals[k]?"":"empty"}">${esc(st.vals[k]||"--")}</span></li>`).join("");
+  st.fresh.clear();
+  const stage=$("stage");
+  if(st.phase==="ask"){
+    const av=available();
+    if(!av.length){st.phase="action";return render()}
+    const goods=av.slice(0,3);
+    const w=cur.weak.map((x,i)=>i).filter(i=>!st.weakUsed.has(i));
+    const pool=goods.map(i=>({t:"g",i}));
+    if(w.length)pool.push({t:"w",i:w[Math.floor(Math.random()*w.length)]});
+    shuffle(pool);
+    stage.innerHTML=`<div class="ask"><h3>Your next question</h3><div class="opts">${pool.map((p,n)=>`<button class="opt" id="opt-${n}" data-t="${p.t}" data-i="${p.i}">${esc(p.t==="g"?cur.good[p.i].q:cur.weak[p.i].q)}</button>`).join("")}</div></div>`;
+    stage.querySelectorAll(".opt").forEach(b=>b.onclick=()=>choose(b.dataset.t,+b.dataset.i));
+  } else if(st.phase==="action"){
+    const opts=shuffle(cur.action.opts.map((o,i)=>i).filter(i=>!(st.actWrong||new Set()).has(i)));
+    stage.innerHTML=`<div class="ask"><h3>${esc(cur.action.q)}</h3><div class="opts">${opts.map(i=>`<button class="opt" id="act-${i}" data-i="${i}">${esc(cur.action.opts[i].t)}</button>`).join("")}</div></div>`;
+    stage.querySelectorAll(".opt").forEach(b=>b.onclick=()=>act(+b.dataset.i));
+  } else {
+    const total=st.ok+st.bad, pct=total?Math.round(st.ok/total*100):100;
+    const next=S[(S.indexOf(cur)+1)%S.length];
+    stage.innerHTML=`<div class="done"><h3>Ready for P21PLAY</h3>
+      <p>Score <b>${st.score}</b>. ${st.ok} on-track questions, ${st.bad} off-track (${pct}% on track).</p>
+      <div><b>Enter it in P21PLAY:</b><ol>${cur.action.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div>
+      <div class="row"><button class="btn" id="again">Run this call again</button><button class="btn alt" id="nextcall">Next call: ${esc(next.title)}</button></div></div>`;
+    $("again").onclick=()=>start(cur.id); $("nextcall").onclick=()=>start(next.id);
+  }
+}
+function choose(t,i){
+  if(t==="g"){
+    const g=cur.good[i]; st.asked.add(i); add("you","You",g.q); if(g.a) add("cust",cur.caller,g.a); if(g.sys) add("sys","P21PLAY",g.sys); add("coach-g","",g.c);
+    for(const [k,v] of Object.entries(g.g)){st.vals[k]=v;st.fresh.add(k)}
+    st.score+=10; st.ok++;
+  } else {
+    const w=cur.weak[i]; st.weakUsed.add(i); add("you","You",w.q); add("cust",cur.caller,w.a); add("coach-w","",w.c);
+    st.score-=5; st.bad++;
+  }
+  render(); $("stage").scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+function act(i){
+  const o=cur.action.opts[i]; add("you","You (P21PLAY)",o.t);
+  if(o.ok){add("coach-g","",o.c);st.score+=20;st.phase="done"}
+  else{add("coach-w","",o.c);st.score-=10;st.bad++;(st.actWrong=st.actWrong||new Set()).add(i)}
+  render(); $("stage").scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+start(S[0].id);
+</script>
+</body>
+</html>
