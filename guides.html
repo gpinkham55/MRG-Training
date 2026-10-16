@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>P21 Guides | MR&amp;G Training</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#eef1f3;--panel:#fff;--ink:#18242c;--muted:#5b6a74;--line:#cfd8de;--steel:#1f4e5f;--steel-ink:#fff;--tag:#f2b705;--tag-ink:#1c1a10;--code:#e4ebef;
+--display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0f171c;--panel:#16222a;--ink:#e3eaee;--muted:#93a4ae;--line:#2b3b45;--steel:#5fa9bf;--steel-ink:#0b1418;--code:#1f2e37;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top-in{max-width:1180px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+.brand{font:700 1.3rem var(--display);color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.brand span{background:var(--tag);color:var(--tag-ink);padding:0 .25em;border-radius:3px}
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav a{font-weight:600;font-size:.92rem;color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:5px}
+.nav a:hover{background:var(--bg)}
+.nav a[aria-current="page"]{background:var(--steel);color:var(--steel-ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static!important;max-height:none!important}}
+.toc{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;font-size:.88rem;border-left:2px solid var(--line);padding-left:12px}
+.toc b{display:block;font:600 .72rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0}
+.toc a.l3{padding-left:12px;color:var(--muted)}
+.toc a:hover{color:var(--steel)}
+main{min-width:0;max-width:78ch}
+main h1{font:700 2.2rem/1.05 var(--display);margin:0 0 16px;text-wrap:balance}
+main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--ink);text-transform:uppercase;letter-spacing:.02em}
+main h3{font:600 1.25rem var(--display);margin:26px 0 8px;letter-spacing:.02em}
+main a{color:var(--steel)}
+main table{border-collapse:collapse;font-size:.9rem;width:100%;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;margin:12px 0}
+main th,main td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+main th{background:var(--code);font-weight:600}
+main code{font-family:var(--mono);background:var(--code);padding:1px 4px;border-radius:3px}
+main hr{border:0;border-top:1px dashed var(--line);margin:28px 0}
+main li{margin:3px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
+.card{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--steel)}
+.card b{font:600 1.3rem var(--display);letter-spacing:.02em}
+.card span{color:var(--muted);font-size:.92rem}
+.card.hi{border-top:4px solid var(--tag)}
+.home{grid-template-columns:minmax(0,1fr)}
+.home main{max-width:none}
+a:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+</style></head><body>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><span>MR&amp;G</span> Training</a><nav class="nav"><a href="index.html">Home</a><a href="schedule.html">Schedule</a><a href="guides.html" aria-current="page">P21 Guides</a><a href="reference.html">Product Reference</a><a href="exercises.html">Exercises</a><a href="assessments.html">Assessments</a><a href="trainer.html">Call Desk Trainer</a></nav></div></header>
+<div class="wrap"><aside class="toc"><b>On this page</b><a class="l2" href="#section-2-module-documentation-amp-instructional-guides">SECTION 2:
+Module Documentation &amp;amp; Instructional Guides</a><a class="l2" href="#part-a-p21-workflow-guides">Part A: P21 Workflow Guides</a><a class="l3" href="#guide-2-1-customer-lookup-amp-navigation">Guide 2.1: Customer Lookup
+&amp;amp; Navigation</a><a class="l3" href="#guide-2-2-ship-to-creation-amp-maintenance">Guide 2.2: Ship-To
+Creation &amp;amp; Maintenance</a><a class="l3" href="#guide-2-3-order-entry">Guide 2.3: Order Entry</a><a class="l3" href="#guide-2-4-quoting">Guide 2.4: Quoting</a><a class="l3" href="#guide-2-5-contact-maintenance">Guide 2.5: Contact
+Maintenance</a></aside><main><h1 id="section-2-module-documentation-amp-instructional-guides">SECTION 2:
+Module Documentation &amp; Instructional Guides</h1>
+<h2 id="part-a-p21-workflow-guides">Part A: P21 Workflow Guides</h2>
+<h3 id="guide-2-1-customer-lookup-amp-navigation">Guide 2.1: Customer Lookup
+&amp; Navigation</h3>
+<p><strong>Purpose:</strong> Before quoting, entering an order, or
+answering a question, know who you're talking to, what they're allowed
+to buy on, and how they're priced.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Open <strong>Customer Master Inquiry</strong> (or Customer
+Maintenance in view mode if your role allows).</li>
+<li>In the <strong>Customer ID</strong> field, search one of three ways:
+<ul>
+<li>Exact Customer ID, then Tab.</li>
+<li>Partial customer name, then Tab or the lookup button. Use the
+shortest unique piece ("WESTROCK" beats "WestRock Mahrt Mill").</li>
+<li>Phone number or city using the search window's filter columns.</li>
+</ul></li>
+<li>Confirm the right account. Many mills have several accounts (by
+mill, by department, by bill-to). Check the <strong>bill-to
+address</strong> and the <strong>ship-to list</strong> before
+choosing.</li>
+<li>Read the <strong>Credit</strong> information:
+<ul>
+<li><strong>Credit Limit</strong> and <strong>Credit Limit Used /
+Available</strong></li>
+<li><strong>Credit Status</strong> (for example: normal, COD, Cash Only,
+Hold)</li>
+<li><strong>Terms ID</strong> (Net 30, 1% 10 Net 30, COD, Credit
+Card)</li>
+</ul></li>
+<li>Read the <strong>Notepads</strong>. Notes marked mandatory pop up in
+Order Entry. Look for: PO required, release numbers required, receiving
+hours restrictions, tax exemption details, preferred brands.</li>
+<li>Review <strong>Order History</strong> (Sales History / Order Inquiry
+tab): last 10 orders, items bought, prices paid, PO numbers used. This
+is the fastest way to find "the same hose as last time."</li>
+<li>Review <strong>Open Orders</strong> and <strong>Open Quotes</strong>
+for this customer before creating new ones. Avoid duplicates.</li>
+<li>Review the <strong>Pricing</strong> setup: pricing library or price
+page assignment, any contract pricing, and <strong>Customer Part
+Numbers</strong> (their number mapped to our Item ID).</li>
+<li>Check the <strong>Salesrep</strong> and <strong>inside sales
+owner</strong> assigned to the account so you know who to loop in.</li>
+</ol>
+<p><strong>Key fields to know</strong></p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Why you check it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Customer ID</td>
+<td>The unique account key; every order and quote hangs on it</td>
+</tr>
+<tr class="even">
+<td>Credit Status</td>
+<td>Hold or COD changes what you can promise</td>
+</tr>
+<tr class="odd">
+<td>Terms ID</td>
+<td>Tells you how the customer pays</td>
+</tr>
+<tr class="even">
+<td>Notepads</td>
+<td>Customer-specific rules you must follow</td>
+</tr>
+<tr class="odd">
+<td>Pricing Library</td>
+<td>Controls the price P21 offers automatically</td>
+</tr>
+<tr class="even">
+<td>Customer Part No.</td>
+<td>Lets you enter their part number and land on our item</td>
+</tr>
+<tr class="odd">
+<td>Salesrep ID</td>
+<td>Who owns the relationship</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Common mistakes to avoid</strong></p>
+<ul>
+<li>Picking the first account that pops up without confirming the
+bill-to. Mills often have parallel accounts.</li>
+<li>Skipping notepads, then missing a required release number.</li>
+<li>Quoting a price from memory instead of letting P21 price it, then
+checking it.</li>
+<li>Creating a new customer when one already sits in P21 under a
+slightly different spelling. Search by phone and city before asking for
+a new account.</li>
+<li>Promising a ship date to a customer on credit hold.</li>
+</ul>
+<hr />
+<h3 id="guide-2-2-ship-to-creation-amp-maintenance">Guide 2.2: Ship-To
+Creation &amp; Maintenance</h3>
+<p><strong>Purpose:</strong> Get product delivered to the right dock
+with the right tax.</p>
+<p><strong>Before you start:</strong> Search the customer's current
+ship-to list. Most "new" addresses turn out to be a building or gate
+already on file.</p>
+<p><strong>Steps (new ship-to)</strong></p>
+<ol type="1">
+<li>Open <strong>Ship To Maintenance</strong>.</li>
+<li>Enter the <strong>Customer ID</strong>. Leave <strong>Ship To
+ID</strong> blank for P21 to assign the next number (or follow
+MR&amp;G's numbering convention if your trainer shows one).</li>
+<li>Enter the <strong>Ship To description/name line</strong> exactly as
+the customer wants it on the packing list (for example, "IP Prattville,
+Storeroom Dock 3").</li>
+<li>Enter <strong>Address 1, Address 2, City, State, Zip</strong>. Use
+Address 2 for building, gate, or dock. Verify the zip against USPS
+lookup.</li>
+<li>Enter <strong>Phone</strong> and a receiving
+<strong>Contact</strong> if the customer gives one.</li>
+<li>Set <strong>Tax Group ID</strong> based on the delivery address
+(state, county, city jurisdiction). Set <strong>Taxable</strong> to Yes
+unless a valid exemption certificate is on file.</li>
+<li>If exempt, enter the <strong>Exemption Number</strong> and confirm a
+copy of the certificate is on file with accounting. No certificate, no
+exemption.</li>
+<li>Set <strong>Salesrep ID</strong> and <strong>Territory</strong> to
+match the account owner.</li>
+<li>Set <strong>Default Carrier / Ship Via</strong> (our truck, UPS
+Ground, LTL carrier, customer pickup).</li>
+<li>Set <strong>Freight Code</strong> (Prepaid &amp; Add, Prepaid,
+Collect, Third Party, Will Call) per the customer agreement.</li>
+<li>Enter <strong>Delivery/Shipping Instructions</strong> (receiving
+window, PO must be on label, call before delivery, gate pass
+required).</li>
+<li>Set <strong>Preferred/Default Location</strong> to 110 (Montgomery)
+unless instructed otherwise.</li>
+<li>Save. Reopen the ship-to and confirm every field saved.</li>
+</ol>
+<p><strong>Steps (update a ship-to)</strong></p>
+<ol type="1">
+<li>Open the ship-to and note the current values in your notebook.</li>
+<li>Make the change. If the address changes to a new physical site,
+create a new ship-to instead of overwriting; overwriting rewrites
+history on old orders.</li>
+<li>Add a notepad entry with the date, your initials, and who requested
+the change.</li>
+<li>If tax group changes, alert accounting.</li>
+</ol>
+<p><strong>Common mistakes to avoid</strong></p>
+<ul>
+<li>Overwriting an old ship-to with a new location. History and tax
+records get scrambled.</li>
+<li>Using the bill-to tax setup for a ship-to in another county or
+state.</li>
+<li>Marking a ship-to exempt on a verbal promise.</li>
+<li>Typing delivery instructions in the address lines, which then print
+on labels and confuse carriers.</li>
+<li>Creating duplicates (same address, different ID). Search first.</li>
+</ul>
+<hr />
+<h3 id="guide-2-3-order-entry">Guide 2.3: Order Entry</h3>
+<p><strong>Purpose:</strong> Turn a customer request into an accurate
+order that picks, ships, and bills correctly the first time.</p>
+<p><strong>Header (steps 1 to 12)</strong></p>
+<ol type="1">
+<li>Open <strong>Order Entry</strong>.</li>
+<li>Confirm your <strong>Taker</strong> shows your own ID.</li>
+<li>Enter <strong>Customer ID</strong>. Read any mandatory notepad
+pop-ups.</li>
+<li>Select <strong>Ship To ID</strong>. If the address is new, stop and
+run Guide 2.2 first.</li>
+<li>Select <strong>Contact ID</strong> (who placed the order). If the
+caller isn't in P21, add them per Guide 2.5 now.</li>
+<li>Enter <strong>PO Number</strong> exactly as the customer gives it.
+If the customer requires a PO and has none, the order waits.</li>
+<li>Enter any <strong>Release Number / Job Number</strong> fields the
+customer requires.</li>
+<li>Confirm <strong>Location</strong> = 110.</li>
+<li>Set <strong>Requested Date</strong> (when the customer needs it) and
+<strong>Promise Date</strong> if your configuration uses it.</li>
+<li>Confirm <strong>Carrier / Ship Via</strong> and <strong>Freight
+Code</strong> pulled from the ship-to; change only if the customer asks
+for this order.</li>
+<li>Confirm <strong>Terms</strong> pulled correctly.</li>
+<li>Add an <strong>order-level note</strong> for anything picking,
+shipping, or billing needs to know.</li>
+</ol>
+<p><strong>Lines (steps 13 to 22)</strong></p>
+<ol start="13" type="1">
+<li>Enter <strong>Item ID</strong>. If the customer gives their own part
+number, enter it; P21 resolves it through <strong>Customer Part
+Number</strong> cross-reference. If they give a competitor or
+manufacturer number, use <strong>Item Search</strong> with the number in
+the description or alternate code columns.</li>
+<li>Enter <strong>Quantity Ordered</strong> and confirm <strong>Unit of
+Measure</strong> (EA, FT, RL, SH). Hose sold by the foot vs by the reel
+is a classic error.</li>
+<li>Check <strong>Quantity Available</strong> at location 110.</li>
+<li>Set <strong>Disposition</strong> when stock is short. Common P21
+dispositions:
+<ul>
+<li><strong>B</strong> Backorder: ship what we have, backorder the
+rest</li>
+<li><strong>H</strong> Hold: hold the whole line</li>
+<li><strong>S</strong> Special Order: non-stock item, creates a purchase
+need</li>
+<li><strong>D</strong> Direct Ship: vendor ships straight to the
+customer</li>
+<li><strong>T</strong> Transfer: pull from another TRG location</li>
+<li><strong>C</strong> Cancel Confirm MR&amp;G's active codes with your
+mentor.</li>
+</ul></li>
+<li>Review <strong>Unit Price</strong>. Look at where the price came
+from (pricing service/price inquiry). Compare to order history.</li>
+<li><strong>Price overrides:</strong> Change Unit Price only with a
+reason (quote number, contract, manager approval). Check the line
+<strong>Gross Profit / Margin %</strong> after the change. If margin
+drops below MR&amp;G's floor, get approval from your mentor or Greg
+before saving.</li>
+<li><strong>Tax overrides:</strong> Change the order or line taxable
+status only with a certificate on file or accounting approval. Note the
+reason on the order.</li>
+<li><strong>Freight:</strong> Add freight lines per freight code
+(Prepaid &amp; Add gets a freight charge; Prepaid does not; Collect and
+Third Party need the account number in the shipping instructions).</li>
+<li>Review the order total. Read every line out loud back to the
+customer for phone orders: item, quantity, price, ship date.</li>
+<li><strong>Release:</strong> Save. If the customer is on credit hold,
+the order holds; tell the customer and notify accounting. Otherwise,
+confirm the pick ticket prints (or prints in the next pick ticket run)
+for location 110.</li>
+</ol>
+<p><strong>Hose assemblies (step 23)</strong></p>
+<ol start="23" type="1">
+<li>Enter the assembly item (or build the assembly using MR&amp;G's
+assembly item setup) with hose, both fittings, and any protective sleeve
+or guard. Enter the overall length and fitting orientation in the line
+note if not built into the item. Confirm with Eric Jones how assemblies
+route to the shop (production order or assembly ticket). Never promise
+same-day assemblies without checking the bench queue.</li>
+</ol>
+<p><strong>Special account handling:</strong> United Rentals hose orders
+tied to the Bay Area contract follow their own MR&amp;G process. Route
+those to your mentor until trained on that SOP.</p>
+<p><strong>Common mistakes to avoid</strong></p>
+<ul>
+<li>Wrong unit of measure (FT vs RL, EA vs PK).</li>
+<li>Backordering when another TRG location has stock (check transfer
+option first).</li>
+<li>Changing price without checking margin.</li>
+<li>Leaving the PO field blank for a PO-required customer; the invoice
+gets rejected and payment stalls.</li>
+<li>Entering a customer part number into the quantity field (it happens,
+and it creates absurd order totals). Always glance at the extended
+total.</li>
+<li>Not telling the customer about a backorder before they hang up.</li>
+</ul>
+<hr />
+<h3 id="guide-2-4-quoting">Guide 2.4: Quoting</h3>
+<p><strong>Purpose:</strong> Give the customer a clear, accurate,
+profitable price they can act on.</p>
+<p><strong>Create a quote (steps 1 to 10)</strong></p>
+<ol type="1">
+<li>Open <strong>Order Entry</strong> and mark the document as a
+<strong>Quote</strong> (or open Quote Entry, depending on MR&amp;G's
+menu).</li>
+<li>Enter <strong>Customer ID</strong>, <strong>Ship To ID</strong>, and
+<strong>Contact ID</strong> (the requester).</li>
+<li>Enter the customer's <strong>RFQ number or reference</strong> in the
+PO/Reference field.</li>
+<li>Set <strong>Quote Expiration Date</strong>. MR&amp;G default
+guidance: 30 days for stock items; shorter for metals, PTFE, and
+anything tied to volatile supplier pricing. Confirm current guidance
+with Greg.</li>
+<li>Enter each <strong>Item ID</strong> and <strong>Quantity</strong>.
+Quote exactly what was asked; add alternates as separate, clearly noted
+lines.</li>
+<li>For non-stock items, get current vendor cost and lead time before
+quoting. Note the source (vendor quote number, date).</li>
+<li>Enter <strong>Lead Time / Ship Date</strong> per line ("Stock," "3
+to 5 days," "2 weeks ARO").</li>
+<li>Review <strong>Unit Price</strong> and <strong>Margin %</strong> per
+line (see margin analysis below).</li>
+<li>Add quote notes: freight terms, validity, any assumptions ("Quote
+assumes 150# RF flanges, 1/16" thickness").</li>
+<li><strong>Check the extended total before saving.</strong> A quantity
+typo once created a quote line worth tens of millions of dollars in
+MR&amp;G's system and distorted the open quote pipeline for months. Read
+the total; if it looks wrong, it is.</li>
+</ol>
+<p><strong>Send and track (steps 11 to 14)</strong></p>
+<ol start="11" type="1">
+<li>Save and send the quote using the contact's document delivery
+preference (email PDF).</li>
+<li>Log a follow-up: high-value quotes in 2 business days, all others
+within 5.</li>
+<li>Run the <strong>open quote report / quote inquiry</strong> for your
+accounts weekly. Follow up, revise, or close.</li>
+<li>Close or cancel dead quotes with a reason (lost to price, lost to
+lead time, project canceled). Clean data makes the pipeline report
+trustworthy.</li>
+</ol>
+<p><strong>Convert to an order (steps 15 to 18)</strong></p>
+<ol start="15" type="1">
+<li>When the customer accepts, open the quote and use the
+<strong>convert quote to order</strong> function (your trainer shows the
+exact menu path on MR&amp;G's setup). Do not retype the quote as a new
+order; you lose the link and the quote stays open.</li>
+<li>Enter the customer's <strong>PO number</strong> on the new
+order.</li>
+<li>Re-check quantity, price, and expiration. If the quote expired,
+re-confirm cost before honoring.</li>
+<li>Confirm the quote shows as converted/closed.</li>
+</ol>
+<p><strong>Margin analysis</strong></p>
+<ul>
+<li><strong>Gross margin % = (Sell − Cost) ÷ Sell × 100.</strong></li>
+<li>Know which cost P21 shows (moving average, replacement, or vendor
+cost) and use replacement cost on items with recent price
+increases.</li>
+<li>Example: Cost $42.00, sell $60.00. Margin = (60 − 42) ÷ 60 =
+30%.</li>
+<li>Do not confuse margin with markup. A 30% markup on $42.00 is $54.60,
+which is only a 23.1% margin.</li>
+<li>Anything below MR&amp;G's margin floor needs approval before the
+quote goes out.</li>
+</ul>
+<p><strong>Common mistakes to avoid</strong></p>
+<ul>
+<li>No expiration date, then honoring a year-old price after a cost
+increase.</li>
+<li>Retyping instead of converting, which leaves orphaned open
+quotes.</li>
+<li>Quoting non-stock items from old cost.</li>
+<li>Leaving quotes open forever. Dead quotes make the pipeline look
+bigger than it is.</li>
+<li>Quoting a hose assembly without confirming all STAMPED details.</li>
+</ul>
+<hr />
+<h3 id="guide-2-5-contact-maintenance">Guide 2.5: Contact
+Maintenance</h3>
+<p><strong>Purpose:</strong> Every customer call, quote, acknowledgment,
+and invoice reaches the right human. This guide aligns with MR&amp;G's
+Contact Maintenance SOP.</p>
+<p><strong>Steps (add a contact)</strong></p>
+<ol type="1">
+<li>Search first: open <strong>Contact Maintenance</strong> and search
+by last name, email, and phone. Duplicates cause missed invoices.</li>
+<li>Enter <strong>First Name</strong> and <strong>Last Name</strong>,
+<strong>Title</strong>.</li>
+<li><strong>Link</strong> the contact to the <strong>Customer
+ID</strong> (and ship-to, if the contact works at a specific site).</li>
+<li>Enter <strong>Direct Phone</strong>, <strong>Extension</strong>,
+<strong>Mobile</strong>, and <strong>Email Address</strong>. Confirm
+spelling by reading the email back letter by letter.</li>
+<li>Assign the <strong>role tag</strong> (contact class or user-defined
+field on MR&amp;G's setup):
+<ul>
+<li><strong>AP</strong> (receives invoices, statements)</li>
+<li><strong>Purchasing</strong> (sends POs, receives quotes and
+acknowledgments)</li>
+<li><strong>Maintenance</strong> (technical questions, end user)</li>
+<li>Others your trainer shows (Storeroom, Engineering)</li>
+</ul></li>
+<li>Set <strong>document delivery preferences</strong>: which documents
+go to this contact by email (quotes, order acknowledgments, invoices,
+statements).</li>
+<li>Add a contact note if relevant ("Prefers text for pickup
+notices").</li>
+<li>Save. Reopen the customer and confirm the contact appears.</li>
+</ol>
+<p><strong>Steps (edit or retire a contact)</strong></p>
+<ol type="1">
+<li>If a contact leaves the company, do not delete. Mark inactive per
+MR&amp;G practice and move their document delivery roles to the
+replacement contact.</li>
+<li>Add a note with date and your initials.</li>
+<li>If the departing contact received invoices, alert accounting.</li>
+</ol>
+<p><strong>Common mistakes to avoid</strong></p>
+<ul>
+<li>One contact used for everything, so invoices land in a maintenance
+planner's inbox.</li>
+<li>Leaving a departed contact active as the invoice recipient.</li>
+<li>Typos in email addresses (always read back).</li>
+<li>Creating a second record for a contact already in P21.</li>
+</ul>
+<hr />
+</main></div></body></html>

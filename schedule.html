@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Schedule | MR&amp;G Training</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#eef1f3;--panel:#fff;--ink:#18242c;--muted:#5b6a74;--line:#cfd8de;--steel:#1f4e5f;--steel-ink:#fff;--tag:#f2b705;--tag-ink:#1c1a10;--code:#e4ebef;
+--display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0f171c;--panel:#16222a;--ink:#e3eaee;--muted:#93a4ae;--line:#2b3b45;--steel:#5fa9bf;--steel-ink:#0b1418;--code:#1f2e37;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top-in{max-width:1180px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+.brand{font:700 1.3rem var(--display);color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.brand span{background:var(--tag);color:var(--tag-ink);padding:0 .25em;border-radius:3px}
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav a{font-weight:600;font-size:.92rem;color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:5px}
+.nav a:hover{background:var(--bg)}
+.nav a[aria-current="page"]{background:var(--steel);color:var(--steel-ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static!important;max-height:none!important}}
+.toc{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;font-size:.88rem;border-left:2px solid var(--line);padding-left:12px}
+.toc b{display:block;font:600 .72rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0}
+.toc a.l3{padding-left:12px;color:var(--muted)}
+.toc a:hover{color:var(--steel)}
+main{min-width:0;max-width:78ch}
+main h1{font:700 2.2rem/1.05 var(--display);margin:0 0 16px;text-wrap:balance}
+main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--ink);text-transform:uppercase;letter-spacing:.02em}
+main h3{font:600 1.25rem var(--display);margin:26px 0 8px;letter-spacing:.02em}
+main a{color:var(--steel)}
+main table{border-collapse:collapse;font-size:.9rem;width:100%;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;margin:12px 0}
+main th,main td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+main th{background:var(--code);font-weight:600}
+main code{font-family:var(--mono);background:var(--code);padding:1px 4px;border-radius:3px}
+main hr{border:0;border-top:1px dashed var(--line);margin:28px 0}
+main li{margin:3px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
+.card{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--steel)}
+.card b{font:600 1.3rem var(--display);letter-spacing:.02em}
+.card span{color:var(--muted);font-size:.92rem}
+.card.hi{border-top:4px solid var(--tag)}
+.home{grid-template-columns:minmax(0,1fr)}
+.home main{max-width:none}
+a:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+</style></head><body>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><span>MR&amp;G</span> Training</a><nav class="nav"><a href="index.html">Home</a><a href="schedule.html" aria-current="page">Schedule</a><a href="guides.html">P21 Guides</a><a href="reference.html">Product Reference</a><a href="exercises.html">Exercises</a><a href="assessments.html">Assessments</a><a href="trainer.html">Call Desk Trainer</a></nav></div></header>
+<div class="wrap"><aside class="toc"><b>On this page</b><a class="l2" href="#how-to-use-this-plan">How to Use This Plan</a><a class="l2" href="#section-1-3-week-training-master-schedule">SECTION 1: 3-Week
+Training Master Schedule</a><a class="l3" href="#day-1-welcome-and-p21-navigation">Day 1: Welcome and P21
+Navigation</a><a class="l3" href="#day-2-customer-lookup-deep-dive-and-hose-construction">Day 2:
+Customer Lookup Deep Dive and Hose Construction</a><a class="l3" href="#day-3-contact-maintenance-and-the-stamped-method">Day 3: Contact
+Maintenance and the STAMPED Method</a><a class="l3" href="#day-4-ship-to-maintenance-and-industrial-fittings">Day 4:
+Ship-To Maintenance and Industrial Fittings</a><a class="l3" href="#day-5-order-entry-basics-and-week-1-quiz">Day 5: Order Entry
+Basics and Week 1 Quiz</a><a class="l2" href="#week-2-hydraulics-crimping-and-quoting">Week 2: Hydraulics,
+Crimping, and Quoting</a><a class="l3" href="#day-6-advanced-order-entry-and-hydraulic-hose-types">Day 6:
+Advanced Order Entry and Hydraulic Hose Types</a><a class="l3" href="#day-7-quoting-part-1-and-thread-identification">Day 7: Quoting
+Part 1 and Thread Identification</a><a class="l3" href="#day-8-quoting-part-2-and-crimp-spec-charts">Day 8: Quoting Part
+2 and Crimp Spec Charts</a><a class="l3" href="#day-9-hose-assembly-orders-and-hands-on-crimping">Day 9: Hose
+Assembly Orders and Hands-On Crimping</a><a class="l3" href="#day-10-week-2-quiz-and-combined-simulation">Day 10: Week 2 Quiz
+and Combined Simulation</a><a class="l2" href="#week-3-gaskets-sealing-and-independent-operation">Week 3:
+Gaskets, Sealing, and Independent Operation</a><a class="l3" href="#day-11-gasket-materials">Day 11: Gasket Materials</a><a class="l3" href="#day-12-flanges-pressure-classes-and-sheet-yield">Day 12:
+Flanges, Pressure Classes, and Sheet Yield</a><a class="l3" href="#day-13-bolt-torque-p-t-limits-and-troubleshooting">Day 13: Bolt
+Torque, P×T Limits, and Troubleshooting</a><a class="l3" href="#day-14-full-desk-simulation">Day 14: Full Desk Simulation</a><a class="l3" href="#day-15-final-exam-and-sign-off">Day 15: Final Exam and
+Sign-Off</a><a class="l3" href="#shadow-and-mentorship-hours-summary">Shadow and Mentorship Hours
+Summary</a></aside><main><p><strong>Montgomery Rubber &amp; Gasket | P21 Location 110 | Inside
+Sales, Counter Sales, Customer Service</strong></p>
+<p>Version 2 | Prepared October 2026 | Owner: Greg (General Manager)</p>
+<hr />
+<h2 id="how-to-use-this-plan">How to Use This Plan</h2>
+<p>This plan takes a new hire from first login to running an order desk
+on their own by Week 4. Each day pairs one Prophet 21 (P21) skill with
+one technical product skill, then puts both to use in shadowing and
+practice.</p>
+<p><strong>Training team</strong></p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Mentor</th>
+<th>Primary topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Program owner</td>
+<td>Greg, General Manager</td>
+<td>Orientation, assessments, Day 15 sign-off</td>
+</tr>
+<tr class="even">
+<td>Inside sales mentors</td>
+<td>Dominique Hitt, April Cleary</td>
+<td>Customer lookup, order entry, quoting, mill accounts</td>
+</tr>
+<tr class="odd">
+<td>Counter and hose assembly lead</td>
+<td>Eric Jones</td>
+<td>Counter sales, hose and fitting ID, crimping, proof testing</td>
+</tr>
+<tr class="even">
+<td>Warehouse and waterjet</td>
+<td>Kevin Johnson</td>
+<td>Receiving, stock locations, gasket cutting, sheet yield</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ground rules for the trainee</strong></p>
+<ol type="1">
+<li>Wear safety glasses any time you cut hose or sheet, or operate shop
+equipment.</li>
+<li>The first half of each day is self-taught. Work through the assigned
+guide in P21PLAY and the assigned reference sheet on your own, and write
+down questions for your mentor.</li>
+<li>In Weeks 1 and 2, every live order or quote you key gets a mentor
+review before it is saved or released.</li>
+<li>Ask early. A two-minute question beats a wrong part on a truck to a
+paper mill.</li>
+<li>Keep a training notebook. Write down every new term, part number
+family, and P21 shortcut.</li>
+</ol>
+<p><strong>P21PLAY.</strong> P21PLAY is MR&amp;G's P21 test system. All
+practice orders, quotes, ship-tos, and contacts go in P21PLAY, never in
+live P21, until your mentor moves you to the live system.</p>
+<p><strong>A note on P21 field labels.</strong> Field and tab labels
+below follow standard Prophet 21. MR&amp;G's window layouts, security
+roles, and custom fields may differ slightly. On Day 1, the trainer
+walks each window live and the trainee marks any differences in this
+guide.</p>
+<p><strong>Daily structure (all days)</strong></p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Half</th>
+<th>Block</th>
+<th>Length</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First half (self-taught)</td>
+<td>Block A</td>
+<td>2.0 hrs</td>
+<td>P21 self-study: work the assigned guide step by step in P21PLAY</td>
+</tr>
+<tr class="even">
+<td>First half (self-taught)</td>
+<td>Block B</td>
+<td>2.0 hrs</td>
+<td>Technical self-study: reference sheets, catalogs, parts on the
+sample table</td>
+</tr>
+<tr class="odd">
+<td>Second half (with mentor)</td>
+<td>Block C</td>
+<td>2.5 to 3.0 hrs</td>
+<td>Shadowing and mentorship (phones, counter, shop)</td>
+</tr>
+<tr class="even">
+<td>Second half (with mentor)</td>
+<td>Block D</td>
+<td>0.5 to 1.0 hr</td>
+<td>Daily practical exercise, questions from your notebook, recap</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each Block D opens with the trainee's questions from the self-taught
+half. The mentor checks the P21PLAY records the trainee created that
+day.</p>
+<hr />
+<h1 id="section-1-3-week-training-master-schedule">SECTION 1: 3-Week
+Training Master Schedule</h1>
+<h2
+id="week-1-foundations-customers-contacts-ship-tos-basic-orders-industrial-hose">Week
+1: Foundations (Customers, Contacts, Ship-Tos, Basic Orders, Industrial
+Hose)</h2>
+<h3 id="day-1-welcome-and-p21-navigation">Day 1: Welcome and P21
+Navigation</h3>
+<ul>
+<li><strong>Focus:</strong> Company orientation, facility tour, P21
+login and screen navigation.</li>
+<li><strong>Block A (P21):</strong> Greg or a mentor gets the trainee
+logged in to P21 and P21PLAY with a personal taker ID (not a shared
+counter login), then the trainee works on their own: tour the main menu,
+favorites, the search/lookup button, Tab-to-search behavior, and how to
+open multiple windows. Open Customer Master Inquiry then look up five
+accounts by ID, by partial customer name, and by phone number.</li>
+<li><strong>Block B (Technical):</strong> MR&amp;G history (est. 1973,
+part of the TRG family), markets served (pulp and paper, chemical,
+municipal, general industrial), and product families: industrial hose,
+hydraulic hose, fittings and adapters, gaskets and sheet goods, packing,
+belting.</li>
+<li><strong>Block C (Shadow, 2.5 hrs):</strong> Facility tour with Kevin
+Johnson (receiving, stock locations, hose reels, sheet rack, waterjet).
+Equipment walk-through with Eric Jones (crimper, cutoff saw, test
+bench); safety glasses required when cutting or operating equipment.
+Observe the counter for 1 hour.</li>
+<li><strong>Block D:</strong> Exercise 1.1. Recap with Greg (30
+min).</li>
+</ul>
+<h3 id="day-2-customer-lookup-deep-dive-and-hose-construction">Day 2:
+Customer Lookup Deep Dive and Hose Construction</h3>
+<ul>
+<li><strong>Focus:</strong> Reading a customer record end to end.</li>
+<li><strong>Block A (P21):</strong> Guide 2.1 (Customer Lookup). Credit
+limit, credit status, terms, order history, open orders, notepads,
+pricing library assignments, customer part numbers.</li>
+<li><strong>Block B (Technical):</strong> Hose anatomy: tube,
+reinforcement, cover. Hands-on with cut samples: water discharge, air,
+suction (helix wire), steam, chemical (UHMWPE), petroleum.</li>
+<li><strong>Block C (Shadow, 3 hrs):</strong> Sit with Dominique Hitt on
+the phones. Note every time she checks credit, history, or notes before
+answering.</li>
+<li><strong>Block D:</strong> Exercise 1.2.</li>
+</ul>
+<h3 id="day-3-contact-maintenance-and-the-stamped-method">Day 3: Contact
+Maintenance and the STAMPED Method</h3>
+<ul>
+<li><strong>Focus:</strong> Clean contact records and the hose selection
+interview.</li>
+<li><strong>Block A (P21):</strong> Guide 2.5 (Contact Maintenance). Add
+a contact, link to a customer, set role tags (AP, Purchasing,
+Maintenance), phone, email, and document delivery.</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet A (STAMPED).
+Practice the seven questions on each other with role play.</li>
+<li><strong>Block C (Shadow, 3 hrs):</strong> April Cleary on phones.
+Trainee listens for which STAMPED questions get asked, and which get
+skipped.</li>
+<li><strong>Block D:</strong> Exercise 1.3.</li>
+</ul>
+<h3 id="day-4-ship-to-maintenance-and-industrial-fittings">Day 4:
+Ship-To Maintenance and Industrial Fittings</h3>
+<ul>
+<li><strong>Focus:</strong> Correct delivery and tax setup; industrial
+coupling types and attachment.</li>
+<li><strong>Block A (P21):</strong> Guide 2.2 (Ship-To Maintenance). Add
+a ship-to, assign tax group, salesrep/territory, carrier, freight code,
+delivery instructions.</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet B (Industrial
+Fittings &amp; Attachment). Cam and groove types A through F,
+combination nipples, ground joint steam fittings, interlocking clamps,
+bands, crimped ferrules. Material compatibility basics (Reference Sheet
+C).</li>
+<li><strong>Block C (Shadow, 2.5 hrs):</strong> Eric Jones at the
+counter and assembly bench. Watch a banded water assembly and a steam
+assembly with interlocking clamps get built.</li>
+<li><strong>Block D:</strong> Exercise 1.4.</li>
+</ul>
+<h3 id="day-5-order-entry-basics-and-week-1-quiz">Day 5: Order Entry
+Basics and Week 1 Quiz</h3>
+<ul>
+<li><strong>Focus:</strong> A clean standard stock order from start to
+release.</li>
+<li><strong>Block A (P21):</strong> Guide 2.3 (Order Entry), steps 1
+through 12. Enter three practice stock orders in P21PLAY on your own;
+mentor reviews them in Block D.</li>
+<li><strong>Block B (Technical):</strong> Self-review of Week 1
+reference sheets (60 min), then <strong>Week 1 Quiz</strong> (60 min,
+taken at the start of the second half).</li>
+<li><strong>Block C (Shadow, 2 hrs):</strong> Trainee enters two live
+counter orders with Eric reviewing before release.</li>
+<li><strong>Block D:</strong> Exercise 1.5. Quiz review with Greg.</li>
+<li><strong>Pass standard:</strong> 80% on written questions; both P21
+scenarios completed with no errors that would ship wrong product, bill
+wrong price, or bill wrong tax.</li>
+</ul>
+<h2 id="week-2-hydraulics-crimping-and-quoting">Week 2: Hydraulics,
+Crimping, and Quoting</h2>
+<h3 id="day-6-advanced-order-entry-and-hydraulic-hose-types">Day 6:
+Advanced Order Entry and Hydraulic Hose Types</h3>
+<ul>
+<li><strong>Focus:</strong> Backorders, cross-references, pricing and
+tax overrides, freight, release.</li>
+<li><strong>Block A (P21):</strong> Guide 2.3, steps 13 through 22
+(dispositions, customer part numbers, price overrides, tax, freight,
+credit hold and release).</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet D (Hydraulic
+Hose). SAE 100R1, R2, R12, R13, R15, R16, R17. Braid vs spiral. Working
+pressure, burst, impulse life, bend radius.</li>
+<li><strong>Block C (Shadow, 3 hrs):</strong> Dominique Hitt: watch two
+backorder situations and how the customer gets told.</li>
+<li><strong>Block D:</strong> Exercise 2.1.</li>
+</ul>
+<h3 id="day-7-quoting-part-1-and-thread-identification">Day 7: Quoting
+Part 1 and Thread Identification</h3>
+<ul>
+<li><strong>Focus:</strong> Building a clear, accurate quote;
+identifying hydraulic threads by measurement.</li>
+<li><strong>Block A (P21):</strong> Guide 2.4 (Quoting), steps 1 through
+10. Create three quotes: stock items, a non-stock item, and a hose
+assembly.</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet E (Thread ID).
+Hands-on with calipers, thread pitch gauge, and seat angle gauge on a
+tray of 12 mystery fittings (NPT, JIC, ORFS, BSPP, BSPT, SAE O-ring
+boss, SAE flange).</li>
+<li><strong>Block C (Shadow, 2.5 hrs):</strong> Eric Jones: identify
+fittings brought in by walk-in customers.</li>
+<li><strong>Block D:</strong> Exercise 2.2.</li>
+</ul>
+<h3 id="day-8-quoting-part-2-and-crimp-spec-charts">Day 8: Quoting Part
+2 and Crimp Spec Charts</h3>
+<ul>
+<li><strong>Focus:</strong> Converting, tracking, and checking margin on
+quotes; reading crimp charts.</li>
+<li><strong>Block A (P21):</strong> Guide 2.4, steps 11 through 18
+(expiration dates, converting a quote to an order, open quote follow-up,
+margin review).</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet F (Crimp Spec
+Verification), parts 1 and 2. Reading the chart, die selection, crimper
+settings.</li>
+<li><strong>Block C (Shadow, 3 hrs):</strong> Dominique Hitt (MR&amp;G's
+highest-volume quoter): open quote follow-up calls.</li>
+<li><strong>Block D:</strong> Exercise 2.3.</li>
+</ul>
+<h3 id="day-9-hose-assembly-orders-and-hands-on-crimping">Day 9: Hose
+Assembly Orders and Hands-On Crimping</h3>
+<ul>
+<li><strong>Focus:</strong> Building, measuring, testing, and
+documenting an assembly.</li>
+<li><strong>Block A (P21):</strong> Entering hose assembly orders (Guide
+2.3, step 23), and how assemblies route to the shop.</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet F parts 3
+through 6. Trainee reads parts 3 through 6 on their own, then builds
+three assemblies with Eric in the second half: one 100R2 -8 with JIC
+ends, one 100R12 -12 with ORFS ends, one industrial crimped assembly.
+Measures crimp diameter, checks insertion depth, proof tests one.</li>
+<li><strong>Block C (Shadow, 2.5 hrs):</strong> Assembly bench with
+Eric.</li>
+<li><strong>Block D:</strong> Exercise 2.4. Eric decides when the
+trainee can crimp without him at the bench.</li>
+</ul>
+<h3 id="day-10-week-2-quiz-and-combined-simulation">Day 10: Week 2 Quiz
+and Combined Simulation</h3>
+<ul>
+<li><strong>Focus:</strong> Prove Week 2 skills.</li>
+<li><strong>Block A (P21):</strong> Simulation 2.5 (quote, convert,
+assembly order).</li>
+<li><strong>Block B:</strong> <strong>Week 2 Quiz</strong> (75 min),
+self-proctored.</li>
+<li><strong>Block C (Shadow, 2 hrs):</strong> Trainee takes phone calls
+with mentor on a split headset.</li>
+<li><strong>Block D:</strong> Quiz review with Greg.</li>
+<li><strong>Pass standard:</strong> 80% written; both crimp/fitting ID
+scenarios correct.</li>
+</ul>
+<h2 id="week-3-gaskets-sealing-and-independent-operation">Week 3:
+Gaskets, Sealing, and Independent Operation</h2>
+<h3 id="day-11-gasket-materials">Day 11: Gasket Materials</h3>
+<ul>
+<li><strong>Focus:</strong> Soft gasket material families and how to
+pick one.</li>
+<li><strong>Block A (P21):</strong> Gasket and sheet items in P21: sheet
+stock items, cut gasket items, customer part numbers for repeat gaskets,
+quoting cut-to-size parts.</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet G (Gasket
+Material Selection). Elastomers, compressed non-asbestos (CNA), expanded
+PTFE, filled PTFE, flexible graphite. Sample board hands-on.</li>
+<li><strong>Block C (Shadow, 3 hrs):</strong> April Cleary on mill
+account calls (pulp and paper sealing questions).</li>
+<li><strong>Block D:</strong> Exercise 3.1.</li>
+</ul>
+<h3 id="day-12-flanges-pressure-classes-and-sheet-yield">Day 12:
+Flanges, Pressure Classes, and Sheet Yield</h3>
+<ul>
+<li><strong>Focus:</strong> Sizing a ring or full-face gasket and
+pricing it from sheet.</li>
+<li><strong>Block A (P21):</strong> Quote a cut gasket run using sheet
+cost and yield (Guide 2.4, margin section).</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet H (Flanges
+&amp; Pressure Classes) and Reference Sheet I (Sheet Yield).</li>
+<li><strong>Block C (Shadow, 3 hrs):</strong> Kevin Johnson at the
+waterjet: how a gasket program gets nested and cut, kerf, scrap.</li>
+<li><strong>Block D:</strong> Exercise 3.2.</li>
+</ul>
+<h3 id="day-13-bolt-torque-p-t-limits-and-troubleshooting">Day 13: Bolt
+Torque, P×T Limits, and Troubleshooting</h3>
+<ul>
+<li><strong>Focus:</strong> Installation guidance and when to
+escalate.</li>
+<li><strong>Block A (P21):</strong> Review day: open orders, open
+quotes, backorder follow-up, contact clean-up on one assigned
+account.</li>
+<li><strong>Block B (Technical):</strong> Reference Sheet J (Bolt Torque
+Patterns &amp; Installation). P×T calculations. Troubleshooting a
+leaking flange.</li>
+<li><strong>Block C (Shadow, 2.5 hrs):</strong> Trainee runs the phone
+with mentor listening; mentor only steps in when asked.</li>
+<li><strong>Block D:</strong> Exercise 3.3.</li>
+</ul>
+<h3 id="day-14-full-desk-simulation">Day 14: Full Desk Simulation</h3>
+<ul>
+<li><strong>Focus:</strong> Independent operation with a mentor close
+by.</li>
+<li><strong>Block A and B combined (4 hrs):</strong> Simulation 3.4
+(six-call desk simulation). This is the one first half run with a
+mentor, who plays the callers.</li>
+<li><strong>Block C (3 hrs):</strong> Live desk. Trainee handles calls
+and counter orders; mentor reviews before release.</li>
+<li><strong>Block D:</strong> Final exam prep with Greg.</li>
+</ul>
+<h3 id="day-15-final-exam-and-sign-off">Day 15: Final Exam and
+Sign-Off</h3>
+<ul>
+<li><strong>Block A and B:</strong> <strong>Final Comprehensive
+Exam</strong> (90 min). Review with Greg.</li>
+<li><strong>Block C:</strong> Live desk, reviews reduced to spot
+checks.</li>
+<li><strong>Block D:</strong> Week 4 plan: account assignments, check-in
+schedule (weekly for 30 days), and any remediation topics.</li>
+<li><strong>Pass standard:</strong> 85% on the final; all sign-offs
+complete (P21 Order Entry, P21 Quoting, Eric's OK to crimp solo).</li>
+</ul>
+<h3 id="shadow-and-mentorship-hours-summary">Shadow and Mentorship Hours
+Summary</h3>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Mentor</th>
+<th>Wk 1</th>
+<th>Wk 2</th>
+<th>Wk 3</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dominique Hitt</td>
+<td>3.0</td>
+<td>6.0</td>
+<td>1.5</td>
+<td>10.5</td>
+</tr>
+<tr class="even">
+<td>April Cleary</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>4.5</td>
+<td>9.5</td>
+</tr>
+<tr class="odd">
+<td>Eric Jones</td>
+<td>6.0</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>14.0</td>
+</tr>
+<tr class="even">
+<td>Kevin Johnson</td>
+<td>1.5</td>
+<td>0.0</td>
+<td>3.0</td>
+<td>4.5</td>
+</tr>
+<tr class="odd">
+<td>Greg (reviews, quizzes)</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>3.0</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Counter-focused hires shift about 4 hours from inside sales mentors
+to Eric Jones in Weeks 2 and 3. Inside sales hires shift the
+reverse.</p>
+<hr />
+</main></div></body></html>

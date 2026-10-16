@@ -1,10 +1,26 @@
-# MR&G Call Desk Trainer
+# MR&G Training
+
+Onboarding site for new Montgomery Rubber & Gasket inside sales, counter, and customer service hires.
+
+**Live site:** https://gpinkham55.github.io/MRG-Training/
+
+## Pages
+- `index.html`: home
+- `schedule.html`: 3-week schedule, daily blocks, mentor hours
+- `guides.html`: P21 workflow guides
+- `reference.html`: product and standards reference sheets
+- `exercises.html`: daily exercises and simulations
+- `assessments.html`: quizzes, final exam, sign-off record (answer keys are kept off the public site)
+- `trainer.html`: Call Desk Trainer
+
+## Updating the plan
+Edit the Markdown in `src/`, then run `python3 build.py` (needs pandoc) and commit the regenerated pages.
+
+# Call Desk Trainer
 
 Branching customer-call simulator for new Montgomery Rubber & Gasket inside sales, counter, and customer service hires.
 
 A customer calls with a request. The trainee picks the best next question from several options, gets the customer's answer (or a P21PLAY lookup result), and builds a call ticket. Once the ticket is complete, the trainee chooses the right P21PLAY action and gets the step-by-step entry list.
-
-**Live site:** https://gpinkham55.github.io/MRG-Training/
 
 ## Calls
 1. Suction Hose Assembly (new ship-to, quote)
@@ -22,7 +38,7 @@ A customer calls with a request. The trainee picks the best next question from s
 +10 good question, -5 off-track question, +20 correct P21 action, -10 wrong action.
 
 ## Editing calls
-All calls live in the `S` array inside `index.html`. Each call has:
+All calls live in the `S` array inside `trainer.html`. Each call has:
 - `fields`: the call ticket lines
 - `good`: legitimate questions. `a` is the customer's answer, `sys` is an optional P21PLAY lookup result, `g` fills ticket fields, `r` lists fields that must be filled before the question appears, `c` is the coach note.
 - `weak`: off-track questions with a coach note

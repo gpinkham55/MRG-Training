@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exercises | MR&amp;G Training</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#eef1f3;--panel:#fff;--ink:#18242c;--muted:#5b6a74;--line:#cfd8de;--steel:#1f4e5f;--steel-ink:#fff;--tag:#f2b705;--tag-ink:#1c1a10;--code:#e4ebef;
+--display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#0f171c;--panel:#16222a;--ink:#e3eaee;--muted:#93a4ae;--line:#2b3b45;--steel:#5fa9bf;--steel-ink:#0b1418;--code:#1f2e37;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top-in{max-width:1180px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+.brand{font:700 1.3rem var(--display);color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.brand span{background:var(--tag);color:var(--tag-ink);padding:0 .25em;border-radius:3px}
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav a{font-weight:600;font-size:.92rem;color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:5px}
+.nav a:hover{background:var(--bg)}
+.nav a[aria-current="page"]{background:var(--steel);color:var(--steel-ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static!important;max-height:none!important}}
+.toc{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;font-size:.88rem;border-left:2px solid var(--line);padding-left:12px}
+.toc b{display:block;font:600 .72rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0}
+.toc a.l3{padding-left:12px;color:var(--muted)}
+.toc a:hover{color:var(--steel)}
+main{min-width:0;max-width:78ch}
+main h1{font:700 2.2rem/1.05 var(--display);margin:0 0 16px;text-wrap:balance}
+main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--ink);text-transform:uppercase;letter-spacing:.02em}
+main h3{font:600 1.25rem var(--display);margin:26px 0 8px;letter-spacing:.02em}
+main a{color:var(--steel)}
+main table{border-collapse:collapse;font-size:.9rem;width:100%;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;margin:12px 0}
+main th,main td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+main th{background:var(--code);font-weight:600}
+main code{font-family:var(--mono);background:var(--code);padding:1px 4px;border-radius:3px}
+main hr{border:0;border-top:1px dashed var(--line);margin:28px 0}
+main li{margin:3px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
+.card{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--steel)}
+.card b{font:600 1.3rem var(--display);letter-spacing:.02em}
+.card span{color:var(--muted);font-size:.92rem}
+.card.hi{border-top:4px solid var(--tag)}
+.home{grid-template-columns:minmax(0,1fr)}
+.home main{max-width:none}
+a:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+</style></head><body>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><span>MR&amp;G</span> Training</a><nav class="nav"><a href="index.html">Home</a><a href="schedule.html">Schedule</a><a href="guides.html">P21 Guides</a><a href="reference.html">Product Reference</a><a href="exercises.html" aria-current="page">Exercises</a><a href="assessments.html">Assessments</a><a href="trainer.html">Call Desk Trainer</a></nav></div></header>
+<div class="wrap"><aside class="toc"><b>On this page</b><a class="l2" href="#section-3-daily-practical-exercises-amp-simulations">SECTION 3:
+Daily Practical Exercises &amp;amp; Simulations</a><a class="l3" href="#exercise-1-1-day-1-navigation-scavenger-hunt">Exercise 1.1 (Day
+1): Navigation Scavenger Hunt</a><a class="l3" href="#exercise-1-2-day-2-read-the-customer">Exercise 1.2 (Day 2): Read
+the Customer</a><a class="l3" href="#exercise-1-3-day-3-the-new-buyer">Exercise 1.3 (Day 3): The New
+Buyer</a><a class="l3" href="#exercise-1-4-day-4-new-site-ship-to">Exercise 1.4 (Day 4): New
+Site Ship-To</a><a class="l3" href="#exercise-1-5-day-5-three-stock-orders">Exercise 1.5 (Day 5):
+Three Stock Orders</a><a class="l3" href="#exercise-2-1-day-6-pricing-tax-freight">Exercise 2.1 (Day 6):
+Pricing, Tax, Freight</a><a class="l3" href="#exercise-2-2-day-7-mystery-fittings">Exercise 2.2 (Day 7):
+Mystery Fittings</a><a class="l3" href="#exercise-2-3-day-8-quote-to-order">Exercise 2.3 (Day 8): Quote to
+Order</a><a class="l3" href="#exercise-2-4-day-9-build-and-verify">Exercise 2.4 (Day 9): Build
+and Verify</a><a class="l3" href="#simulation-2-5-day-10-quote-convert-assemble">Simulation 2.5 (Day
+10): Quote, Convert, Assemble</a><a class="l3" href="#exercise-3-1-day-11-material-match">Exercise 3.1 (Day 11):
+Material Match</a><a class="l3" href="#exercise-3-2-day-12-yield-and-price-a-gasket-run">Exercise 3.2
+(Day 12): Yield and Price a Gasket Run</a><a class="l3" href="#exercise-3-3-day-13-leak-call">Exercise 3.3 (Day 13): Leak
+Call</a><a class="l3" href="#simulation-3-4-day-14-six-call-desk-simulation">Simulation 3.4
+(Day 14): Six-Call Desk Simulation</a></aside><main><h1 id="section-3-daily-practical-exercises-amp-simulations">SECTION 3:
+Daily Practical Exercises &amp; Simulations</h1>
+<p>Each exercise is done in P21PLAY during the self-taught half, then
+reviewed with your mentor in Block D. Mentor initials each completed
+exercise.</p>
+<h3 id="exercise-1-1-day-1-navigation-scavenger-hunt">Exercise 1.1 (Day
+1): Navigation Scavenger Hunt</h3>
+<p>Find and record:</p>
+<ol type="1">
+<li>The Customer ID for a mill account your mentor gives you by city
+only.</li>
+<li>That customer's terms and credit status.</li>
+<li>The last three orders: dates, PO numbers, and order totals.</li>
+<li>How many ship-tos the account has.</li>
+<li>One mandatory notepad on any account (mentor will point you to
+one).</li>
+<li>Look up item IDs for: a 1-1/2" cam and groove Type C aluminum, a -8
+R2 hydraulic hose, and 1/16" CNA sheet.</li>
+</ol>
+<h3 id="exercise-1-2-day-2-read-the-customer">Exercise 1.2 (Day 2): Read
+the Customer</h3>
+<p>Mentor assigns a pulp and paper account. Write a one-paragraph
+account brief: credit terms, typical items bought, average order size,
+PO requirements, key contacts, assigned salesrep, and anything in
+notepads a new rep must know. Then answer: "The customer calls asking
+for 'the same suction hose as last time.' What exactly did they buy, at
+what price, and when?"</p>
+<h3 id="exercise-1-3-day-3-the-new-buyer">Exercise 1.3 (Day 3): The New
+Buyer</h3>
+<p><em>Scenario:</em> "Hi, this is Tanya Morales. I'm the new buyer at
+Central Alabama Paper Converters. Kevin Blake retired. I need to be on
+all your quotes and order confirmations. Invoices should still go to
+accounts payable at <a
+href="mailto:ap@capc-example.com">ap@capc-example.com</a>." Tasks:</p>
+<ol type="1">
+<li>Search for duplicates for Tanya and the AP email.</li>
+<li>Add Tanya as a Purchasing contact with phone and email.</li>
+<li>Set quote and acknowledgment delivery to Tanya.</li>
+<li>Confirm AP contact receives invoices.</li>
+<li>Mark Kevin Blake inactive and move his delivery roles.</li>
+<li>Add dated notes on both records. Role play: run a STAMPED interview
+with your mentor playing Tanya asking for "a hose for our pump."</li>
+</ol>
+<h3 id="exercise-1-4-day-4-new-site-ship-to">Exercise 1.4 (Day 4): New
+Site Ship-To</h3>
+<p><em>Scenario:</em> "We're opening a temporary job trailer at our
+Wetumpka site, 4100 River Rd, Gate B. Deliveries only during posted
+receiving hours, call Marcus at 334-555-0147 before arriving. Same tax
+as our main plant." Tasks:</p>
+<ol type="1">
+<li>Search current ship-tos. Confirm it is new.</li>
+<li>Create the ship-to with Gate B in Address 2.</li>
+<li>Put the receiving-hours limit and call-ahead in delivery
+instructions, not address lines.</li>
+<li>Challenge the "same tax" assumption: look up the correct tax group
+for the Wetumpka address (Elmore County) and confirm it with your
+mentor.</li>
+<li>Set carrier to MR&amp;G truck and freight code per account. Product
+question: The customer also wants 2" water discharge hose with cam and
+groove ends to fit a pump with a 2" male groove adapter. Which cam and
+groove type goes on the hose? (Answer: Type C coupler × hose
+shank.)</li>
+</ol>
+<h3 id="exercise-1-5-day-5-three-stock-orders">Exercise 1.5 (Day 5):
+Three Stock Orders</h3>
+<p>Enter, review with mentor, and release (P21PLAY):</p>
+<ol type="1">
+<li>A walk-in counter order: 2 ea 1" Type C cam and groove, 50 ft 1"
+water hose, 4 bands. Cash customer.</li>
+<li>A phone order for a mill account requiring a PO and release
+number.</li>
+<li>An order where one line has only half the quantity available (set
+disposition to B, tell the "customer").</li>
+</ol>
+<h3 id="exercise-2-1-day-6-pricing-tax-freight">Exercise 2.1 (Day 6):
+Pricing, Tax, Freight</h3>
+<ol type="1">
+<li>Enter an order where the customer quotes a price 12% lower than
+P21's price. Find out whether a quote or contract supports it. If not,
+calculate margin at the requested price and decide whether to request
+approval.</li>
+<li>A customer says they are tax exempt for this order only. What do you
+need, and what do you do if it isn't on file?</li>
+<li>Enter one order Prepaid &amp; Add via UPS, one Collect on the
+customer's FedEx account, one Will Call.</li>
+<li>Hydraulic: Customer needs a 3/4" hose for a 3,500 psi system on an
+excavator boom cylinder with constant cycling. Recommend a hose type and
+explain (Expected answer: -12 spiral, 100R12 (4,000 psi constant) for
+high impulse; R2 -12 is rated lower and braid has lower impulse
+life).</li>
+</ol>
+<h3 id="exercise-2-2-day-7-mystery-fittings">Exercise 2.2 (Day 7):
+Mystery Fittings</h3>
+<p>Identify 12 fittings from the tray. For each, record: OD measured,
+threads per inch, seat angle or seal type, and final ID (for example,
+"-8 JIC male, 3/4-16, 37°"). Then quote three of them in P21PLAY.</p>
+<h3 id="exercise-2-3-day-8-quote-to-order">Exercise 2.3 (Day 8): Quote to
+Order</h3>
+<ol type="1">
+<li>Create a quote for: 10 ea 4" Class 150 RF ring gaskets, 1/16" CNA; 4
+ea -8 R2 hose assemblies 48" OAL, JIC female swivel both ends. Set a
+30-day expiration.</li>
+<li>Calculate margin on each line. Identify any line below MR&amp;G's
+floor.</li>
+<li>Customer accepts 2 weeks later with PO 88412. Convert the quote to
+an order.</li>
+<li>Confirm the quote shows closed/converted.</li>
+<li>Run your open quote list and write a follow-up plan for any quote
+older than 14 days.</li>
+</ol>
+<h3 id="exercise-2-4-day-9-build-and-verify">Exercise 2.4 (Day 9): Build
+and Verify</h3>
+<p>With Eric Jones present, build:</p>
+<ol type="1">
+<li>-8 100R2, 36" OAL, female JIC swivel × female JIC swivel 90°.
+Calculate cut length from the catalog C/O values. Measure and record
+crimp diameters.</li>
+<li>-12 100R12, 24" OAL, ORFS female swivel both ends.</li>
+<li>Proof test assembly 1 at 2× working pressure. Record results.
+Complete the inspection checklist for each assembly.</li>
+</ol>
+<h3 id="simulation-2-5-day-10-quote-convert-assemble">Simulation 2.5 (Day
+10): Quote, Convert, Assemble</h3>
+<p><em>Scenario:</em> "Our hydraulic press at the Prattville shop blew a
+hose. It's a 1/2-inch two-wire hose, about 40 inches long, one end
+screws into a port and the other is a swivel. Can you get me a price and
+have it today?" Tasks:</p>
+<ol type="1">
+<li>Run STAMPED. Discover: 3,000 psi, hydraulic oil, 150°F, port end is
+a male fitting going into an SAE O-ring boss port (-8), other end female
+JIC swivel.</li>
+<li>Quote the assembly with a 7-day expiration.</li>
+<li>Convert to an order on acceptance.</li>
+<li>Route the assembly to the shop and confirm a realistic ready time
+with Eric.</li>
+<li>Tell the customer: hose type, ends, length, price, ready time.</li>
+</ol>
+<h3 id="exercise-3-1-day-11-material-match">Exercise 3.1 (Day 11):
+Material Match</h3>
+<p>For each service, pick a gasket material and thickness and explain in
+one sentence:</p>
+<ol type="1">
+<li>3" Class 150 RF, 60 psig, 180°F caustic (white liquor)</li>
+<li>6" Class 150 RF, 150 psig saturated steam (366°F)</li>
+<li>4" FF cast iron water pump flange, 80 psig ambient water</li>
+<li>2" Class 300 RF, 400 psig, 600°F hot oil</li>
+<li>3" FRP flange, chlorine dioxide service, low pressure</li>
+</ol>
+<p>Expected answers: (1) EPDM 1/8" or ePTFE 1/16"; (2) CNA rated for
+steam at 1/16" after P×T check, or graphite with insert; (3) full-face
+neoprene or SBR 1/8"; (4) flexible graphite with 316 insert (CNA out of
+range; consult); (5) ePTFE full-face, soft enough for FRP.</p>
+<h3 id="exercise-3-2-day-12-yield-and-price-a-gasket-run">Exercise 3.2
+(Day 12): Yield and Price a Gasket Run</h3>
+<p><em>Scenario:</em> "I need 40 pieces 4-inch 150 pound raised face
+gaskets and 20 pieces 2-inch, same material, 1/16 blue CNA."</p>
+<ol type="1">
+<li>Determine OD and ID for both sizes from Reference Sheet H.</li>
+<li>Calculate yield of 4" rings per sheet (use the actual sheet size in
+P21).</li>
+<li>Show how many 2" rings come from the 4" ring centers.</li>
+<li>Calculate material cost per piece and quote both lines at MR&amp;G's
+target margin.</li>
+<li>Shadow Kevin as he nests the job and compare his yield to
+yours.</li>
+</ol>
+<h3 id="exercise-3-3-day-13-leak-call">Exercise 3.3 (Day 13): Leak
+Call</h3>
+<p><em>Scenario:</em> "Your gasket leaked on our 6-inch steam line. We
+put it in yesterday." (Class 150, 150 psig steam, 1/16" CNA ring.)</p>
+<ol type="1">
+<li>Walk through the troubleshooting questions from Reference Sheet
+J.</li>
+<li>Discover: installer reused the old bolts dry, tightened in a circle
+in one pass, and used anti-seize on the gasket face.</li>
+<li>Write the reply to the customer: professional, helpful, no blame,
+with correct installation steps and the 8-bolt star sequence.</li>
+<li>Enter a no-charge replacement order only if your mentor
+approves.</li>
+</ol>
+<h3 id="simulation-3-4-day-14-six-call-desk-simulation">Simulation 3.4
+(Day 14): Six-Call Desk Simulation</h3>
+<p>Mentor plays callers in sequence. Trainee handles each start to
+finish in P21.</p>
+<ol type="1">
+<li><strong>Call 1:</strong> A maintenance planner from a known mill
+account needs "a 2-inch suction hose assembly, 20 feet, with a female
+cam and groove on one end and a male NPT on the other, delivered to our
+new wastewater building on Hwy 82." Trainee must: run STAMPED (media:
+wastewater with grit, ambient, suction from a sump, full vacuum), select
+a suction hose with rigid helix, select a Type C coupler on one end and
+a male NPT hose shank (combination nipple) on the other, choose
+attachment method (crimped ferrule or interlocking clamps), create the
+new ship-to with correct tax group, add the planner as a Maintenance
+contact if new, quote or enter per the customer's direction.</li>
+<li><strong>Call 2:</strong> A buyer needs a quote on 100 ea 3" Class
+300 RF ring gaskets, 1/16" ePTFE, quote valid 60 days. Trainee must flag
+that 60 days exceeds standard validity and confirm with mentor.</li>
+<li><strong>Call 3:</strong> Walk-in brings a hydraulic fitting: male,
+14 TPI, OD 0.83", threads parallel, 30° cone on the nose. Trainee
+identifies it (1/2" BSPP male, cone seat) and finds a replacement.</li>
+<li><strong>Call 4:</strong> A customer on credit hold wants an order
+shipped today. Trainee enters the order, explains the hold politely, and
+routes to accounting.</li>
+<li><strong>Call 5:</strong> Customer's AP clerk says invoices go to a
+retired employee. Trainee fixes contacts and delivery.</li>
+<li><strong>Call 6:</strong> Customer accepts a quote from three weeks
+ago. Trainee converts it, enters the PO, and checks for expired
+pricing.</li>
+</ol>
+<p>Scored on: accuracy, safety, customer communication, and data
+clean-up.</p>
+<hr />
+</main></div></body></html>
