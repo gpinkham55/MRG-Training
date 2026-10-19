@@ -8,15 +8,15 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 
 **Steps**
 
-1. Log in with **your own user ID**. Never use a shared counter login. Every order and quote carries the ID of the person who keyed it.
-2. Find the main menu. Windows are grouped by area: order processing (orders, quotes, order inquiry), customers (customer, ship-to, and contact maintenance and inquiry), and inventory (item inquiry, stock by location).
-3. Add the windows you'll use every day to your favorites or toolbar: Order Entry, Customer Master Inquiry, Item Master Inquiry, Ship To Maintenance, Contact Maintenance, Order Inquiry. Your mentor shows you where each one lives on our menu.
-4. **Search fields:** most ID fields (customer, ship-to, item, contact) open a search window. Type part of the value and tab out, or use the lookup button. Search on the shortest piece that's unique.
+1. Log in with **your own user ID**. Every order and quote carries the ID of the person who keyed it.
+2. Find the main menu. (Grid pattern on the left bar) Windows are grouped by area: Orders (order entry, RMA entry, transaction inquiry), CRM (customer inquiry, ship-to maintenance, and contact maintenance), and inventory (item master inquiry, item maintenance, inventory reports).
+3. Add the windows you'll use every day to your favorites or toolbar: Order Entry, Customer Master Inquiry, Item Master Inquiry, Ship To Maintenance, Contact Maintenance, Order Inquiry, etc.
+4. **Search fields:** most ID fields (customer, ship-to, item, contact) open a search window. Type part of the value and tab out, or use the lookup button. Filter on unique attributes (Location ID, Customer Name).
 5. **Tabs:** most windows have tabs across the top. The header tab holds the main record; other tabs hold related detail (ship-tos, contacts, history, notes). Click through every tab the first time you open a window.
-6. **Multiple windows:** you can keep Customer Inquiry open beside Order Entry. Do it; you'll check history and credit while you take an order.
-7. **Inquiry vs. Maintenance:** inquiry windows only let you look. Maintenance windows change records. When you only need to look, use the inquiry window so nothing changes by accident.
-8. **Save:** changes aren't kept until you save. When you close a window with unsaved changes, P21 asks. Read the prompt before you answer.
-9. **Notepads:** customers, items, and orders can carry notes. A mandatory note pops up when you open the record. Read every one.
+6. **Multiple windows:** you can keep Customer Inquiry open beside Order Entry. Drill into fields that open in a new tab.
+7. **Inquiry vs. Maintenance:** inquiry windows only let you look. Maintenance windows update records. When you only need to look, use the inquiry window so nothing changes by accident.
+8. **Save:** changes aren't kept until you save. P21 will prompt to save when you close a window with unsaved changes. 
+9. **Notepads:** customers, items, and orders can carry notes. A mandatory note pops up when you open the record. **Always** read notes before clearing them out.
 
 **Common mistakes to avoid**
 
@@ -26,16 +26,16 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 
 ## Guide 3.2: Customer Inquiry & Sales History
 
-**Purpose:** Before you quote, enter an order, or answer a question, know who the customer is, what terms they buy on, and what they've bought before.
+**Purpose:** Before you quote, enter an order, or answer a question, know who the customer is.
 
 **Steps**
 
-1. Open **Customer Master Inquiry**.
+1. Open **Customer Master Inquiry** (F8).
 2. Search for the customer by ID, by part of the name, or by phone or city. Use the shortest unique piece ("WESTROCK" beats "WestRock Mill Company").
-3. **Confirm the right account.** Many customers have more than one account (Boise Cascade has two, billing to different cities). Check the bill-to address and the ship-to list before you pick.
+3. **Confirm the right account.** Many customers have more than one account (Boise Cascade has two, billing to different cities). Know which one you're working with before you proceed.
 4. Read the **credit** information: credit limit, credit status (for example normal, COD, hold), and terms.
 5. Read the **notepads**: PO required, release numbers, receiving hours, tax exemption, preferred brands.
-6. Look at **ship-tos** and **contacts**. Do you know who you're talking to? Are they on the account?
+6. Look at **ship-tos** and **contacts**. Do you know who you're talking to? Are they on the account? Add them now in contact maintenance or when the call is completed.
 7. Open **sales history** for the customer. Filter by date range and by item or description. This is the fastest way to find "the same hose as last time" or "what we bought back in April."
 8. Open the order from history and read the lines: item IDs, quantities, units, prices, PO.
 9. Check **open orders** and **open quotes** before you create anything new. Avoid duplicates.
@@ -45,26 +45,24 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 
 | Field | Why you check it |
 |---|---|
-| Customer ID | The account every order and quote hangs on |
+| Customer ID | Get this wrong and we may not get paid |
 | Credit Status | Hold or COD changes what you can promise |
-| Terms | How the customer pays |
+| Open Orders/Open Quotes | Don't duplicate work |
 | Notepads | Customer-specific rules you must follow |
-| Customer Part No. | Lets you enter their part number and land on our item |
 | Salesrep | Who owns the relationship |
 
 **Common mistakes to avoid**
 
-- Picking the first account that comes up without checking the bill-to.
-- Skipping notepads, then missing a required release number.
+- Picking the first account that comes up without checking the bill-to/ship-to.
+- Closing notepads without reading the note, then making the mistake the note was created to keep you from making.
 - Quoting a price from memory instead of checking history and letting P21 price it.
-- Asking for a new account when one already sits in P21 under another spelling. Search by phone and city first.
-- Promising a ship date to a customer on credit hold.
+-  Promising a ship date to a customer on credit hold.## Guide 3.3: Ship-To Maintenance
 
-## Guide 3.3: Ship-To Maintenance
+## Guide 3.3: Ship-to Maintenance 
+  
+**Purpose:** Get product to the right dock with the right sales tax.
 
-**Purpose:** Get product to the right dock with the right tax.
-
-**Before you start:** search the customer's current ship-to list. Most "new" addresses turn out to be a building or gate already on file.
+**Before you start:** search the customer's current ship-to list. Most "new" addresses are already on file.
 
 **Steps (new ship-to)**
 
@@ -84,7 +82,7 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 1. Note the current values in your notebook.
 2. If the customer moved to a new physical site, create a new ship-to instead of overwriting. Overwriting rewrites history on old orders.
 3. Add a note with the date, your initials, and who asked for the change.
-4. If the tax setup changes, tell accounting.
+4. Notify Accounting if tax jurisdiction changes.
 
 **Common mistakes to avoid**
 
@@ -118,7 +116,6 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 - One contact used for everything, so invoices land with a maintenance planner.
 - A departed contact still set to receive invoices.
 - Generic placeholder contacts ("Invoices," "past due") with no real person behind them. They have their place for AP mailboxes, but the account still needs a named buyer.
-- A typo in the email.
 
 ## Guide 3.5: Item Inquiry
 
@@ -126,7 +123,7 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 
 **Steps**
 
-1. Open **Item Master Inquiry**.
+1. Open **Item Master Inquiry** (F2).
 2. Search by item ID, by part of the description, or by a supplier or customer part number. Reference Sheet O explains how our item IDs are built, which makes searching much faster.
 3. Read the description and the **unit of measure**. Hose sells by the foot (FT); gasket sheet sells by the square inch (SI); fittings sell each (EA).
 4. Check stock at **location 110**: on hand, allocated (already promised to orders), and available.
@@ -138,7 +135,7 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 **Common mistakes to avoid**
 
 - Promising on-hand stock that's already allocated to another order.
-- Reading the wrong unit: 100 SI of sheet is about a 10" x 10" piece, not 100 sheets.
+- Reading the wrong unit of measure: 100 SI of sheet is about a 10" x 10" piece, not 100 sheets.
 - Telling a customer "we don't have it" without checking other TRG locations and open POs.
 - Quoting price without the customer ID, so the customer's pricing doesn't apply.
 
@@ -151,15 +148,11 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 1. Open **Order Entry**.
 2. Confirm the **taker** shows your own ID.
 3. Enter the **customer ID**. Read any pop-up notes.
-4. Pick the **ship-to**. If the address is new, stop and run Guide 3.3 first.
-5. Pick the **contact** placing the order. If they aren't in P21, add them (Guide 3.4).
-6. Enter the **PO number** exactly as given. A name or phone number is not a PO. If the customer requires a PO and has none, the order waits.
-7. Enter any release or job numbers the customer requires.
-8. Confirm the **location** is 110.
-9. Set the **requested date** (when the customer needs it).
-10. Confirm carrier and freight terms pulled from the ship-to.
-11. Confirm terms.
-12. Add an order note for anything picking, shipping, or billing needs to know.
+4. Pick the **ship-to**. If the address is new, stop. Don't choose a ship-to id - go to the ship-to tab on the OE header and enter the new address information - the new ship-to id will be created when you save the order.
+5. Pick the **contact** placing the order. If they aren't in P21, add them here.
+6. Enter the **PO number** exactly as given. If the customer requires a PO and the order placer doesn't have one, the order waits.
+7. Confirm the **location** is 110.
+8. Add an order note for anything picking, shipping, or billing needs to know.
 
 **Lines (steps 13 to 23)**
 
