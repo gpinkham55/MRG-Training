@@ -6,7 +6,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Air and water hose
 
-![Air and water hose](img/samples/industrial-hose.svg)
+![Air and water hose](img/samples/industrial-hose.jpg)
 
 **What it is:** General-purpose rubber hose with a tube, a fabric reinforcement, and a cover.
 
@@ -16,7 +16,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Suction hose
 
-![Suction hose](img/samples/suction-hose.svg)
+![Suction hose](img/samples/suction-hose.jpg)
 
 **What it is:** Hose with a rigid wire or plastic helix built in so it won't collapse under vacuum.
 
@@ -26,7 +26,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Steam hose
 
-![Steam hose](img/samples/steam-hose.svg)
+![Steam hose](img/samples/steam-hose.png)
 
 **What it is:** EPDM hose built for saturated steam, with a higher safety factor than water hose. Always paired with steam fittings and interlocking clamps.
 
@@ -36,7 +36,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Chemical hose
 
-![Chemical hose](img/samples/chemical-hose.svg)
+![Chemical hose](img/samples/chemical-hose.jpg)
 
 **What it is:** Hose with a chemical-resistant plastic tube (often UHMWPE or XLPE) for acids, caustics, and solvents.
 
@@ -46,7 +46,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Layflat discharge hose
 
-![Layflat hose](img/samples/layflat-hose.svg)
+![Layflat hose](img/samples/layflat-hose.jpg)
 
 **What it is:** Hose that lies flat when empty and rolls up small. Discharge only; never suction.
 
@@ -58,7 +58,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Two-wire braided hydraulic hose
 
-![Braided hydraulic hose](img/samples/hydraulic-braid.svg)
+![Braided hydraulic hose](img/samples/hydraulic-braid.jpg)
 
 **What it is:** Hydraulic hose with two or more layers of braided wire. Flexible, with a tight bend radius.
 
@@ -68,7 +68,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Spiral hydraulic hose
 
-![Spiral hydraulic hose](img/samples/hydraulic-spiral.svg)
+![Spiral hydraulic hose](img/samples/hydraulic-spiral.jpg)
 
 **What it is:** Hydraulic hose with four or six spiral-wound wire layers for high pressure and high impulse.
 
@@ -78,7 +78,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Crimp couplings
 
-![Crimp coupling](img/samples/crimp-coupling.svg)
+![Crimp coupling](img/samples/crimp-coupling.jpg)
 
 **What it is:** The fitting crimped onto the end of a hydraulic hose: a stem inside the hose, a ferrule outside, and a thread end (JIC, ORFS, O-ring boss, NPT, BSPP, or flange).
 
@@ -88,7 +88,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Adapters
 
-![Hydraulic adapter](img/samples/adapter.svg)
+![Hydraulic adapter](img/samples/adapter.jpg)
 
 **What it is:** A fitting with a thread on each end that connects a hose to a port, or one thread type to another.
 
@@ -98,7 +98,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Hose assemblies
 
-![Hose assembly](img/samples/hose-assembly.svg)
+![Hose assembly](img/samples/hose-assembly.jpg)
 
 **What it is:** Hose with fittings crimped on both ends, cut to length, tested when required, and tagged. Built in our shop.
 
@@ -110,7 +110,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Cam and groove couplings
 
-![Cam and groove couplings](img/samples/cam-groove.svg)
+![Cam and groove couplings](img/samples/cam-groove.jpg)
 
 **What it is:** Quick-connect fittings. The coupler has cam arms; the adapter has a groove. Types A through F (Reference Sheet E).
 
@@ -120,7 +120,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Ground joint steam fittings
 
-![Ground joint steam fitting](img/samples/ground-joint.svg)
+![Ground joint steam fitting](img/samples/ground-joint.png)
 
 **What it is:** A three-piece steam fitting (stem, spud, wing nut) with a metal-to-metal seat, held on the hose with an interlocking clamp.
 
@@ -130,7 +130,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Hose clamps and bands
 
-![Hose clamps](img/samples/clamps.svg)
+![Hose clamps](img/samples/clamps.jpg)
 
 **What it is:** Worm gear clamps for light duty, and preformed bands for water and air assemblies.
 
@@ -142,7 +142,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Ring and full-face gaskets
 
-![Ring and full-face gaskets](img/samples/gaskets.svg)
+![Ring and full-face gaskets](img/samples/gaskets.jpg)
 
 **What it is:** Cut gaskets for pipe flanges. Ring gaskets fit inside the bolts on raised-face flanges; full-face gaskets cover the whole flange and have bolt holes.
 
@@ -152,7 +152,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Gasket sheet
 
-![Gasket sheet](img/samples/gasket-sheet.svg)
+![Gasket sheet](img/samples/gasket-sheet.png)
 
 **What it is:** Sheet material we cut gaskets from on the waterjet, or sell by the square inch.
 
@@ -162,7 +162,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### O-rings and cord stock
 
-![O-rings and cord](img/samples/o-rings.svg)
+![O-rings and cord](img/samples/o-rings.jpg)
 
 **What it is:** Standard O-rings by AS568 size, and cord stock cut and spliced for large or odd sizes (Reference Sheet N).
 
@@ -172,7 +172,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Compression packing
 
-![Compression packing](img/samples/packing.svg)
+![Compression packing](img/samples/packing.jpg)
 
 **What it is:** Braided packing cut into rings to seal pump shafts and valve stems.
 
@@ -184,7 +184,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Expansion joints and bellows
 
-![Bellows expansion joint](img/samples/bellows.svg)
+![Bellows expansion joint](img/samples/bellows.jpg)
 
 **What it is:** Flexible joints, stainless or rubber, that absorb movement, vibration, and heat growth in piping.
 
@@ -194,7 +194,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Stainless braided metal hose
 
-![Metal hose](img/samples/metal-hose.svg)
+![Metal hose](img/samples/metal-hose.jpg)
 
 **What it is:** Corrugated stainless hose with a stainless braid, built with flanges or threaded ends.
 
@@ -206,7 +206,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Belting
 
-![Belting](img/samples/belting.svg)
+![Belting](img/samples/belting.jpg)
 
 **What it is:** Conveyor and transmission belting, sold by the foot or made endless.
 
@@ -216,7 +216,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Waterjet cutting
 
-![Waterjet cutting](img/samples/waterjet.svg)
+![Waterjet cutting](img/samples/waterjet.jpg)
 
 **What it is:** Our waterjet cuts gaskets and custom parts from rubber, plastic, insulation, and metal.
 
@@ -226,9 +226,32 @@ What our products look like, where customers use them, and example item IDs to l
 
 ## Adding Photos of Our Own Samples
 
-To swap a drawing for a photo of our own sample:
+To swap a picture for a photo of our own sample:
 
 1. Take the photo on a plain background, landscape, about 1200 pixels wide.
-2. On github.com, open the `img/samples` folder, choose **Add file**, then **Upload files**, and upload it (for example `suction-hose.jpg`).
-3. Open `src/samples.md`, find the picture line (for example `![Suction hose](img/samples/suction-hose.svg)`), and change the end to `.jpg`.
-4. Commit. The page rebuilds in a minute or two.
+2. Give it the same file name as the picture it replaces (for example `suction-hose.jpg`).
+3. On github.com, open the `img/samples` folder, choose **Add file**, then **Upload files**, and upload it. It replaces the old picture.
+4. Remove that picture's line from Photo Credits below, then commit. The page rebuilds in a minute or two.
+
+## Photo Credits
+
+These photos come from Wikimedia Commons and are used under the license shown. The other pictures were supplied by MR&G.
+
+- **Air and water hose:** [Tuyaux EPDM d'un groupe de froid (1)](https://commons.wikimedia.org/wiki/File:Tuyaux_EPDM_d%27un_groupe_de_froid_(1).jpg) by Cjp24, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
+- **Suction hose:** [Saugschläuche 6802](https://commons.wikimedia.org/wiki/File:Saugschl%C3%A4uche_6802.jpg) by BFV Radkersburg, [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0)
+- **Chemical hose:** [20110719-RD-LSC-0205 (6791940537)](https://commons.wikimedia.org/wiki/File:20110719-RD-LSC-0205_(6791940537).jpg) by USDA, Public domain
+- **Layflat hose:** [Firehose75mm](https://commons.wikimedia.org/wiki/File:Firehose75mm.jpg) by Ysignal, [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+- **Braided hydraulic hose:** [Hydraulikschlauch](https://commons.wikimedia.org/wiki/File:Hydraulikschlauch.jpg) by Ilmtaler, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
+- **Spiral hydraulic hose:** [Antriebs-Hydraulikleitungen einer hydraulischen Kran-Seilwinde](https://commons.wikimedia.org/wiki/File:Antriebs-Hydraulikleitungen_einer_hydraulischen_Kran-Seilwinde.jpg) by Deckenpappe2023, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
+- **Crimp couplings:** [Hydraulic hose fittings](https://commons.wikimedia.org/wiki/File:Hydraulic_hose_fittings.JPG) by Jstapko, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- **Adapters:** [JIC-37deg-Ford1967](https://commons.wikimedia.org/wiki/File:JIC-37deg-Ford1967.jpg) by PRR, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- **Hose assemblies:** [Crimped hose ends](https://commons.wikimedia.org/wiki/File:Crimped_hose_ends.JPG) by Jstapko, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- **Cam and groove couplings:** [Camlock type C](https://commons.wikimedia.org/wiki/File:Camlock_type_C.JPG) by SophiaSME, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- **Hose clamps:** [Hoseclamps.screw.agr](https://commons.wikimedia.org/wiki/File:Hoseclamps.screw.agr.jpg) by ArnoldReinhold, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- **Ring and full-face gaskets:** [Compressed fiber jointing](https://commons.wikimedia.org/wiki/File:Compressed_fiber_jointing.JPG), Public domain; [MANHOLE GASKET](https://commons.wikimedia.org/wiki/File:MANHOLE_GASKET.JPG), Public domain (combined into one picture)
+- **O-rings:** [Oring gr](https://commons.wikimedia.org/wiki/File:Oring_gr.jpg) by Gert Wrigge and Ilja Gerhardt, [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+- **Compression packing:** [Gland packing002](https://commons.wikimedia.org/wiki/File:Gland_packing002.jpg) by Miya.m, [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+- **Expansion joints:** [Flanged Rubber Bellows](https://commons.wikimedia.org/wiki/File:Flanged_Rubber_Bellows.jpg) by The Yeti, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
+- **Metal hose:** [Metallschläuche](https://commons.wikimedia.org/wiki/File:Metallschl%C3%A4uche.jpg) by Witzenmann GmbH, [CC BY-SA 3.0 de](https://creativecommons.org/licenses/by-sa/3.0/de/deed.en)
+- **Belting:** [Horizontal Belt Conveyor](https://commons.wikimedia.org/wiki/File:Horizontal_Belt_Conveyor.jpg) by RICHI Manufacture, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0)
+- **Waterjet cutting:** [Bystronic Wasserstrahlschneiden](https://commons.wikimedia.org/wiki/File:Bystronic_Wasserstrahlschneiden.jpg) by Bystronic, [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5)
