@@ -88,7 +88,7 @@ def render(src):
 
     def hd(m):
         lvl, text = m.group(1), m.group(3)
-        plain = re.sub(r"<[^>]+>", "", text)
+        plain = html.unescape(re.sub(r"<[^>]+>", "", text))
         s = slug(plain) or "s"
         seen[s] = seen.get(s, 0) + 1
         if seen[s] > 1:
