@@ -2,9 +2,9 @@
 
 ## Who We Are
 
-Montgomery Rubber & Gasket has served central Alabama's pulp, paper, and industrial markets since 1973. We're part of the TRG family of companies, which means we can pull stock from other TRG locations when we're short. In P21, Montgomery is **location 110**. We're at 1201 Newell Pkwy, Montgomery, AL 36110.
+Montgomery Rubber & Gasket has served central Alabama since 1973 with the highest level of service, a knowledgeable staff, and superior products. Customers reach us by calls or text messages, emails, walk-ins at our counter, or through their outside sales person. Nights or weekends, emergencies and unplanned downtimes, or day-to-day maintenance and repairs, they know they can call on us.
 
-Customers come to us three ways: they call, they email a PO, or they walk up to the counter. Every one of them wants the right part, on time, without having to explain it twice.
+We're part of the TRG family of companies, which means we can pull stock from other TRG locations when we're short. In P21, Montgomery is **location 110**. We're at 1201 Newell Pkwy, Montgomery, AL 36110.
 
 ## Who We Sell To
 
@@ -13,16 +13,14 @@ Customers come to us three ways: they call, they email a PO, or they walk up to 
 | Pulp and paper mills | International Paper Prattville, International Paper Selma, Georgia Pacific Pennington, WestRock, Boise Cascade |
 | Manufacturing and OEM | Rheem Manufacturing, Knox Kershaw, Steris, Pharmavite, Berry Global |
 | Municipal and utilities | City of Montgomery (Garage, Landfill), Montgomery Water Works |
-| Distributors | DXP Enterprises |
+| Other distributors | DXP Enterprises, Motion Industries |
 | Construction and equipment | Wiregrass Construction, Boan Contracting, Cowin Equipment |
 | Industrial maintenance | A-1 Industrial Maintenance |
-| Walk-in counter | Montgomery Counter Sales (account 910) |
+| Walk-in counter / credit card | Montgomery Counter Sales (account 910) |
 
-Paper mills are the bulk of our business. They run around the clock, and a down machine costs them a lot. That's why speed and accuracy on mill requests come first.
+Paper mills are the bulk of our business. They run around the clock, and a down machine costs them a lot. That's why speed and accuracy on mill requests are high priorities.
 
 ## What We Sell
-
-Our product lines, roughly in order of how often they show up on orders:
 
 | Product line | What it covers | Where you'll see it |
 |---|---|---|
