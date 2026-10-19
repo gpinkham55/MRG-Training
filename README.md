@@ -22,7 +22,9 @@ Exercises and trainer scenarios use real customer, order, and item data from P21
 
 ## Updating the site
 
-Edit the Markdown in `src/`, then run `python3 build.py` (needs pandoc) and commit the regenerated pages.
+Edit the Markdown file for the page in `src/` (on github.com: open the file, tap the pencil icon, edit, then Commit changes). A GitHub Action rebuilds the pages automatically within a minute or two. Check progress on the Actions tab.
+
+Markdown basics: `## Heading`, `**bold**`, `- bullet`, `1. numbered step`, and tables written with `|` between columns.
 
 ## Call & Counter Trainer
 
