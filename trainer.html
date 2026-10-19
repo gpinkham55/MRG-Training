@@ -8,24 +8,24 @@
 <style>
 /* Layout: order-desk split. Call transcript and question cards on the left, a live call ticket on the right that fills in like a P21 entry slip. */
 :root{
-  --bg:#eef1f3; --panel:#ffffff; --ink:#18242c; --muted:#5b6a74; --line:#cfd8de;
-  --steel:#1f4e5f; --steel-ink:#ffffff; --tag:#f2b705; --tag-ink:#1c1a10;
+  --bg:#F8F8FA; --panel:#FFFFFF; --ink:#0E1D35; --muted:#2B3D5B; --line:#C3C3C3;
+  --steel:#2B3D5B; --steel-ink:#FFFFFF; --tag:#0E1D35; --tag-ink:#DDDEE5;
   --good:#1d7a4a; --good-bg:#e3f3ea; --warn:#9a5b00; --warn-bg:#fdf0d8;
-  --cust-bg:#e4ebef; --you-bg:#1f4e5f; --you-ink:#ffffff;
+  --cust-bg:#DDDEE5; --you-bg:#15253F; --you-ink:#FFFFFF;
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Source Sans 3","Segoe UI",Arial,sans-serif;
   --mono:"IBM Plex Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f171c; --panel:#16222a; --ink:#e3eaee; --muted:#93a4ae; --line:#2b3b45;
-  --steel:#5fa9bf; --steel-ink:#0b1418; --tag:#f2b705; --tag-ink:#1c1a10;
+  --bg:#0E1D35; --panel:#15253F; --ink:#DDDEE5; --muted:#C3C3C3; --line:#2B3D5B;
+  --steel:#C3C3C3; --steel-ink:#0E1D35; --tag:#DDDEE5; --tag-ink:#0E1D35;
   --good:#5fd39a; --good-bg:#12321f; --warn:#f0b75a; --warn-bg:#3a2a0e;
-  --cust-bg:#1f2e37; --you-bg:#2d6f84; --you-ink:#ffffff; color-scheme:dark}}
+  --cust-bg:#2B3D5B; --you-bg:#7C8594; --you-ink:#0E1D35; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f171c; --panel:#16222a; --ink:#e3eaee; --muted:#93a4ae; --line:#2b3b45;
-  --steel:#5fa9bf; --steel-ink:#0b1418; --tag:#f2b705; --tag-ink:#1c1a10;
+  --bg:#0E1D35; --panel:#15253F; --ink:#DDDEE5; --muted:#C3C3C3; --line:#2B3D5B;
+  --steel:#C3C3C3; --steel-ink:#0E1D35; --tag:#DDDEE5; --tag-ink:#0E1D35;
   --good:#5fd39a; --good-bg:#12321f; --warn:#f0b75a; --warn-bg:#3a2a0e;
-  --cust-bg:#1f2e37; --you-bg:#2d6f84; --you-ink:#ffffff; color-scheme:dark}
+  --cust-bg:#2B3D5B; --you-bg:#7C8594; --you-ink:#0E1D35; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
@@ -44,7 +44,7 @@ h1 span{background:var(--tag);color:var(--tag-ink);padding:0 .25em;border-radius
 .grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
 @media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
 .call{display:flex;flex-direction:column;gap:14px;min-width:0}
-.callhead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.callhead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline;border-bottom:2px solid var(--steel);padding-bottom:6px}
 .callhead h2{font-family:var(--display);font-size:1.35rem;margin:0;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
 .callhead span{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
 .log{display:flex;flex-direction:column;gap:10px}

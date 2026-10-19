@@ -4,19 +4,20 @@
 <title>P21 Guides | MR&amp;G Training</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#eef1f3;--panel:#fff;--ink:#18242c;--muted:#5b6a74;--line:#cfd8de;--steel:#1f4e5f;--steel-ink:#fff;--tag:#f2b705;--tag-ink:#1c1a10;--code:#e4ebef;
+:root{--bg:#F8F8FA;--panel:#FFFFFF;--ink:#0E1D35;--muted:#2B3D5B;--line:#C3C3C3;--steel:#2B3D5B;--steel-ink:#FFFFFF;--tag:#DDDEE5;--tag-ink:#0E1D35;--code:#DDDEE5;--head:#0E1D35;--head-ink:#DDDEE5;--head-hover:#2B3D5B;--focus:#7C8594;
 --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
-@media (prefers-color-scheme:dark){:root{--bg:#0f171c;--panel:#16222a;--ink:#e3eaee;--muted:#93a4ae;--line:#2b3b45;--steel:#5fa9bf;--steel-ink:#0b1418;--code:#1f2e37;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1D35;--panel:#15253F;--ink:#DDDEE5;--muted:#C3C3C3;--line:#2B3D5B;--steel:#C3C3C3;--steel-ink:#0E1D35;--tag:#DDDEE5;--tag-ink:#0E1D35;--code:#2B3D5B;--head:#15253F;--head-ink:#DDDEE5;--head-hover:#2B3D5B;--focus:#7C8594;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1D35;--panel:#15253F;--ink:#DDDEE5;--muted:#C3C3C3;--line:#2B3D5B;--steel:#C3C3C3;--steel-ink:#0E1D35;--tag:#DDDEE5;--tag-ink:#0E1D35;--code:#2B3D5B;--head:#15253F;--head-ink:#DDDEE5;--head-hover:#2B3D5B;--focus:#7C8594;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
-.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top{background:var(--head);border-bottom:1px solid var(--head-hover);position:sticky;top:0;z-index:5}
 .top-in{max-width:1180px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
-.brand{font:700 1.3rem var(--display);color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.brand{font:700 1.3rem var(--display);color:var(--head-ink);text-decoration:none;letter-spacing:.01em}
 .brand span{background:var(--tag);color:var(--tag-ink);padding:0 .25em;border-radius:3px}
 .nav{display:flex;flex-wrap:wrap;gap:4px}
-.nav a{font-weight:600;font-size:.92rem;color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:5px}
-.nav a:hover{background:var(--bg)}
-.nav a[aria-current="page"]{background:var(--steel);color:var(--steel-ink)}
+.nav a{font-weight:600;font-size:.92rem;color:var(--head-ink);text-decoration:none;padding:6px 10px;border-radius:5px}
+.nav a:hover{background:var(--head-hover)}
+.nav a[aria-current="page"]{background:var(--head-ink);color:var(--head)}
 .wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start}
 @media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static!important;max-height:none!important}}
 .toc{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;font-size:.88rem;border-left:2px solid var(--line);padding-left:12px}
@@ -26,7 +27,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
 .toc a:hover{color:var(--steel)}
 main{min-width:0;max-width:78ch}
 main h1{font:700 2.2rem/1.05 var(--display);margin:0 0 16px;text-wrap:balance}
-main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--ink);text-transform:uppercase;letter-spacing:.02em}
+main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--steel);text-transform:uppercase;letter-spacing:.02em}
 main h3{font:600 1.25rem var(--display);margin:26px 0 8px;letter-spacing:.02em}
 main a{color:var(--steel)}
 main table{border-collapse:collapse;font-size:.9rem;width:100%;font-variant-numeric:tabular-nums}
@@ -41,10 +42,10 @@ main li{margin:3px 0}
 .card:hover{border-color:var(--steel)}
 .card b{font:600 1.3rem var(--display);letter-spacing:.02em}
 .card span{color:var(--muted);font-size:.92rem}
-.card.hi{border-top:4px solid var(--tag)}
+.card.hi{border-top:4px solid var(--steel)}
 .home{grid-template-columns:minmax(0,1fr)}
 .home main{max-width:none}
-a:focus-visible{outline:3px solid var(--tag);outline-offset:2px}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 </style></head><body>
 <header class="top"><div class="top-in"><a class="brand" href="index.html"><span>MR&amp;G</span> Training</a><nav class="nav"><a href="index.html">Home</a><a href="schedule.html">Schedule</a><a href="guides.html" aria-current="page">P21 Guides</a><a href="reference.html">Product Reference</a><a href="exercises.html">Exercises</a><a href="assessments.html">Assessments</a><a href="trainer.html">Call Desk Trainer</a></nav></div></header>
 <div class="wrap"><aside class="toc"><b>On this page</b><a class="l2" href="#section-2-module-documentation-amp-instructional-guides">SECTION 2:
