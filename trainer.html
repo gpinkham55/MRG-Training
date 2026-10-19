@@ -8,24 +8,24 @@
 <style>
 /* Layout: order-desk split. Call transcript and question cards on the left, a live call ticket on the right that fills in like a P21 entry slip. */
 :root{
-  --bg:#F8F8FA; --panel:#FFFFFF; --ink:#0E1D35; --muted:#2B3D5B; --line:#C3C3C3;
-  --steel:#2B3D5B; --steel-ink:#FFFFFF; --tag:#0E1D35; --tag-ink:#DDDEE5;
-  --good:#1d7a4a; --good-bg:#e3f3ea; --warn:#9a5b00; --warn-bg:#fdf0d8;
-  --cust-bg:#DDDEE5; --you-bg:#15253F; --you-ink:#FFFFFF;
+  --bg:#F6F7F6; --panel:#FFFFFF; --ink:#3D4240; --muted:#6A6E6B; --line:#AAB0AA;
+  --steel:#399A4B; --steel-ink:#FFFFFF; --tag:#3D4240; --tag-ink:#8DD783;
+  --good:#399A4B; --good-bg:#E5F4E1; --warn:#9a5b00; --warn-bg:#fdf0d8;
+  --cust-bg:#E4E7E4; --you-bg:#3D4240; --you-ink:#FFFFFF;
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Source Sans 3","Segoe UI",Arial,sans-serif;
   --mono:"IBM Plex Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0E1D35; --panel:#15253F; --ink:#DDDEE5; --muted:#C3C3C3; --line:#2B3D5B;
-  --steel:#C3C3C3; --steel-ink:#0E1D35; --tag:#DDDEE5; --tag-ink:#0E1D35;
-  --good:#5fd39a; --good-bg:#12321f; --warn:#f0b75a; --warn-bg:#3a2a0e;
-  --cust-bg:#2B3D5B; --you-bg:#7C8594; --you-ink:#0E1D35; color-scheme:dark}}
+  --bg:#2E3230; --panel:#3D4240; --ink:#E8EBE8; --muted:#AAB0AA; --line:#6A6E6B;
+  --steel:#8DD783; --steel-ink:#2E3230; --tag:#8DD783; --tag-ink:#2E3230;
+  --good:#8DD783; --good-bg:#2F4A33; --warn:#f0b75a; --warn-bg:#4a3b1c;
+  --cust-bg:#6A6E6B; --you-bg:#8DD783; --you-ink:#2E3230; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0E1D35; --panel:#15253F; --ink:#DDDEE5; --muted:#C3C3C3; --line:#2B3D5B;
-  --steel:#C3C3C3; --steel-ink:#0E1D35; --tag:#DDDEE5; --tag-ink:#0E1D35;
-  --good:#5fd39a; --good-bg:#12321f; --warn:#f0b75a; --warn-bg:#3a2a0e;
-  --cust-bg:#2B3D5B; --you-bg:#7C8594; --you-ink:#0E1D35; color-scheme:dark}
+  --bg:#2E3230; --panel:#3D4240; --ink:#E8EBE8; --muted:#AAB0AA; --line:#6A6E6B;
+  --steel:#8DD783; --steel-ink:#2E3230; --tag:#8DD783; --tag-ink:#2E3230;
+  --good:#8DD783; --good-bg:#2F4A33; --warn:#f0b75a; --warn-bg:#4a3b1c;
+  --cust-bg:#6A6E6B; --you-bg:#8DD783; --you-ink:#2E3230; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}

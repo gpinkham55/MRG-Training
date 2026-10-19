@@ -4,10 +4,10 @@
 <title>Exercises | MR&amp;G Training</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#F8F8FA;--panel:#FFFFFF;--ink:#0E1D35;--muted:#2B3D5B;--line:#C3C3C3;--steel:#2B3D5B;--steel-ink:#FFFFFF;--tag:#DDDEE5;--tag-ink:#0E1D35;--code:#DDDEE5;--head:#0E1D35;--head-ink:#DDDEE5;--head-hover:#2B3D5B;--focus:#7C8594;
+:root{--bg:#F6F7F6;--panel:#FFFFFF;--ink:#3D4240;--muted:#6A6E6B;--line:#AAB0AA;--steel:#399A4B;--steel-ink:#FFFFFF;--link:#2B7539;--tag:#8DD783;--tag-ink:#3D4240;--code:#E4E7E4;--head:#3D4240;--head-ink:#F6F7F6;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#3D4240;--focus:#399A4B;
 --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1D35;--panel:#15253F;--ink:#DDDEE5;--muted:#C3C3C3;--line:#2B3D5B;--steel:#C3C3C3;--steel-ink:#0E1D35;--tag:#DDDEE5;--tag-ink:#0E1D35;--code:#2B3D5B;--head:#15253F;--head-ink:#DDDEE5;--head-hover:#2B3D5B;--focus:#7C8594;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0E1D35;--panel:#15253F;--ink:#DDDEE5;--muted:#C3C3C3;--line:#2B3D5B;--steel:#C3C3C3;--steel-ink:#0E1D35;--tag:#DDDEE5;--tag-ink:#0E1D35;--code:#2B3D5B;--head:#15253F;--head-ink:#DDDEE5;--head-hover:#2B3D5B;--focus:#7C8594;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2E3230;--panel:#3D4240;--ink:#E8EBE8;--muted:#AAB0AA;--line:#6A6E6B;--steel:#8DD783;--steel-ink:#2E3230;--link:#8DD783;--tag:#8DD783;--tag-ink:#2E3230;--code:#6A6E6B;--head:#3D4240;--head-ink:#E8EBE8;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#2E3230;--focus:#8DD783;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2E3230;--panel:#3D4240;--ink:#E8EBE8;--muted:#AAB0AA;--line:#6A6E6B;--steel:#8DD783;--steel-ink:#2E3230;--link:#8DD783;--tag:#8DD783;--tag-ink:#2E3230;--code:#6A6E6B;--head:#3D4240;--head-ink:#E8EBE8;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#2E3230;--focus:#8DD783;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
 .top{background:var(--head);border-bottom:1px solid var(--head-hover);position:sticky;top:0;z-index:5}
@@ -17,19 +17,19 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
 .nav{display:flex;flex-wrap:wrap;gap:4px}
 .nav a{font-weight:600;font-size:.92rem;color:var(--head-ink);text-decoration:none;padding:6px 10px;border-radius:5px}
 .nav a:hover{background:var(--head-hover)}
-.nav a[aria-current="page"]{background:var(--head-ink);color:var(--head)}
+.nav a[aria-current="page"]{background:var(--head-cur);color:var(--head-cur-ink)}
 .wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start}
 @media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static!important;max-height:none!important}}
 .toc{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;font-size:.88rem;border-left:2px solid var(--line);padding-left:12px}
 .toc b{display:block;font:600 .72rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0}
 .toc a.l3{padding-left:12px;color:var(--muted)}
-.toc a:hover{color:var(--steel)}
+.toc a:hover{color:var(--link)}
 main{min-width:0;max-width:78ch}
 main h1{font:700 2.2rem/1.05 var(--display);margin:0 0 16px;text-wrap:balance}
 main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--steel);text-transform:uppercase;letter-spacing:.02em}
 main h3{font:600 1.25rem var(--display);margin:26px 0 8px;letter-spacing:.02em}
-main a{color:var(--steel)}
+main a{color:var(--link)}
 main table{border-collapse:collapse;font-size:.9rem;width:100%;font-variant-numeric:tabular-nums}
 .tw{overflow-x:auto;margin:12px 0}
 main th,main td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
