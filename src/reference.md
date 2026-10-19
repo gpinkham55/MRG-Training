@@ -2,6 +2,111 @@
 
 Quick lookups for the counter and the desk. Every sheet applies to phone and counter requests alike. When a catalog or manufacturer chart disagrees with these sheets, the catalog wins.
 
+## Abbreviations
+
+**Threads and connections**
+
+| Abbreviation | Means |
+|---|---|
+| NPT | National Pipe Taper: US tapered pipe thread, 60° form, seals on the threads |
+| NPTF | National Pipe Taper Fuel: dryseal version of NPT |
+| MNPT / FNPT | Male / female NPT |
+| NPS | Nominal Pipe Size: the pipe's trade size, not its actual OD |
+| TPI | Threads per inch |
+| UN / UNF | Unified National (fine) thread: straight thread used on JIC and ORB |
+| JIC | Joint Industry Council: 37° flare hydraulic fitting |
+| ORFS | O-Ring Face Seal: flat face with an O-ring in a groove |
+| ORB | O-Ring Boss: straight thread with an O-ring at its base, used in ports |
+| BSP | British Standard Pipe thread, 55° form |
+| BSPP | BSP Parallel (straight) |
+| BSPT | BSP Tapered |
+| DIN | German standard (metric 24° cone fittings) |
+| GHT | Garden Hose Thread |
+| QD | Quick disconnect coupling |
+| SAE | Society of Automotive Engineers: sets hydraulic hose and fitting standards (100R types, J514, J1453) |
+| Code 61 / 62 | SAE 4-bolt split flange, standard / high pressure |
+
+**Fitting codes in our item IDs** (see Sheet O)
+
+| Code | Means |
+|---|---|
+| F2 / F4 | Coupling for 2-wire hose / for 4- and 6-wire spiral hose |
+| JFS | JIC female swivel |
+| JM | JIC male |
+| OBM | O-ring boss male |
+| OFS | ORFS female swivel |
+| PM | Pipe (NPT) male |
+| BSPFS | BSPP female swivel |
+| FL | Code 61 flange |
+| 45 / 90 | 45° or 90° elbow |
+
+**Hose and assemblies**
+
+| Abbreviation | Means |
+|---|---|
+| ID / OD | Inside diameter / outside diameter |
+| OAL | Overall length, sealing face to sealing face |
+| C/O | Cutoff allowance: length a fitting adds beyond the hose end |
+| -8 (dash size) | Hose ID in sixteenths of an inch (-8 = 1/2") |
+| 2W / 4W / 6W | 2-, 4-, or 6-wire reinforcement |
+| R1, R2, R12... | SAE 100R hydraulic hose types |
+| STAMPED | Size, Temperature, Application, Material/Media, Pressure, Ends, Delivery |
+| psi / psig | Pounds per square inch / gauge pressure |
+| MSHA, FDA, DOT | Mine Safety and Health Administration, Food and Drug Administration, Department of Transportation (hose ratings) |
+
+**Materials**
+
+| Abbreviation | Means |
+|---|---|
+| NBR / Buna-N | Nitrile rubber: oil and fuel |
+| EPDM | Ethylene propylene rubber: water and steam |
+| SBR | Styrene butadiene (red rubber): water and air |
+| CR | Neoprene (chloroprene) |
+| FKM | Fluoroelastomer (Viton type): heat and chemicals |
+| CSM | Chlorosulfonated polyethylene (Hypalon type) |
+| UHMWPE | Ultra-high molecular weight polyethylene: chemical hose tube |
+| XLPE | Cross-linked polyethylene: chemical hose tube |
+| PVC | Polyvinyl chloride |
+| PTFE / ePTFE | Polytetrafluoroethylene (Teflon type) / expanded PTFE |
+| CNA | Compressed non-asbestos gasket sheet |
+| SS | Stainless steel |
+| CS | Carbon steel |
+| AL / ALM | Aluminum |
+| FRP | Fiberglass reinforced plastic |
+| Duro | Durometer: rubber hardness (Shore A) |
+
+**Gaskets and flanges**
+
+| Abbreviation | Means |
+|---|---|
+| RF | Raised face flange: takes a ring gasket |
+| FF | Full face flange: takes a full-face gasket with bolt holes |
+| RTJ | Ring type joint (metal ring in a groove) |
+| 150# / 300# | ASME flange pressure class 150 / 300 |
+| ASME | American Society of Mechanical Engineers (B16.5 flanges, B16.21 gaskets) |
+| AS568 | Standard O-ring size chart |
+| P×T | Pressure times temperature: a gasket rating check |
+
+**P21 and ordering**
+
+| Abbreviation | Means |
+|---|---|
+| P21 | Prophet 21, our ERP system |
+| P21PLAY | Our P21 test system for practice |
+| TRG | Our family of companies; other TRG locations can transfer stock |
+| PO | Purchase order |
+| RFQ | Request for quote |
+| RMA | Return merchandise authorization |
+| UOM | Unit of measure |
+| EA / FT / SI / SH | Each / feet / square inches / sheet |
+| COD | Cash on delivery: pay at the counter or on delivery |
+| AP | Accounts payable (the customer's invoice department) |
+| ARO | After receipt of order (lead time) |
+| LTL | Less than truckload freight |
+| OCI | Other charge item (labor, freight, fees) |
+| OEM | Original equipment manufacturer |
+| B / H / S / D / T | Line dispositions: backorder, hold, special order, direct ship, transfer |
+
 ## Reference Sheet A: STAMPED Hose Selection
 
 Ask all seven every time. Missing one is how hoses fail early.
