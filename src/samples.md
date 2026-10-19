@@ -1,8 +1,6 @@
 # Section 5: Product Samples
 
-What our products look like, where customers use them, and example item IDs to look up in P21PLAY. Use this page with Section 4 (Products & Capabilities) and the Reference sheets. When you see a product on the shelf, at the counter, or in the shop, find it here.
-
-The pictures are simple drawings. Your mentor can show you the real thing in the warehouse and shop.
+What our products look like, where customers use them, and example item IDs to look up in P21PLAY. Use this page with Section 4 (Products & Capabilities) and the Reference sheets. 
 
 ## Industrial Hose
 
@@ -62,7 +60,7 @@ The pictures are simple drawings. Your mentor can show you the real thing in the
 
 ![Braided hydraulic hose](img/samples/hydraulic-braid.svg)
 
-**What it is:** Hydraulic hose with two layers of braided wire. Flexible, with a tight bend radius.
+**What it is:** Hydraulic hose with two or more layers of braided wire. Flexible, with a tight bend radius.
 
 **Applications:** Equipment repair, mobile hydraulics, presses, most counter walk-ins.
 
