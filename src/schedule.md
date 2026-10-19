@@ -8,42 +8,42 @@ Each day follows the Daily Structure in Section 1: self-taught P21 and product s
 
 - **Focus:** Orientation, facility tour, logging in, and finding your way around P21.
 - **Block A (P21):** Your mentor gets you logged in to P21 and P21PLAY with your own user ID. Then work Guide 3.1 (Navigation) on your own.
-- **Block B (Product):** Read Section 4 (Products & Capabilities) start to finish. Walk the sample table and match each product line to a sample.
-- **Block C (2.5 hrs):** Facility tour with the Shop Mentor: receiving, stock locations, hose reels, sheet rack, waterjet, crimpers, test bench. Safety glasses on in the shop. Observe the counter for 1 hour.
+- **Block B (Product):** Read Section 4 (Products & Capabilities) start to finish. 
+- **Block C (2.5 hrs):** Facility tour with the Shop Mentor: receiving, stock locations, hose reels, sheet rack, waterjet, crimpers, test bench. Observe the counter for 1 hour.
 - **Block D:** Exercise 1.1. Recap with the Manager.
 
 ### Day 2: Customer Inquiry and Hose Construction
 
 - **Focus:** Reading a customer record end to end.
 - **Block A (P21):** Guide 3.2 (Customer Inquiry & Sales History).
-- **Block B (Product):** Reference Sheets A (STAMPED) and B (Hose Sizing). Handle cut samples: water, air, suction, steam, chemical, petroleum.
-- **Block C (3 hrs):** Shadow the Sales Mentor on phones and counter. Note every time they check credit, history, or notes before answering.
+- **Block B (Product):** Reference Sheets A (STAMPED) and B (Hose Sizing). 
+- **Block C (3 hrs):** Shadow the Sales Mentor on phones and counter. 
 - **Block D:** Exercise 1.2.
 
 ### Day 3: Contact Maintenance and STAMPED
 
 - **Focus:** Clean contact records and the hose selection interview.
 - **Block A (P21):** Guide 3.4 (Contact Maintenance).
-- **Block B (Product):** Practice the STAMPED questions out loud. Read Reference Sheet F (Hose Compatibility).
-- **Block C (3 hrs):** Counter or phones with the Sales Mentor. Listen for which STAMPED questions get asked and which get skipped.
+- **Block B (Product):** Practice the STAMPED questions in Call Desk Trainer. Read Reference Sheet F (Hose Compatibility).
+- **Block C (3 hrs):** Counter or phones with the Sales Mentor. 
 - **Block D:** Exercise 1.3.
 
 ### Day 4: Ship-To Maintenance and Connection Types
 
-- **Focus:** Correct delivery and tax setup; the common connection types.
+- **Focus:** Correct delivery ship to setup; the common connection types.
 - **Block A (P21):** Guide 3.3 (Ship-To Maintenance).
 - **Block B (Product):** Reference Sheets C (Pipe Sizes), D (Connection Types), and E (Industrial Fittings & Attachment).
-- **Block C (2.5 hrs):** Shop Mentor at the counter and assembly bench. Watch a banded water assembly and a steam assembly get built.
+- **Block C (2.5 hrs):** Shop Mentor at the counter and assembly bench. 
 - **Block D:** Exercise 1.4.
 
 ### Day 5: Item Inquiry and Week 1 Quiz
 
-- **Focus:** Finding an item, its stock, its price, and where else it's stocked.
+- **Focus:** Finding an item, its stock availability, and its price.
 - **Block A (P21):** Guide 3.5 (Item Inquiry) and Reference Sheet O (Our P21 Item IDs & Units).
 - **Block B:** Self-review of the week (60 min), then the **Week 1 Quiz** (60 min, at the start of the second half).
 - **Block C (2 hrs):** Enter two live counter orders with the Shop Mentor or Sales Mentor reviewing before release.
 - **Block D:** Exercise 1.5. Quiz review with the Manager.
-- **Pass standard:** 80% on written questions; both P21 scenarios done with no errors that would ship wrong product, bill wrong price, or bill wrong tax.
+- **Pass standard:** 80% on written questions; both P21 scenarios done with no errors that would ship wrong product, or bill wrong price.
 
 ## Week 2: Orders, Hydraulics, and Assemblies
 
@@ -59,7 +59,7 @@ Each day follows the Daily Structure in Section 1: self-taught P21 and product s
 
 - **Focus:** Backorders, cross-references, price and tax, freight, release.
 - **Block A (P21):** Guide 3.6, steps 13 through 23.
-- **Block B (Product):** Reference Sheet H (Thread Identification). Hands-on with calipers, pitch gauge, and seat gauge on the mystery fitting tray.
+- **Block B (Product):** Reference Sheet H (Thread Identification). Hands-on with calipers, pitch gauge, and seat gauge.
 - **Block C (2.5 hrs):** Shop Mentor at the counter: identify fittings walk-in customers bring in.
 - **Block D:** Exercise 2.2.
 
@@ -75,9 +75,9 @@ Each day follows the Daily Structure in Section 1: self-taught P21 and product s
 
 - **Focus:** Building, measuring, testing, and documenting an assembly.
 - **Block A (P21):** Guide 3.6, step 24 (hose assemblies). Look up three past assembly items in history and read how they were built.
-- **Block B (Product):** Reference Sheet I, parts 3 through 8. Then build three assemblies with the Shop Mentor.
+- **Block B (Product):** Reference Sheet I, parts 3 through 8. Then build assemblies with the Shop Mentor.
 - **Block C (2.5 hrs):** Assembly bench with the Shop Mentor.
-- **Block D:** Exercise 2.4. The Shop Mentor decides when you can crimp without them at the bench.
+- **Block D:** Exercise 2.4. The Shop Mentor decides when you can crimp without supervision.
 
 ### Day 10: Quoting and Week 2 Quiz
 
