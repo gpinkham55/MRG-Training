@@ -4,9 +4,13 @@ What our products look like, where customers use them, and example item IDs to l
 
 ## Industrial Hose
 
+![Industrial hose](img/samples/industrial-hose.jpg)
+
 ### Air and water hose
 
-![Air and water hose](img/samples/industrial-hose.jpg)
+![Air and water hose](img/samples/air-water-hose.jpg)
+
+![Air and water hose cutaway](img/samples/air-water-hose-2.jpg)
 
 **What it is:** General-purpose rubber hose with a tube, a fabric reinforcement, and a cover.
 
@@ -98,7 +102,9 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Hose assemblies
 
-![Hose assembly](img/samples/hose-assembly.jpg)
+![Hose assemblies](img/samples/hose-assembly.jpg)
+
+![Hose assemblies with fittings](img/samples/hose-assembly-2.jpg)
 
 **What it is:** Hose with fittings crimped on both ends, cut to length, tested when required, and tagged. Built in our shop.
 
@@ -142,7 +148,7 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Ring and full-face gaskets
 
-![Ring and full-face gaskets](img/samples/gaskets.jpg)
+![Ring and full-face gaskets](img/samples/gaskets.png)
 
 **What it is:** Cut gaskets for pipe flanges. Ring gaskets fit inside the bolts on raised-face flanges; full-face gaskets cover the whole flange and have bolt holes.
 
@@ -184,7 +190,9 @@ What our products look like, where customers use them, and example item IDs to l
 
 ### Expansion joints and bellows
 
-![Bellows expansion joint](img/samples/bellows.jpg)
+![Rubber expansion joint](img/samples/bellows.jpg)
+
+![Stainless expansion joint](img/samples/bellows-2.jpg)
 
 **What it is:** Flexible joints, stainless or rubber, that absorb movement, vibration, and heat growth in piping.
 
@@ -207,6 +215,8 @@ What our products look like, where customers use them, and example item IDs to l
 ### Belting
 
 ![Belting](img/samples/belting.jpg)
+
+![Conveyor belting](img/samples/belting-2.jpg)
 
 **What it is:** Conveyor and transmission belting, sold by the foot or made endless.
 
@@ -231,27 +241,4 @@ To swap a picture for a photo of our own sample:
 1. Take the photo on a plain background, landscape, about 1200 pixels wide.
 2. Give it the same file name as the picture it replaces (for example `suction-hose.jpg`).
 3. On github.com, open the `img/samples` folder, choose **Add file**, then **Upload files**, and upload it. It replaces the old picture.
-4. Remove that picture's line from Photo Credits below, then commit. The page rebuilds in a minute or two.
-
-## Photo Credits
-
-These photos come from Wikimedia Commons and are used under the license shown. The other pictures were supplied by MR&G.
-
-- **Air and water hose:** [Tuyaux EPDM d'un groupe de froid (1)](https://commons.wikimedia.org/wiki/File:Tuyaux_EPDM_d%27un_groupe_de_froid_(1).jpg) by Cjp24, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
-- **Suction hose:** [Saugschläuche 6802](https://commons.wikimedia.org/wiki/File:Saugschl%C3%A4uche_6802.jpg) by BFV Radkersburg, [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0)
-- **Chemical hose:** [20110719-RD-LSC-0205 (6791940537)](https://commons.wikimedia.org/wiki/File:20110719-RD-LSC-0205_(6791940537).jpg) by USDA, Public domain
-- **Layflat hose:** [Firehose75mm](https://commons.wikimedia.org/wiki/File:Firehose75mm.jpg) by Ysignal, [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-- **Braided hydraulic hose:** [Hydraulikschlauch](https://commons.wikimedia.org/wiki/File:Hydraulikschlauch.jpg) by Ilmtaler, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
-- **Spiral hydraulic hose:** [Antriebs-Hydraulikleitungen einer hydraulischen Kran-Seilwinde](https://commons.wikimedia.org/wiki/File:Antriebs-Hydraulikleitungen_einer_hydraulischen_Kran-Seilwinde.jpg) by Deckenpappe2023, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
-- **Crimp couplings:** [Hydraulic hose fittings](https://commons.wikimedia.org/wiki/File:Hydraulic_hose_fittings.JPG) by Jstapko, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- **Adapters:** [JIC-37deg-Ford1967](https://commons.wikimedia.org/wiki/File:JIC-37deg-Ford1967.jpg) by PRR, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- **Hose assemblies:** [Crimped hose ends](https://commons.wikimedia.org/wiki/File:Crimped_hose_ends.JPG) by Jstapko, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- **Cam and groove couplings:** [Camlock type C](https://commons.wikimedia.org/wiki/File:Camlock_type_C.JPG) by SophiaSME, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- **Hose clamps:** [Hoseclamps.screw.agr](https://commons.wikimedia.org/wiki/File:Hoseclamps.screw.agr.jpg) by ArnoldReinhold, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- **Ring and full-face gaskets:** [Compressed fiber jointing](https://commons.wikimedia.org/wiki/File:Compressed_fiber_jointing.JPG), Public domain; [MANHOLE GASKET](https://commons.wikimedia.org/wiki/File:MANHOLE_GASKET.JPG), Public domain (combined into one picture)
-- **O-rings:** [Oring gr](https://commons.wikimedia.org/wiki/File:Oring_gr.jpg) by Gert Wrigge and Ilja Gerhardt, [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-- **Compression packing:** [Gland packing002](https://commons.wikimedia.org/wiki/File:Gland_packing002.jpg) by Miya.m, [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-- **Expansion joints:** [Flanged Rubber Bellows](https://commons.wikimedia.org/wiki/File:Flanged_Rubber_Bellows.jpg) by The Yeti, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)
-- **Metal hose:** [Metallschläuche](https://commons.wikimedia.org/wiki/File:Metallschl%C3%A4uche.jpg) by Witzenmann GmbH, [CC BY-SA 3.0 de](https://creativecommons.org/licenses/by-sa/3.0/de/deed.en)
-- **Belting:** [Horizontal Belt Conveyor](https://commons.wikimedia.org/wiki/File:Horizontal_Belt_Conveyor.jpg) by RICHI Manufacture, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0)
-- **Waterjet cutting:** [Bystronic Wasserstrahlschneiden](https://commons.wikimedia.org/wiki/File:Bystronic_Wasserstrahlschneiden.jpg) by Bystronic, [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5)
+4. Commit. The page rebuilds in a minute or two.
