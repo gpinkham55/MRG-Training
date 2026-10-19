@@ -1,6 +1,6 @@
 # Section 2: Three-Week Schedule
 
-Each day follows the Daily Structure in Section 1: self-taught P21 and product study in the first half, mentor time in the second. Guide numbers refer to Section 3; reference sheet letters refer to Section 5.
+Each day follows the Daily Structure in Section 1: self-taught P21 and product study in the first half, mentor time in the second. Guide numbers refer to Section 3; reference sheet letters refer to Section 6.
 
 ## Week 1: P21 Basics, Customers, and Industrial Hose
 
@@ -8,7 +8,7 @@ Each day follows the Daily Structure in Section 1: self-taught P21 and product s
 
 - **Focus:** Orientation, facility tour, logging in, and finding your way around P21.
 - **Block A (P21):** Your mentor gets you logged in to P21 and P21PLAY with your own user ID. Then work Guide 3.1 (Navigation) on your own.
-- **Block B (Product):** Read Section 4 (Products & Capabilities) start to finish. Walk the sample table and match each product line to a sample.
+- **Block B (Product):** Read Section 4 (Products & Capabilities) and Section 5 (Product Samples) start to finish. Then walk the warehouse and find a real example of each sample.
 - **Block C (2.5 hrs):** Facility tour with the Shop Mentor: receiving, stock locations, hose reels, sheet rack, waterjet, crimpers, test bench. Safety glasses on in the shop. Observe the counter for 1 hour.
 - **Block D:** Exercise 1.1. Recap with the Manager.
 
@@ -110,7 +110,7 @@ Each day follows the Daily Structure in Section 1: self-taught P21 and product s
 
 - **Focus:** Belting, expansion joints, metal hose, O-rings, seals, packing; helping a customer with a leak.
 - **Block A (P21):** Review day: open orders, open quotes, backorder follow-up, and contact clean-up on one assigned account.
-- **Block B (Product):** Reference Sheets M (Bolt Torque & Installation) and N (O-Rings). Re-read the product lines in Section 4.
+- **Block B (Product):** Reference Sheets M (Bolt Torque & Installation) and N (O-Rings). Re-read Sections 4 and 5.
 - **Block C (2.5 hrs):** You take requests; your mentor listens and steps in only when asked.
 - **Block D:** Exercise 3.3.
 

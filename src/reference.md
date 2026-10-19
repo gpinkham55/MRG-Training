@@ -1,4 +1,4 @@
-# Section 5: Reference
+# Section 6: Reference
 
 Quick lookups for the counter and the desk. Every sheet applies to phone and counter requests alike. When a catalog or manufacturer chart disagrees with these sheets, the catalog wins.
 

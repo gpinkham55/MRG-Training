@@ -13,6 +13,7 @@ New hire training site for Montgomery Rubber & Gasket: P21 navigation, customer 
 | Schedule | `src/schedule.md` |
 | P21 Guides | `src/guides.md` |
 | Products | `src/products.md` |
+| Samples | `src/samples.md` (drawings in `img/samples`) |
 | Reference | `src/reference.md` |
 | Exercises | `src/exercises.md` |
 | Assessments | `src/assessments.md` |

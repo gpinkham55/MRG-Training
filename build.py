@@ -11,6 +11,7 @@ PAGES = [
     ("schedule", "Schedule", "src/schedule.md", "Day-by-day plan for three weeks, with mentor hours."),
     ("guides", "P21 Guides", "src/guides.md", "Navigation, customer and item inquiry, ship-tos, contacts, order entry, quoting, and order follow-up."),
     ("products", "Products", "src/products.md", "What we sell, what our shop builds, and who we serve."),
+    ("samples", "Samples", "src/samples.md", "What each product looks like, where customers use it, and example items to look up."),
     ("reference", "Reference", "src/reference.md", "Sizing charts, connection types, threads, hose, gaskets, flanges, O-rings, and our P21 item IDs."),
     ("exercises", "Exercises", "src/exercises.md", "Daily practice on real accounts in P21PLAY."),
     ("assessments", "Assessments", "src/assessments.md", "Week 1 and Week 2 quizzes, final exam, and sign-off record."),
@@ -51,6 +52,7 @@ main th{background:var(--code);font-weight:600}
 main code{font-family:var(--mono);background:var(--code);padding:1px 4px;border-radius:3px}
 main hr{border:0;border-top:1px dashed var(--line);margin:28px 0}
 main li{margin:3px 0}
+main img{display:block;width:100%;max-width:360px;height:auto;border-radius:10px;margin:8px 0 4px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
 .card{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;text-decoration:none;color:var(--ink)}
 .card:hover{border-color:var(--steel)}
