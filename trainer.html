@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MR&amp;G Call Desk Trainer</title>
+<title>MR&amp;G Call &amp; Counter Trainer</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: order-desk split. Call transcript and question cards on the left, a live call ticket on the right that fills in like a P21 entry slip. */
@@ -94,8 +94,8 @@ aside.ticket{background:var(--panel);border:1px solid var(--line);border-radius:
   <a href="index.html" id="home-link" style="color:var(--steel);font-weight:600;text-decoration:none;font-size:.92rem">&larr; MR&amp;G Training home</a>
   <header>
     <div>
-      <h1><img src="img/mrg-logo.png" alt="Montgomery Rubber &amp; Gasket" width="169" height="52">Call Desk Trainer</h1>
-      <p class="sub">A customer calls. Pick the best next question, listen to the answer, and build the call ticket until you have what you need to work it in P21PLAY.</p>
+      <h1><img src="img/mrg-logo.png" alt="Montgomery Rubber &amp; Gasket" width="169" height="52">Call &amp; Counter Trainer</h1>
+      <p class="sub">A customer calls or walks up to the counter. Pick the best next question, listen to the answer, and build the ticket until you know what to do in P21PLAY.</p>
     </div>
     <div class="score" aria-live="polite">
       <div>Score<b id="sc">0</b></div>
@@ -111,277 +111,268 @@ aside.ticket{background:var(--panel);border:1px solid var(--line);border-radius:
       <div id="stage"></div>
     </section>
     <aside class="ticket" aria-label="Call ticket">
-      <div class="tk-top"><b>Call Ticket</b><span id="tkcount"></span></div>
+      <div class="tk-top"><b>Ticket</b><span id="tkcount"></span></div>
       <ul class="tk" id="tk"></ul>
     </aside>
   </div>
-  <p class="foot">Practice calls use made-up customers. All entries go in P21PLAY, never live P21. Scoring: +10 for a good question, -5 for an off-track question, +20 for the right P21 action.</p>
+  <p class="foot">Practice requests built on real accounts, orders, and items. Callers marked as practice and some details are made up for training. All entries go in P21PLAY, never live P21. Scoring: +10 for a good question, -5 for an off-track question, +20 for the right P21 action.</p>
 </div>
 
 <script>
 const S = [
-{ id:"suction", title:"Suction Hose Assembly", tag:"Industrial hose + new ship-to",
-  caller:"Terrell", open:"Hey, this is Terrell over at River Bend Mill. I need a suction hose for a pump at our new wastewater building. Can you help me out?",
-  fields:[["cust","Customer"],["contact","Contact"],["size","Size"],["len","Length"],["media","Media / temp"],["app","Application"],["end1","End 1"],["end2","End 2"],["mat","Fitting material"],["attach","Attachment"],["ship","Ship-to"],["recv","Receiving"],["need","Need / next step"]],
+{ id:"suction", title:"Pump Station Suction Hose", tag:"Phone: industrial hose + new ship-to", ch:"Phone",
+  caller:"Water Works supervisor", open:"This is the maintenance supervisor at Montgomery Water Works. We need a suction hose for a pump at our new pump station. Can you help me out?",
+  fields:[["cust","Customer"],["contact","Contact"],["size","Size"],["len","Length"],["media","Media / temp"],["app","Application"],["hose","Hose item"],["end1","End 1"],["end2","End 2"],["mat","Fitting material"],["attach","Attachment"],["ship","Ship-to"],["recv","Receiving"],["need","Need / next step"]],
   good:[
-   {q:"Can I get your full title and confirm the account so I pull up the right record?",a:"Terrell Banks, maintenance planner. Same River Bend Mill account we always use.",g:{cust:"River Bend Mill (confirm bill-to)",contact:"Terrell Banks, Maint. Planner"},c:"Confirm the account and caller before anything else. Mills often have several accounts."},
-   {q:"What inside diameter do you need, and how long should the assembly be?",a:"Two-inch, and about twenty feet.",g:{size:"2\" ID",len:"20 ft OAL"},c:"Size is the S in STAMPED. Always confirm ID, not OD."},
-   {q:"What's going through the hose, and how hot does it get?",a:"Wastewater. Some sand and grit in it. Just ambient temperature, eighty degrees or so.",g:{media:"Wastewater w/ grit, ~80°F"},c:"Media and temperature drive the tube compound. Grit means you need abrasion resistance."},
-   {q:"Is the pump pulling from a sump, or pushing it out under pressure?",a:"Pulling from a sump. Full suction on this side.",g:{app:"Suction from sump, full vacuum (needs rigid helix)"},r:["media"],c:"Suction needs a hose with a rigid helix rated for vacuum. A discharge hose would collapse."},
-   {q:"What connects on each end of the hose?",a:"One end goes on the pump, and it's got one of those groove adapters. The other end screws into a pipe.",g:{end1:"Cam & groove Type C coupler (pump has adapter)",end2:"Pipe thread, details needed"},c:"Pump has the male groove adapter, so the hose gets a Type C coupler. Now get details on the pipe end."},
-   {q:"On the pipe end: is the pipe threaded male or female, and what size?",a:"The pipe has female threads. Two-inch.",g:{end2:"2\" male NPT hose shank"},r:["end2"],c:"Female pipe thread means a male NPT shank on the hose."},
-   {q:"What material is the adapter on the pump: aluminum, stainless, or brass?",a:"Stainless. Everything in that building is stainless.",g:{mat:"Stainless fittings"},r:["end1"],c:"Matching fitting material avoids galvanic issues and fits their plant standard."},
-   {q:"For grit under suction, are crimped ferrules OK, or do you want interlocking clamps you can service in the field?",a:"Crimped is fine as long as it holds.",g:{attach:"Crimped ferrules"},r:["app","end2"],c:"Attachment method is part of E in STAMPED. Ask, don't assume."},
-   {q:"Where should this ship?",a:"To the new wastewater building on Highway 82. I don't think you have it on file yet.",g:{ship:"NEW ship-to: Wastewater bldg, Hwy 82"},c:"A new physical site means a new ship-to with its own tax group."},
-   {q:"Who receives deliveries at that building, and should the driver call first?",a:"Ask for Leon at the roll-up door. Call him first at 334-555-0182.",g:{recv:"Leon, roll-up door, call ahead 334-555-0182"},r:["ship"],c:"Receiving details go in the ship-to delivery instructions, not the address lines."},
-   {q:"When do you need it, and do you want a quote first or are you ready to order?",a:"Inside a week. Send me a quote, I need approval before I can cut a PO.",g:{need:"Within 1 week; quote first, no PO yet"},c:"Delivery is the D in STAMPED, and it tells you whether this is a quote or an order."}
+   {q:"Let me pull up your account. Can I get your name and title so I can add you as a contact?",a:"Terrell Banks, maintenance supervisor. I don't think I'm in your system.",sys:"Customer 10606, Montgomery Water Works.\nContacts on file: one invoice mailbox placeholder. No named buyer.",g:{cust:"Montgomery Water Works (10606)",contact:"Terrell Banks (practice caller): ADD as contact"},c:"Account and caller first. Water Works has no named contact in P21, so this one gets added."},
+   {q:"What inside diameter do you need, and how long should the assembly be?",a:"Three-inch, about twenty feet.",g:{size:"3\" ID",len:"20 ft OAL"},c:"Size is the S in STAMPED. Confirm ID, not OD."},
+   {q:"What's going through the hose, and how warm does it get?",a:"Raw water with some sand and grit. Just ambient temperature.",g:{media:"Raw water w/ grit, ambient"},c:"Media and temperature pick the tube. Grit means abrasion resistance."},
+   {q:"Is the pump pulling from a wet well, or pushing water out under pressure?",a:"Pulling. It's on the suction side.",g:{app:"Suction (needs rigid helix, vacuum rated)"},r:["media"],c:"Suction needs a hose with a rigid helix rated for vacuum. A discharge hose would collapse."},
+   {q:"Let me check stock on our 3-inch suction hose.",a:"",sys:"HSE WTR 300 RBR SUC (Hose, Water, 3.00\", Rubber, Suction): stocked at 110, some already allocated.\nRead the available quantity, not just on hand.",g:{hose:"HSE WTR 300 RBR SUC: check available"},r:["app","size"],c:"Check available stock before you promise. Allocated stock belongs to other orders."},
+   {q:"What connects on each end?",a:"One end goes on the pump, it's got one of those groove adapters. The other end screws into a pipe.",g:{end1:"Cam & groove Type C (pump has adapter)",end2:"Pipe thread, details needed"},c:"The pump has the male groove adapter, so the hose gets a Type C coupler."},
+   {q:"On the pipe end, is the pipe threaded male or female, and what size?",a:"Female threads, three-inch.",g:{end2:"3\" male NPT hose shank"},r:["end2"],c:"Female pipe thread means a male NPT shank on the hose."},
+   {q:"Aluminum or stainless for the coupler?",a:"Stainless if you've got it.",sys:"FIT CAM CPLG 300 SS C CRIMP (3\" stainless Type C, crimp style) and 150012302 (3\" stainless Type C) stocked at 110.\nFIT CAM CPLG 300 ALM C (aluminum) also stocked.",g:{mat:"Stainless: FIT CAM CPLG 300 SS C CRIMP"},r:["end1"],c:"Item IDs tell you a lot. 'SS C CRIMP' is stainless, Type C, crimp style."},
+   {q:"For grit on the suction side, are crimped ends OK?",a:"Crimped is fine as long as it holds.",g:{attach:"Crimped ferrules"},r:["app","end2"],c:"Attachment is part of E in STAMPED. Ask, don't assume."},
+   {q:"Where should this ship?",a:"To the new pump station. You won't have it on file yet.",g:{ship:"NEW ship-to: pump station"},c:"A new site gets its own ship-to and tax setup."},
+   {q:"Any receiving instructions for the driver?",a:"The gate stays locked. Call the station before you come.",g:{recv:"Locked gate; call ahead (delivery instructions)"},r:["ship"],c:"Delivery instructions go in the ship-to's instruction field, not the address lines."},
+   {q:"When do you need it, and do you want a quote first?",a:"Inside a week. Send me a quote; I need approval first.",g:{need:"Within a week; quote first, no PO yet"},c:"Delivery is the D in STAMPED, and it tells you quote or order."}
   ],
   weak:[
-   {q:"Do you want our standard red rubber water hose?",a:"I don't know, will that work for suction?",c:"Leading the customer before you know the media or that it's suction. Red water hose without a helix collapses under vacuum."},
-   {q:"What price are you hoping for?",a:"Whatever it costs, I just need it to work.",c:"Price comes after the spec. You can't price what you haven't defined."},
-   {q:"Should I just copy the last hose you bought?",a:"The last one was for the clarifier. Totally different job.",c:"Order history helps, but never skip STAMPED on a new application."},
-   {q:"Can you call back when you know more about it?",a:"I was kind of hoping you'd help me figure it out.",c:"The customer called for expertise. Walk them through the questions."}
+   {q:"Do you want our standard red water hose?",a:"I don't know, does that work for suction?",c:"Leading the customer before you know it's suction. A hose without a helix collapses under vacuum."},
+   {q:"What price are you hoping for?",a:"Whatever it costs, I just need it to work.",c:"Price comes after the spec."},
+   {q:"Can you call back when you know more?",a:"I was hoping you'd help me figure it out.",c:"The customer called for help. Walk them through the questions."}
   ],
   action:{q:"You have everything. What do you do in P21PLAY?",opts:[
-   {t:"Create the new Hwy 82 ship-to (tax group, receiving notes), then build a quote with a validity date and send it to Terrell.",ok:true,c:"Correct. New site first so tax and delivery are right, then a quote since there's no PO yet."},
-   {t:"Enter a sales order and release it so the shop can start.",c:"No PO and the customer asked for a quote. An order now would get rejected at invoice."},
-   {t:"Quote it to the main plant ship-to and fix the address after he orders.",c:"Wrong tax group and wrong delivery info on the quote. Set up the ship-to first."},
-   {t:"Special order the hose now so it's ready when he approves.",c:"Never buy for an unapproved quote. Wait for the PO."}],
-   steps:["Search ship-tos for River Bend Mill; confirm Hwy 82 is new","Ship To Maintenance: address, tax group for the Hwy 82 address, salesrep, carrier, delivery note (Leon, call ahead)","Quote: 20 ft 2\" suction hose (rigid helix), stainless Type C coupler, stainless 2\" male NPT shank, crimp ferrules, assembly labor","Set expiration date and lead time per line","Check margin and the extended total, then send to Terrell","Log a follow-up in 2 business days"]}
+   {t:"Add Terrell as a contact, create the pump station ship-to (tax, call-ahead note), then build a quote with an expiration date and send it to him.",ok:true,c:"Correct. Contact and site first so the quote goes to the right person with the right tax."},
+   {t:"Enter a sales order and release it so the shop can start.",c:"No PO, and he asked for a quote."},
+   {t:"Quote it to the existing ship-to and fix the address later.",c:"Wrong tax and delivery info on the quote. Set up the ship-to first."},
+   {t:"Special order the hose now so it's ready.",c:"Never buy for an unapproved quote."}],
+   steps:["Contact Maintenance: add Terrell Banks to 10606, Maintenance role, quotes by email","Ship To Maintenance: pump station address, tax for that address, delivery note (locked gate, call ahead)","Quote: 20 ft HSE WTR 300 RBR SUC, FIT CAM CPLG 300 SS C CRIMP, 3\" stainless male NPT crimp shank, ferrules, assembly labor","Set expiration and lead time, check margin and total","Send to Terrell and set a follow-up"]}
 },
-{ id:"press", title:"Hydraulic Press Hose", tag:"Hydraulic assembly order",
-  caller:"Marcus", open:"Our hydraulic press just blew a hose. Half inch, two-wire I think. About forty inches. Can you make me one?",
-  fields:[["cust","Customer"],["contact","Contact"],["hose","Hose"],["press","Pressure"],["media","Media / temp"],["oal","Length"],["end1","End 1"],["end2","End 2"],["orient","Orientation"],["need","Need / pickup"],["po","PO"]],
+{ id:"cowin", title:"Blown Hose at the Counter", tag:"Counter: hydraulic assembly reorder", ch:"Counter",
+  caller:"Cowin Equipment mechanic", open:"I'm with Cowin Equipment. Blew this hose on one of our machines. Can y'all make me another one just like it?",
+  fields:[["cust","Customer"],["contact","Contact"],["hose","Hose"],["hist","History"],["end1","End 1"],["end2","End 2"],["oal","Length"],["press","Pressure / fluid"],["orient","Orientation"],["po","PO"],["need","Need"]],
   good:[
-   {q:"Let me pull up your account. Who am I speaking with?",a:"Marcus Reed, shop foreman at Prattville Fab and Machine.",g:{cust:"Prattville Fab & Machine",contact:"Marcus Reed, Shop Foreman"},c:"Account and caller first, every call."},
-   {q:"Can you read me the printing on the side of the old hose?",a:"Says 100R2AT, dash 8.",g:{hose:"-8 (1/2\") SAE 100R2AT, 2-wire braid"},c:"The layline is the fastest, most reliable way to identify a hydraulic hose."},
-   {q:"What's the working pressure on that circuit?",a:"Gauge reads about 3,000 at full stroke.",g:{press:"3,000 psi working (R2 -8 rated about 4,000: OK)"},r:["hose"],c:"Confirm the old hose was rated for the job before copying it."},
-   {q:"What fluid is it, and how hot does it run?",a:"AW46 hydraulic oil. Runs warm, maybe 150.",g:{media:"AW46 oil, ~150°F"},c:"Nitrile tube handles hydraulic oil, and 150°F is well inside the range."},
-   {q:"Can you measure the old assembly from sealing face to sealing face?",a:"Forty and a half inches.",g:{oal:"40.5\" OAL"},c:"OAL is measured fitting end to fitting end, not hose length."},
-   {q:"What's on each end of the old hose?",a:"One end has a nut that swivels. The other end screws into the cylinder port.",g:{end1:"Female swivel, thread needed",end2:"Male port end, thread needed"},c:"Good start. Now identify each thread."},
-   {q:"On the swivel end, can you measure the thread and check the seat angle?",a:"I've got calipers. Thread is about 3/4 inch, 16 threads per inch, and the cone inside looks like 37 degrees.",g:{end1:"-8 female JIC swivel (3/4-16, 37°)"},r:["end1"],c:"3/4-16 with a 37° seat is a -8 JIC."},
-   {q:"On the port end, is there an O-ring at the base of the threads, or do the threads taper?",a:"Straight threads, O-ring down at the bottom. About 3/4 inch too.",g:{end2:"-8 male SAE O-ring boss (3/4-16)"},r:["end2"],c:"O-ring at the thread base with straight threads is SAE O-ring boss."},
-   {q:"Are both ends straight, or is either one an elbow?",a:"Both straight.",g:{orient:"Both straight"},r:["end1","end2"],c:"Elbows need orientation. Always ask."},
-   {q:"When do you need it, and will you pick up or should we deliver?",a:"Press is down. I'll send somebody to pick it up the minute it's ready.",g:{need:"ASAP, will-call pickup"},c:"Down equipment means priority. Get the pickup plan."},
-   {q:"Do you have a PO number for this?",a:"Use PO 77231.",g:{po:"PO 77231"},r:["need"],c:"PO in hand means this is an order, not a quote."}
+   {q:"Let me pull up Cowin's account. What's your name?",a:"Marcus. I'm one of the mechanics.",sys:"Customer 10462, Cowin Equipment Co, Inc.\nContacts on file: none.",g:{cust:"Cowin Equipment (10462)",contact:"Marcus (practice): add as contact"},c:"A walk-in with an account goes on their account, not the cash account."},
+   {q:"Can I see the hose? Let me read the printing on it.",a:"Here you go.",sys:"Layline: -8, two-wire, 5,100 psi family. Matches item HB5K-8.",g:{hose:"-8 2-wire: HB5K-8"},c:"The layline is the fastest way to identify a hydraulic hose."},
+   {q:"Let me see if we've built this for you before.",a:"",sys:"Sales history, Cowin Equipment:\nHB5K-8-0808JFS-0808OBM-7.04 on order 1035074 (PO SPO025514), $70.77\nHB5K-8-0808JFS-0808JFS-30 on order 1040539 (PO SPO25869)",g:{hist:"Two past -8 assemblies on file"},r:["cust","hose"],c:"History can save you every measurement, but confirm the ends before you trust it."},
+   {q:"Let me measure both ends.",a:"",sys:"End 1: 3/4-16 female swivel, 37° seat.\nEnd 2: 3/4-16 male, straight threads, O-ring at the base.",g:{end1:"-8 JIC female swivel (F2-0808-JFS)",end2:"-8 O-ring boss male (F2-0808-OBM)"},r:["hose"],c:"3/4-16 with a 37° seat is -8 JIC. Straight threads with an O-ring at the base is O-ring boss."},
+   {q:"Let me measure the old one end to end.",a:"",sys:"About 84-1/2 inches sealing face to sealing face: 7.04 ft.",g:{oal:"7.04 ft: matches order 1035074"},r:["end1","end2"],c:"Same hose, same ends, same length. That's the assembly on order 1035074."},
+   {q:"What pressure and fluid does that circuit run?",a:"Regular hydraulic oil. Around 3,000 psi.",g:{press:"Hydraulic oil, ~3,000 psi: inside -8 rating (check catalog)"},r:["hose"],c:"Confirm the old hose was rated for the job before you copy it."},
+   {q:"Both ends straight, no elbows?",a:"Both straight.",g:{orient:"Both straight"},r:["end1","end2"],c:"Elbows need orientation. Always ask."},
+   {q:"Do you have a PO for this?",a:"Use SPO026001.",g:{po:"SPO026001 (practice)"},c:"Their PO numbers follow a pattern. A PO means order, not quote."},
+   {q:"When do you need it?",a:"Machine's down. I'll wait if it's quick.",g:{need:"Down machine; waiting: check the bench"},c:"Down equipment is priority. Check the bench before you promise a time."}
   ],
   weak:[
-   {q:"Is it a hydraulic hose?",a:"...Yeah. It's on a hydraulic press.",c:"Already answered in the opening. Listen first, then ask what you don't know."},
-   {q:"Want me to save you money with a one-wire hose?",a:"Will that hold?",c:"A -8 R1 is rated around 2,000 psi. On a 3,000 psi circuit it would fail. Never downgrade without the numbers."},
-   {q:"Can you read me the part numbers off the fittings?",a:"They're rusty. I can't make anything out.",c:"Fitting part numbers are often unreadable. Measure threads and seats instead."},
-   {q:"I'll have it ready in twenty minutes, OK?",a:"Great, I'll send my guy now.",c:"Never promise a time before checking the assembly bench queue with Eric."}
+   {q:"Is this a hydraulic hose?",a:"...Yeah.",c:"You're holding it. Read the layline instead."},
+   {q:"I'll ring it up on the cash account.",a:"We've got an account with you.",c:"Account customers go on their account with their PO."},
+   {q:"It'll be ready in twenty minutes.",a:"Great, I'll wait.",c:"Never promise a time before checking the bench with the Shop Mentor."}
   ],
-  action:{q:"You have the full spec and a PO. What do you do in P21PLAY?",opts:[
-   {t:"Enter a sales order with PO 77231, the assembly line (-8 R2, JIC swivel x ORB male, 40.5\" OAL), will-call, then check the bench with Eric before giving a ready time.",ok:true,c:"Correct. PO in hand, equipment down: order it, route it to the shop, then promise a real time."},
-   {t:"Send a quote first and wait for approval.",c:"He gave you a PO and his press is down. A quote only slows him down."},
-   {t:"Special order a factory assembly from the vendor.",c:"MR&G builds this in-house. A factory order takes days."},
-   {t:"Enter the order, then tell him 20 minutes.",c:"Check the bench queue with Eric before promising a time."}],
-   steps:["Order Entry: customer, contact Marcus Reed, PO 77231, will-call","Assembly line: -8 100R2AT hose, -8 female JIC swivel, -8 male ORB, 40.5\" OAL, both straight","Note media (AW46, 150°F) and pressure (3,000 psi) on the line","Route to the shop and confirm a ready time with Eric","Call Marcus back with the ready time"]}
+  action:{q:"What do you do in P21PLAY?",opts:[
+   {t:"Enter an order on 10462 with PO SPO026001 for HB5K-8-0808JFS-0808OBM-7.04, add Marcus as a contact, route the assembly to the shop, and check the bench before giving a time.",ok:true,c:"Correct. History confirmed the build; the shop sets the time."},
+   {t:"Order the 30 ft assembly from order 1040539.",c:"Wrong length and wrong second end. Measure before you copy history."},
+   {t:"Send a quote by email.",c:"He's standing at the counter with a PO and a down machine."},
+   {t:"Put it on the counter cash account.",c:"Cowin has an account. Use it."}],
+   steps:["Order Entry: customer 10462, PO SPO026001, will call","Line: 1 ea HB5K-8-0808JFS-0808OBM-7.04 (hose HB5K-8, F2-0808-JFS, F2-0808-OBM)","Contact Maintenance: add Marcus to 10462","Route to the shop; confirm a ready time with the Shop Mentor","Tell Marcus the real ready time"]}
 },
-{ id:"gasket", title:"Steam Header Gaskets", tag:"Gasket quote",
-  caller:"Dana", open:"Hi, I need pricing on some gaskets. Forty of the four-inch and twenty of the two-inch.",
-  fields:[["cust","Customer"],["contact","Contact"],["qty","Sizes / qty"],["cls","Flange class"],["face","Facing / type"],["svc","Service"],["mat","Material"],["thk","Thickness"],["pxt","P×T check"],["valid","Quote timing"],["ship","Ship-to"]],
+{ id:"gp-gaskets", title:"Steam Header Gaskets", tag:"Phone: gasket quote", ch:"Phone",
+  caller:"Cade Baker", open:"Hey, it's Cade Baker at Georgia Pacific Pennington. I need pricing on forty of the four-inch gaskets and twenty of the two-inch.",
+  fields:[["cust","Customer"],["contact","Contact"],["qty","Sizes / qty"],["cls","Flange class"],["face","Facing / type"],["svc","Service"],["hist","Last order"],["mat","Material"],["pxt","P×T check"],["valid","Quote timing"],["ship","Ship-to"]],
   good:[
-   {q:"Who am I speaking with, and which account is this for?",a:"Dana Whitfield, buyer at Tallassee Paperboard.",g:{cust:"Tallassee Paperboard",contact:"Dana Whitfield, Buyer"},c:"Account and caller first."},
-   {q:"Let me confirm: forty 4-inch and twenty 2-inch, correct?",a:"That's right.",g:{qty:"40 x 4\", 20 x 2\""},c:"Reading quantities back catches errors before they hit the quote."},
-   {q:"What pressure class are the flanges, 150 or 300?",a:"150 pound.",g:{cls:"Class 150"},c:"Class sets the gasket OD and bolt pattern."},
-   {q:"Raised face or full face flanges?",a:"Raised face. Steel pipe.",g:{face:"RF, ring gaskets (inside bolt circle)"},r:["cls"],c:"RF steel flanges take ring gaskets. FF flanges need full-face gaskets."},
-   {q:"What's running through the line, and at what pressure and temperature?",a:"Low pressure steam header. About 150 psi, 350 degrees.",g:{svc:"Steam, 150 psig, 350°F"},c:"Service conditions decide the material. This rules out rubber."},
-   {q:"What material are you using now?",a:"The blue fiber stuff.",g:{mat:"CNA (compressed non-asbestos), blue grade"},r:["svc"],c:"Blue fiber is compressed non-asbestos. Confirm it's rated for the service."},
-   {q:"1/16 or 1/8 thick?",a:"Sixteenth.",g:{thk:"1/16\""},r:["mat"],c:"1/16 is preferred on smooth RF flanges: less creep, better blowout resistance."},
-   {q:"Give me a second to check that against the P×T chart for that grade.",a:"Sure, take your time.",g:{pxt:"150 x 350 = 52,500: confirm on CNA chart"},r:["svc","thk"],c:"P×T plus the individual pressure and temperature limits must all pass."},
-   {q:"When do you need the quote, and how long should pricing hold?",a:"Back to me soon as you can. It needs to hold 60 days for our outage.",g:{valid:"Needs 60-day validity (above standard): get approval"},c:"Outage quotes often need longer validity. Flag anything past standard."},
-   {q:"Ship to your main storeroom like usual?",a:"Yes, main storeroom.",g:{ship:"Main storeroom (current ship-to)"},c:"Confirm ship-to even on routine requests."}
+   {q:"Hi Cade. Let me pull up Georgia Pacific Pennington.",a:"Sounds good.",sys:"Customer 10510, Georgia Pacific Pennington. Terms 2% 15, net 60.\nContacts: Cade Baker, Justin Phillips, and a past-due placeholder.",g:{cust:"Georgia Pacific Pennington (10510)",contact:"Cade Baker"},c:"Real contact on file. Confirm you have the right person and account."},
+   {q:"Let me read that back: forty 4-inch and twenty 2-inch, correct?",a:"That's right.",g:{qty:"40 x 4\", 20 x 2\""},c:"Read quantities back."},
+   {q:"What pressure class are the flanges?",a:"150 pound.",g:{cls:"Class 150"},c:"Class sets the OD and bolt pattern."},
+   {q:"Raised face or full face?",a:"Raised face. Steel pipe on a steam header.",g:{face:"RF: ring gaskets"},r:["cls"],c:"RF steel flanges take ring gaskets."},
+   {q:"What pressure and temperature on that header?",a:"About 150 psi steam.",g:{svc:"Saturated steam, 150 psig (about 366°F)"},c:"Service decides the material. That rules out rubber."},
+   {q:"Let me check what we cut for you last time.",a:"",sys:"Sales history: GSKT FF 4 150# X .125 9000 on order 1040693 (PO 4500998301), 10 ea at $50.61.\nFull face, 4\", Class 150, 1/8\", Durlon 9000.",g:{hist:"Last: 4\" FULL FACE, 1/8\" Durlon 9000"},r:["cust"],c:"History shows full face. These are raised face, so they're rings. Different part."},
+   {q:"Same Durlon 9000 material, 1/8 thick, just rings this time?",a:"Yes, same material.",g:{mat:"Durlon 9000, 1/8\" (GSKT SHT DURLO PTFE)"},r:["hist","face"],c:"Confirm the change from full face to ring out loud."},
+   {q:"Give me a minute to check that against the material chart for steam.",a:"Sure.",g:{pxt:"150 x 366 = about 55,000: confirm on chart"},r:["svc","mat"],c:"P×T plus the separate pressure and temperature limits must all pass."},
+   {q:"When do you need the quote, and how long should pricing hold?",a:"Soon as you can. It needs to hold 60 days for our outage.",g:{valid:"60-day validity: Manager approval"},c:"Longer validity than standard needs the Manager's OK."},
+   {q:"Ship to the mill like usual?",a:"Yes.",g:{ship:"Mill (current ship-to)"},c:"Confirm ship-to even on routine requests."}
   ],
   weak:[
-   {q:"Want red rubber? It's the cheapest.",a:"Is that OK for steam?",c:"SBR tops out around 200°F. At 350°F steam it will fail. Never lead with price on a sealing job."},
-   {q:"These are for water, right?",a:"No, it's a steam header.",c:"Don't assume service. Ask open questions."},
-   {q:"Can I just send you our price sheet?",a:"I need a real quote for our outage file.",c:"Buyers need a formal quote with validity and lead time."},
-   {q:"Do you want them in 1/8 so they seal better?",a:"Is thicker better?",c:"Thicker gaskets creep more and blow out easier. 1/16 is preferred on good RF flanges."}
+   {q:"Want red rubber? It's cheapest.",a:"For steam?",c:"Red SBR tops out around 200°F. Never lead with price on a sealing job."},
+   {q:"I'll just copy the last order.",a:"The last ones had bolt holes. These are rings.",c:"History helps, but this is a different part. Ask."},
+   {q:"Can I send you our price sheet?",a:"I need a real quote for the outage file.",c:"Buyers need a formal quote with validity and lead time."}
   ],
-  action:{q:"You have the spec. What do you do in P21PLAY?",opts:[
-   {t:"Build a quote with two lines (4\" and 2\" Class 150 RF ring, 1/16 CNA), confirm the grade's P×T rating, get approval for 60-day validity, then send it to Dana.",ok:true,c:"Correct. Spec confirmed, validity approved, then quote."},
-   {t:"Enter a sales order so the waterjet can start cutting.",c:"No PO. She asked for pricing."},
-   {t:"Quote with the standard 30-day validity and don't mention it.",c:"She told you she needs 60 days. Get approval or tell her what you can hold."},
-   {t:"Quote 1/8 thick to be safe.",c:"She uses 1/16 and it's the better choice on smooth RF flanges."}],
-   steps:["Quote: customer, contact Dana Whitfield, ship-to main storeroom","Line 1: 40 ea 4\" Class 150 RF ring, 1/16 CNA (4.50\" ID x 6.88\" OD)","Line 2: 20 ea 2\" Class 150 RF ring, 1/16 CNA (2.38\" ID x 4.12\" OD); note 2\" nests in 4\" ring centers","Confirm P×T of 52,500 on the grade chart","Get Greg's OK on 60-day validity, set expiration","Check margin and extended total, send, log follow-up"]}
+  action:{q:"What do you do in P21PLAY?",opts:[
+   {t:"Build a quote: 40 ea 4\" and 20 ea 2\" Class 150 RF rings in 1/8\" Durlon 9000 cut from GSKT SHT DURLO PTFE, plus waterjet labor; get the Manager's OK on 60-day validity; send to Cade.",ok:true,c:"Correct. Right part, right material, approved validity."},
+   {t:"Copy order 1040693 and change the quantity.",c:"That's a full-face gasket. These are rings."},
+   {t:"Quote with standard validity and don't mention it.",c:"He told you he needs 60 days."},
+   {t:"Enter an order so the waterjet can start.",c:"No PO. He asked for pricing."}],
+   steps:["Quote: customer 10510, contact Cade Baker","Line 1: 40 ea 4\" Class 150 RF ring, 1/8\" Durlon 9000 (4.50\" ID x 6.88\" OD)","Line 2: 20 ea 2\" Class 150 RF ring, 1/8\" Durlon 9000 (2.38\" ID x 4.12\" OD); 2\" rings nest in the 4\" centers","Add OCI WATER JET LABOR","Manager OK on 60-day validity; set expiration","Check total, send, set follow-up"]}
 },
-{ id:"steam", title:"Steam Hose Special Order", tag:"Special order + PO",
-  caller:"Jamal", open:"I need a 75-foot steam hose, inch and a half, with fittings. We had one burst out in the yard.",
+{ id:"steam", title:"Steam Hose Special Order", tag:"Phone: special order + PO", ch:"Phone",
+  caller:"Michael Boyd", open:"This is Michael Boyd with WestRock. I need a 75-foot steam hose, inch and a half, with fittings. One burst out in the yard.",
   fields:[["cust","Customer"],["contact","Contact"],["size","Size / length"],["svc","Steam service"],["ends","Ends"],["attach","Attachment"],["stock","Stock check"],["lead","Lead time"],["po","PO"],["ship","Ship-to"]],
   good:[
-   {q:"Who am I speaking with, and what's the account?",a:"Jamal Ortiz, storeroom buyer at Lowndes Containerboard.",g:{cust:"Lowndes Containerboard",contact:"Jamal Ortiz, Storeroom Buyer"},c:"Account and caller first."},
-   {q:"Confirming: 1-1/2 inch ID, one continuous 75-foot length?",a:"Yes. One piece, 75 feet.",g:{size:"1-1/2\" ID, 75 ft continuous"},c:"Confirm continuous length. It changes how you fill it."},
-   {q:"What steam pressure and temperature?",a:"Saturated steam, 150 psi.",g:{svc:"Saturated steam 150 psig (about 366°F)"},c:"Steam hose needs a 10:1 design factor and steam-rated construction."},
-   {q:"What fittings do you need on each end?",a:"Same as before. The ground joint kind with the wing nut.",g:{ends:"Ground joint steam fittings, both ends"},c:"Ground joint fittings are the standard for steam service."},
-   {q:"We'll attach those with steam-rated interlocking clamps. Is that what you had before?",a:"Yes, that's what was on it.",g:{attach:"Interlocking clamps (retighten after first heat-up)"},r:["ends"],c:"Steam assemblies get interlocking clamps. Never bands or worm clamps."},
-   {q:"Can I put you on a short hold so I can check stock for a 75-foot continuous length?",a:"Sure.",g:{stock:"40 ft on reel; 75 ft continuous must be special ordered"},r:["size"],c:"Check stock before you promise anything."},
-   {q:"A continuous 75 feet is about 5 working days from the vendor. Does that work?",a:"It has to. Go ahead.",g:{lead:"About 5 working days, customer accepted"},r:["stock"],c:"Give the customer the real lead time and let them decide."},
-   {q:"Do you have a PO for this?",a:"PO 4410-889.",g:{po:"PO 4410-889"},r:["lead"],c:"Special orders need a PO before you buy anything."},
-   {q:"Ship to the storeroom?",a:"Yes, main storeroom.",g:{ship:"Main storeroom"},c:"Confirm ship-to."}
+   {q:"Hi Michael, let me pull up WestRock.",a:"Thanks.",sys:"Customer 10753, WestRock Company. Terms Net 120.\nContacts: Michael Boyd (Purchasing), Vijaya Gangamuni (Purchasing), Charlie Witherspoon, and an invoice placeholder.",g:{cust:"WestRock Company (10753)",contact:"Michael Boyd, Purchasing"},c:"Account and caller first."},
+   {q:"Confirming: 1-1/2 inch ID, one continuous 75-foot length?",a:"Yes. One piece.",g:{size:"1-1/2\" ID, 75 ft continuous"},c:"Continuous length changes how you fill it."},
+   {q:"What steam pressure?",a:"Saturated steam, 150 psi.",g:{svc:"Saturated steam 150 psig (about 366°F)"},c:"Steam hose needs a 10:1 design factor and steam-rated construction."},
+   {q:"What fittings on each end?",a:"Same as before. The ground joint kind with the wing nut.",g:{ends:"Ground joint steam fittings, both ends"},c:"Ground joint fittings are the standard for steam."},
+   {q:"We'll put those on with steam-rated interlocking clamps. Is that what you had?",a:"Yes.",g:{attach:"Interlocking clamps (retighten after first heat-up)"},r:["ends"],c:"Steam gets interlocking clamps. Never bands or worm clamps."},
+   {q:"Let me check stock on 1-1/2 inch steam hose.",a:"",sys:"150020251 (Hose, Steam, 1.50\", Rubber, EPDM): one partial reel at 110, short of 75 ft.\nCheck other TRG locations and open POs before you decide.",g:{stock:"Short at 110; check other TRG locations"},r:["size"],c:"Check other locations and open POs before you call it a special order."},
+   {q:"No location has a continuous 75 feet, so it's a special order. The vendor quotes about a week. Does that work?",a:"It has to. Go ahead.",g:{lead:"About a week; customer accepted"},r:["stock"],c:"Give the real lead time and let the customer decide."},
+   {q:"Do you have a PO?",a:"Use 29850012.",g:{po:"29850012 (practice)"},r:["lead"],c:"Special orders need a PO before we buy anything."},
+   {q:"Ship to the Demopolis mill?",a:"Yes, Demopolis.",sys:"Ship-to 10756: WestRock Mill Company, Demopolis, 28270 Highway 80 West.\nThe other WestRock ship-tos are PO boxes.",g:{ship:"10756 Demopolis mill"},c:"Pick the ship-to with a street address. Trucks can't deliver to a PO box."}
   ],
   weak:[
-   {q:"Could we couple two 40-foot pieces together instead?",a:"I'd rather not have another joint on a steam line.",c:"An extra steam joint is an extra failure point. Offer it only if the customer asks for options."},
-   {q:"We have 1-1/2 water hose in stock. Will that work?",a:"For steam? Is that safe?",c:"Never substitute a non-steam hose on steam service. It can burst and cause severe burns."},
-   {q:"Want worm gear clamps to save some money?",a:"On steam?",c:"Worm clamps are never used on steam. Interlocking clamps only."},
-   {q:"What's it for?",a:"I told you, steam.",c:"Already answered. Ask for pressure and temperature instead."}
-  ],
-  action:{q:"You have a PO and a lead time. What do you do in P21PLAY?",opts:[
-   {t:"Enter a sales order with PO 4410-889: hose line as a special order (disposition S) for 75 ft continuous, plus fittings and clamps, and note the lead time for the customer.",ok:true,c:"Correct. Special order disposition creates the purchase need for the continuous length."},
-   {t:"Ship the 40 feet in stock now and backorder 35 feet.",c:"He needs one continuous 75-foot length. Two pieces don't fill this order."},
-   {t:"Send a quote and wait.",c:"He already gave you a PO and accepted the lead time."},
-   {t:"Substitute water hose from stock so he gets it today.",c:"Never. Steam service requires steam hose."}],
-   steps:["Order Entry: customer, contact Jamal Ortiz, PO 4410-889, ship to main storeroom","Hose line: 1-1/2\" steam hose, 75 ft, disposition S (special order)","Add ground joint fittings (2 sets) and interlocking clamps; build as assembly when hose arrives","Note: about 5 working days; retighten clamps after first heat-up","Confirm the PO is generated for the vendor and tell Jamal the expected date"]}
-},
-{ id:"ap", title:"Missing Invoices", tag:"Contact maintenance",
-  caller:"Rachel", open:"Hi, I'm in accounts payable at Southern Fabrication. We aren't getting your invoices.",
-  fields:[["cust","Customer"],["contact","Caller"],["email","Email"],["phone","Phone"],["old","Old recipient"],["docs","Document routing"],["follow","Follow-up"]],
-  good:[
-   {q:"I can fix that. Who am I speaking with, and what's your role?",a:"Rachel Kim. I'm the new AP specialist at Southern Fabrication.",g:{cust:"Southern Fabrication",contact:"Rachel Kim, AP Specialist"},c:"Account and caller first."},
-   {q:"What email should invoices go to?",a:"rkim@sofab-example.com",g:{email:"rkim@sofab-example.com (read back)"},c:"Always read emails back letter by letter."},
-   {q:"What's the best phone number for you?",a:"334-555-0119, extension 12.",g:{phone:"334-555-0119 x12"},c:"Complete contact records save the next person a call."},
-   {q:"Who were invoices going to before?",a:"Probably Phil. He retired last month.",g:{old:"Phil (retired)"},c:"Find the current recipient so you can move the routing."},
-   {q:"Should I mark Phil inactive and move what he received over to you?",a:"Yes. But quotes go to purchasing, not me. I just want invoices and statements.",g:{docs:"Invoices + statements to Rachel; quotes stay with Purchasing"},r:["old"],c:"Never delete a contact. Mark inactive and move each document type to the right person."},
-   {q:"Do you need copies of any invoices you missed?",a:"Yes, anything still open past 30 days.",g:{follow:"Resend open invoices over 30 days (loop in accounting)"},r:["email"],c:"Fixing the record doesn't fix the past. Offer the resend."}
-  ],
-  weak:[
-   {q:"Can you call our accounting department instead?",a:"I was hoping you could just fix it.",c:"Contact records are an inside sales job. Own it and loop in accounting after."},
-   {q:"I'll just change Phil's record to your information.",a:"OK, if that works.",c:"Overwriting a contact rewrites history. Add Rachel as her own contact."},
-   {q:"Are you sure you're not getting them?",a:"Yes. I'm sure.",c:"Don't question the customer. Find the routing problem."}
+   {q:"Could we couple two shorter pieces?",a:"I'd rather not have another joint on a steam line.",c:"An extra steam joint is an extra failure point. Only offer it if asked."},
+   {q:"We have 1-1/2 water hose in stock. Will that work?",a:"For steam?",c:"Never substitute non-steam hose on steam service."},
+   {q:"Want worm gear clamps to save money?",a:"On steam?",c:"Never on steam. Interlocking clamps only."}
   ],
   action:{q:"What do you do in P21PLAY?",opts:[
-   {t:"Search for duplicates, add Rachel in Contact Maintenance with the AP role and invoice/statement delivery, mark Phil inactive, add dated notes, and ask accounting to resend open invoices.",ok:true,c:"Correct. Clean record, right routing, history kept, and the missed invoices handled."},
-   {t:"Edit Phil's contact and replace his info with Rachel's.",c:"That erases Phil's history and ties his past activity to Rachel."},
-   {t:"Update the ship-to with her email.",c:"Ship-tos hold delivery info. Document routing lives on contacts."},
-   {t:"Email her the invoices by hand from now on.",c:"A manual fix breaks the next time you're out. Fix the record."}],
-   steps:["Contact Maintenance: search for Rachel and the email (no duplicates)","Add Rachel Kim: title, phone x12, email (read back), linked to Southern Fabrication","Role: AP. Delivery: invoices and statements","Phil: mark inactive, remove invoice delivery, add dated note","Confirm Purchasing contact still gets quotes","Ask accounting to resend open invoices over 30 days"]}
+   {t:"Enter an order on 10753, ship-to 10756, PO 29850012: steam hose line as a special order (disposition S) for 75 ft continuous, plus ground joint fittings and clamps; note the lead time.",ok:true,c:"Correct. The special order creates the purchase need for the continuous length."},
+   {t:"Ship the partial reel now and backorder the rest.",c:"He needs one continuous length."},
+   {t:"Ship it to the first WestRock ship-to on the list.",c:"That's a PO box. Use 10756 Demopolis."},
+   {t:"Substitute water hose from stock.",c:"Never. Steam service needs steam hose."}],
+   steps:["Order Entry: 10753, contact Michael Boyd, PO 29850012, ship-to 10756","Hose line: 1-1/2\" steam hose, 75 ft, disposition S","Add ground joint fittings (2 sets) and interlocking clamps; build when hose arrives","Note: about a week; retighten clamps after first heat-up","Confirm the vendor PO and tell Michael the expected date"]}
 },
-{ id:"history", title:"April Hose Reorder", tag:"Search sales history",
-  caller:"Brenda", open:"Hi, we got some hoses from y'all back in April. I need some more of the same fittings that were on that hose.",
-  fields:[["cust","Customer"],["contact","Contact"],["clue","Caller clues"],["search","History search"],["order","Order found"],["hose","Hose"],["fit","Fittings"],["qty","What to build"],["price","Price check"],["po","PO"],["ship","Ship-to"]],
+{ id:"ap", title:"Missing Invoices", tag:"Phone: contact maintenance", ch:"Phone",
+  caller:"City Finance", open:"Hi, I'm in the City of Montgomery's Finance Department, Accounts Division. We aren't getting your invoices for the Garage account.",
+  fields:[["cust","Customer"],["contact","Caller"],["email","Email"],["phone","Phone"],["now","Current contacts"],["docs","Document routing"],["follow","Follow-up"]],
   good:[
-   {q:"Who am I speaking with, and which account is this?",a:"Brenda Cole. I'm the maintenance clerk at Elmore Kraft Mill.",g:{cust:"Elmore Kraft Mill",contact:"Brenda Cole, Maint. Clerk"},c:"Account first. You can't search history until you know whose history to search."},
-   {q:"Do you have the PO number or invoice from April? That's the fastest way to find it.",a:"I don't have the PO, sorry. It was for the lime kiln area, if that helps.",g:{clue:"No PO; for the lime kiln area"},c:"Ask for a PO or invoice first. When they don't have one, get any detail that helps you pick the right order."},
-   {q:"Let me pull your sales history for April. One second.",a:"",sys:"Customer Sales History, Elmore Kraft Mill, 4/1/2026 to 4/30/2026: 3 orders.\n#1048211 (4/8) gaskets and packing, PO STR-0408\n#1048530 (4/15) 2 hose assemblies, PO KLN-0415\n#1048902 (4/24) cam & groove fittings, PO STR-0424",g:{search:"Sales history, 4/1 to 4/30/2026: 3 orders"},r:["cust"],c:"Filter the history by date range. A vague memory plus a date is enough to find almost any order."},
-   {q:"I see hose assemblies on the 15th under PO KLN-0415, and loose cam and groove fittings on the 24th. Was it the assemblies for the kiln?",a:"Yes, the kiln assemblies. That's them.",g:{order:"#1048530 (4/15), PO KLN-0415, lime kiln"},r:["search"],c:"Read the candidates back. 'Fittings that were on a hose' could mean either order until the customer confirms."},
-   {q:"Let me open order 1048530 and read the lines.",a:"",sys:"Order #1048530, line 1: 2 ea hose assembly, 25 ft OAL.\nComponents per assembly: 25 ft 1\" 300 psi EPDM hot water hose; 2 ea 1\" 316SS male NPT crimp stem; 2 ea 1\" SS crimp ferrule.\nUnit prices (April): stem $38.40, ferrule $9.75.",g:{hose:"1\" 300 psi EPDM hot water hose, 25 ft",fit:"1\" 316SS male NPT crimp stem + 1\" SS ferrule"},r:["order"],c:"The order lines tell you exactly what was on the hose. No guessing from a description."},
-   {q:"Those are crimp fittings. They have to go on with our crimper. Do you want us to build the assembly, or did you only need parts?",a:"Oh. The guys were going to put them on a hose they already cut. Then you'd better build it. One more just like the others, 25 feet.",g:{qty:"1 more assembly, same as #1048530, MR&G builds"},r:["fit"],c:"Crimp fittings can't be installed in the field without a crimper and the spec chart. Steer the customer to a built assembly."},
-   {q:"Prices on these may have moved since April. Let me check current pricing.",a:"",sys:"Price inquiry: 1\" 316SS crimp stem now $40.10 (vendor increase 8/2026). Ferrule $9.75. Hose unchanged.",g:{price:"Stem up from $38.40 to $40.10; tell customer"},r:["fit"],c:"Never reuse an old price without checking. Tell the customer about any change before they hear it on the invoice."},
-   {q:"Do you have a PO for this one?",a:"Use KLN-1016.",g:{po:"PO KLN-1016"},r:["qty"],c:"PO in hand means order, not quote."},
-   {q:"Ship it to the mill storeroom like the April order?",a:"Yes, same place.",g:{ship:"Mill storeroom (same as #1048530)"},r:["order"],c:"Confirm ship-to even on repeat orders."}
+   {q:"I can fix that. Who am I speaking with?",a:"Rachel Kim. I'm the AP specialist.",g:{contact:"Rachel Kim (practice caller), AP"},c:"Get the caller's name and role first."},
+   {q:"Let me pull up the Garage account.",a:"",sys:"Customer 10440, City of Montgomery Garage. Bill-to: Dept of Finance, Accounts Division.\nContacts on file: none.\nSecond ship-to 10439 (Landfill) has a person's name typed in the address line.",g:{cust:"City of Montgomery Garage (10440)",now:"No contacts on file"},c:"No contacts at all explains the missing invoices. Note the Landfill address line for clean-up too."},
+   {q:"What email should invoices go to?",a:"rkim@practice-example.com",g:{email:"rkim@practice-example.com (read back)"},c:"Read emails back letter by letter."},
+   {q:"Best phone number for you?",a:"334-555-0119, extension 12.",g:{phone:"334-555-0119 x12 (practice)"},c:"Complete records save the next call."},
+   {q:"Do you want statements too, and who places orders for the Garage?",a:"Invoices and statements to me. The fleet parts buyer places orders; I'll have them call you.",g:{docs:"Invoices + statements to Rachel; buyer TBD"},r:["now"],c:"Each document type goes to the right person. Ask for the buyer too."},
+   {q:"Do you need copies of invoices you missed?",a:"Yes, anything still open.",g:{follow:"Accounting resends open invoices"},r:["email"],c:"Fixing the record doesn't fix the past. Offer the resend."}
   ],
   weak:[
-   {q:"What did the fittings look like?",a:"Silver? Metal? They screwed into something.",c:"Customer descriptions are unreliable. Search the sales history instead."},
-   {q:"Can you email me a picture of them?",a:"I'd have to go out to the kiln and find one.",c:"Slows everyone down. The answer is already in P21: search history first."},
-   {q:"I can't find anything without a PO number.",a:"Really? You can't look it up?",c:"You can. Search the customer's sales history by date range."},
-   {q:"I'll send you some brass fittings that should fit.",a:"Will those match what we have?",c:"Never guess on a repeat order. The original was 316 stainless, and the history shows it."}
-  ],
-  action:{q:"You found the order. What do you do in P21PLAY?",opts:[
-   {t:"Enter a new sales order (copy the assembly line from #1048530): 1 assembly, PO KLN-1016, current pricing, ship to the storeroom, and route it to Eric to build.",ok:true,c:"Correct. History gave you the exact spec, and current pricing keeps the invoice clean."},
-   {t:"Sell her 2 crimp stems and 2 ferrules as loose parts.",c:"She has no way to crimp them. A field-installed crimp fitting can blow off."},
-   {t:"Copy the April order at April prices.",c:"The stem price went up. Use current pricing and tell her."},
-   {t:"Send a quote and wait.",c:"She gave you a PO. Enter the order."}],
-   steps:["Customer Sales History: Elmore Kraft Mill, 4/1 to 4/30/2026","Open order #1048530 and confirm the assembly components","Order Entry: PO KLN-1016, ship to mill storeroom","Add 1 assembly: 25 ft 1\" EPDM hot water hose, 1\" 316SS male NPT crimp stems x2, SS ferrules x2","Let current pricing apply; confirm the stem increase with Brenda","Route to Eric for the build"]}
-},
-{ id:"walkin", title:"Counter Walk-In Adapter", tag:"Thread ID at the counter",
-  caller:"Hank", open:"Got this adapter off the hydraulic pump on a Japanese mini excavator. It sits between the pump and the hose. I need two of them.",
-  fields:[["cust","Customer"],["end1","Pump end"],["end2","Hose end"],["seal","Seals"],["qty","Quantity"],["stock","Stock"],["pay","Payment"]],
-  good:[
-   {q:"Do you have an account with us, or is this cash?",a:"No account. I'll pay with a card.",g:{cust:"Walk-in, cash/card"},c:"Know how the sale gets rung up before you start."},
-   {q:"Let me put calipers on the pump-end threads.",a:"",sys:"Pump-end male thread OD: 0.83\". Threads run straight (no taper).",g:{end1:"OD 0.83\", parallel, ID in progress"},c:"Measure; don't guess. A Japanese machine is a hint that it may be BSP."},
-   {q:"Now the pitch gauge on those same threads.",a:"",sys:"14 threads per inch. Thread form checks at 55°. Plain sealing face on the shoulder for a bonded washer.",g:{end1:"1/2\" BSPP male (bonded seal)"},r:["end1"],c:"0.83\" and 14 TPI fits both 1/2 NPT and 1/2 BSPP. No taper and a 55° form make it BSPP."},
-   {q:"What's on the other end, where the hose connects?",a:"Here, the hose nut screws onto this side.",sys:"Hose-end male thread: 3/4-16, 37° flare seat.",g:{end2:"-8 JIC male (3/4-16, 37°)"},c:"Identify both ends of an adapter."},
-   {q:"Was there a bonded washer on the pump end? Do you need new ones?",a:"Yeah, the old one tore coming off.",g:{seal:"2 x 1/2\" BSPP bonded seals"},r:["end1"],c:"BSPP ports seal with a bonded washer or O-ring. Never reuse a torn one."},
-   {q:"Two adapters, right?",a:"Two.",g:{qty:"2 adapters"},c:"Confirm quantity."},
-   {q:"Let me check stock.",a:"",sys:"-8 JIC male x 1/2 BSPP male adapter: 6 on hand, location 110.\n1/2\" BSPP bonded seal: 40 on hand.",g:{stock:"Both in stock at 110"},r:["end2","seal"],c:"Check stock before telling a walk-in to wait."},
-   {q:"I'll ring it up. Card at the counter OK?",a:"That works.",g:{pay:"Card at counter"},r:["stock","qty"],c:"Close the sale cleanly."}
-  ],
-  weak:[
-   {q:"It's probably NPT. Most of them are.",a:"Will NPT go in the pump?",c:"Never assume. NPT forced into a BSPP port galls the threads and leaks."},
-   {q:"Can you leave it and come back later?",a:"I've got a machine down on a job site.",c:"Measuring takes two minutes. Do it at the counter."},
-   {q:"What's the part number on it?",a:"There's nothing stamped on it.",c:"Most adapters aren't marked. Measure OD, pitch, thread form, and seat."}
+   {q:"Can you call accounting instead?",a:"I was hoping you could fix it.",c:"Contact records are ours to fix. Loop in accounting after."},
+   {q:"Are you sure you're not getting them?",a:"Yes, I'm sure.",c:"Don't question the customer. Find the routing problem."},
+   {q:"I'll put your email on the ship-to.",a:"OK, if that works.",c:"Ship-tos hold delivery info. Document routing lives on contacts."}
   ],
   action:{q:"What do you do in P21PLAY?",opts:[
-   {t:"Enter a counter order under the cash customer account: 2 adapters (-8 JIC male x 1/2 BSPP male) and 2 bonded seals, then take the card payment.",ok:true,c:"Correct. Quick, accurate, and the seals keep the pump from leaking."},
-   {t:"Open a new customer account for Hank first.",c:"Walk-in cash sales go on the cash customer account. No new account needed."},
-   {t:"Sell him two 1/2 NPT x -8 JIC adapters.",c:"Wrong thread. It won't seal in a BSPP port."},
-   {t:"Send him a quote by email.",c:"He's standing at the counter with a machine down."}],
-   steps:["Order Entry: cash customer account, your own taker ID","Line 1: 2 ea -8 JIC male x 1/2\" BSPP male adapter","Line 2: 2 ea 1/2\" BSPP bonded seal","Take card payment and print the receipt"]}
+   {t:"Search for duplicates, add Rachel to 10440 with the AP role and invoice and statement delivery, add a dated note, list the Landfill address line for clean-up, and ask accounting to resend open invoices.",ok:true,c:"Correct. Clean record, right routing, and the missed invoices handled."},
+   {t:"Type her email in the bill-to address.",c:"Addresses aren't contacts. Add a contact."},
+   {t:"Email her the invoices by hand from now on.",c:"A manual fix breaks the next time you're out."},
+   {t:"Tell her to call back when the buyer is available.",c:"She's the AP contact. Set her up now."}],
+   steps:["Contact Maintenance: search for Rachel and the email","Add Rachel Kim to 10440: AP role, phone, email (read back)","Delivery: invoices and statements","Dated note on the customer","Clean-up list: ship-to 10439 address line has a person's name","Ask accounting to resend open invoices"]}
 },
-{ id:"backorder", title:"Where's My Order?", tag:"Backorder follow-up",
-  caller:"Paula", open:"I placed an order two weeks ago for gaskets and some hose, and we only got part of it. Where's the rest?",
-  fields:[["cust","Customer"],["contact","Contact"],["po","PO"],["order","Order status"],["vendor","Vendor PO"],["option","Faster option"],["urgency","Urgency"],["notice","Notification"],["follow","Follow-up"]],
+{ id:"history", title:"The Hoses We Got in April", tag:"Phone: search sales history", ch:"Phone",
+  caller:"Dewayne Winslett", open:"This is Dewayne Winslett at Boise Cascade. We got some hoses from y'all back in April. I need some more of the same fittings that were on that hose.",
+  fields:[["cust","Customer"],["contact","Contact"],["acct","Which account"],["clue","Caller clues"],["search","History search"],["order","Orders found"],["hose","Hose"],["fit","Fittings"],["qty","What to build"],["check","Before quoting"],["price","Price / stock"],["po","PO"],["ship","Ship-to"]],
   good:[
-   {q:"I'll find out. Who am I speaking with, and which account?",a:"Paula Greene, purchasing at Autauga Chemical.",g:{cust:"Autauga Chemical",contact:"Paula Greene, Purchasing"},c:"Account first."},
-   {q:"Do you have the PO or our order number?",a:"PO 22-5817.",g:{po:"PO 22-5817"},c:"The PO is the fastest way to the order."},
-   {q:"Let me pull that order up.",a:"",sys:"Order #1061144, PO 22-5817.\nLine 1: 1/16 PTFE gaskets, shipped 10/5.\nLine 2: 100 ft 1\" UHMWPE chemical hose. 40 ft shipped, 60 ft backordered (disposition B).",g:{order:"#1061144: 60 ft UHMWPE hose on backorder"},r:["po"],c:"Read the line dispositions. They tell you exactly what's open."},
-   {q:"Let me check the purchase order for that backordered hose.",a:"",sys:"Vendor PO #P-30882, due 10/22.\nTRG location 120 shows 75 ft of the same hose on hand.",g:{vendor:"Vendor PO P-30882 due 10/22; loc 120 has 75 ft"},r:["order"],c:"Check both the vendor PO and other TRG locations before you answer."},
-   {q:"How soon do you need the rest?",a:"Sooner the better. We have a turnaround coming up.",g:{urgency:"Needed for upcoming turnaround"},c:"Know the urgency before you offer options."},
-   {q:"Another TRG location has it. I can transfer it in instead of waiting on the vendor. Want me to do that?",a:"Yes, please. Faster is better.",g:{option:"Transfer 60 ft from location 120"},r:["vendor","urgency"],c:"A transfer often beats the vendor date. Offer it."},
-   {q:"Did you get a backorder notice with the first shipment?",a:"No. Nobody told me anything.",g:{notice:"Customer was not notified; note on order"},r:["order"],c:"Customers should always hear about a backorder from us first. Note it and fix the habit."},
-   {q:"I'll set up the transfer and call you back with a firm delivery date. Does that work?",a:"Thank you. That works.",g:{follow:"Call Paula back with firm date"},r:["option"],c:"Commit to a callback with real information, then keep it."}
+   {q:"Hi Dewayne, let me pull you up.",a:"",sys:"Contact Dewayne Winslett is on customer 10400 (Boise Cascade, bills to Boise, ID).\nA second account, 10399 (Boise Cascade), bills to Chapman, AL.",g:{cust:"Boise Cascade: two accounts",contact:"Dewayne Winslett (on 10400)"},c:"Two accounts for one company. Don't assume the contact's account is the right one."},
+   {q:"Which mill are the hoses for?",a:"The Chapman mill.",g:{acct:"10399 (Chapman)"},r:["cust"],c:"Ask which site. The answer points to 10399, not where Dewayne is set up."},
+   {q:"Do you have the PO or invoice from April?",a:"No. They were big hydraulic hoses with flanges on both ends.",g:{clue:"No PO; big hydraulic, flanged ends"},c:"No PO? Get any detail that helps you pick the right order."},
+   {q:"Let me pull April sales history on the Chapman account.",a:"",sys:"Sales history, 10399, April:\nOrder 1020742 (PO \"JAMES\"): 1 ea HSE 4W 24 X 6FT 6IN W/ 2424 FL 61 E/E, $493.68\nOrder 1020846 (PO 163972): same assembly, $493.68",g:{search:"April, 10399: 2 orders",order:"1020742 and 1020846"},r:["acct"],c:"Filter by date range. Note \"JAMES\" in the PO field: a name, not a PO."},
+   {q:"Let me open one and read the lines.",a:"",sys:"Order 1020846:\nLine 1: assembly HSE 4W 24 X 6FT 6IN W/ 2424 FL 61 E/E\nLine 2: 6.5 ft HS5K-24 (Hose, Hydraulic, -24, 6W, 5100 PSI)\nLine 3: 2 ea F4-2424-FL (Coupling, 4W, 2424, Code 61 flange), $157.36",g:{hose:"HS5K-24, 6.5 ft",fit:"2 ea F4-2424-FL (Code 61 flange)"},r:["order"],c:"The lines show exactly what was on the hose."},
+   {q:"Those are crimp fittings. We'd need to build the assembly. Want two of the same?",a:"Oh. Then yes, build me two like the others.",g:{qty:"2 assemblies, same as April"},r:["fit"],c:"Crimp couplings can't be put on in the field. Steer to a built assembly."},
+   {q:"Before I quote, let me confirm the hose with our shop.",a:"Sure.",g:{check:"Assembly says 4W, hose item says 6W: confirm with Shop Mentor"},r:["hose"],c:"The assembly description says 4-wire; the hose item says 6-wire. Catch it before it ships."},
+   {q:"Let me check current price and stock.",a:"",sys:"Check the current price for 10399 and available stock on HS5K-24 and F4-2424-FL in P21PLAY.\nTwo assemblies need 13 ft of hose and 4 couplings.",g:{price:"Check current price; need 13 ft + 4 couplings"},r:["fit","qty"],c:"Never reuse an April price without checking."},
+   {q:"Do you have a PO, or want a quote first?",a:"Quote it first. I'll send a PO.",g:{po:"Quote first; PO to follow"},r:["qty"],c:"No PO means quote."},
+   {q:"Ship to Chapman like the April orders?",a:"Yes.",g:{ship:"Chapman (10399)"},r:["acct"],c:"Confirm ship-to on repeat orders."}
   ],
   weak:[
-   {q:"It's probably on a truck somewhere.",a:"Probably? Can you check?",c:"Never guess on order status. Look it up."},
-   {q:"You'll need to call the vendor about that.",a:"I bought it from you, not the vendor.",c:"MR&G owns the order. Chase it for the customer."},
-   {q:"Let me cancel it and enter a new order.",a:"Won't that mess up our PO?",c:"Duplicating orders breaks the PO match and history. Work the open line."}
+   {q:"What did the fittings look like?",a:"Metal? Big?",c:"Customer descriptions are unreliable. Search history."},
+   {q:"I can't find anything without a PO.",a:"You can't look it up?",c:"You can. Search sales history by date range."},
+   {q:"I'll put it on the 10400 account since that's where you're set up.",a:"Whatever works.",c:"The orders and the mill are on 10399. Quote there and fix the contact."},
+   {q:"I'll sell you four loose couplings.",a:"Will those go on our hose?",c:"Crimp fittings need our crimper and the spec chart."}
   ],
   action:{q:"What do you do in P21PLAY?",opts:[
-   {t:"Set up a transfer of 60 ft from location 120 against the backordered line, add a dated note to order #1061144, adjust the vendor PO if needed, then call Paula with the new date.",ok:true,c:"Correct. Fastest path to the customer, with the order and PO kept clean."},
-   {t:"Leave it on backorder; the vendor date is only a few days out.",c:"She has a turnaround coming and stock sits at another TRG location."},
-   {t:"Cancel the line and enter a new order for 60 ft.",c:"Creates a duplicate against her PO. Work the open line."},
-   {t:"Email her the vendor PO number.",c:"She doesn't need our vendor details. She needs a date."}],
-   steps:["Open order #1061144 (PO 22-5817)","Review line 2 disposition and vendor PO P-30882","Set up transfer of 60 ft from location 120 to 110","Add a dated note: customer not notified of backorder; transfer arranged","Reduce or cancel the vendor PO quantity if purchasing agrees","Call Paula with the firm delivery date"]}
+   {t:"Confirm the hose with the Shop Mentor, then quote two HSE 4W 24 X 6FT 6IN W/ 2424 FL 61 E/E assemblies on 10399 at current pricing, send to Dewayne, and note his contact belongs on the Chapman account too.",ok:true,c:"Correct. Right account, right part, current price, and the contact fixed."},
+   {t:"Quote 4 loose F4-2424-FL couplings.",c:"Crimp couplings get installed by us."},
+   {t:"Quote at the April price.",c:"Check current pricing."},
+   {t:"Quote on 10400.",c:"The Chapman mill and its history are on 10399."}],
+   steps:["Customer Sales History: 10399, April","Open order 1020846; confirm hose, couplings, length","Shop Mentor: confirm 4-wire vs 6-wire hose","Quote on 10399: 2 ea assembly, current pricing, expiration date","Send to Dewayne; add him to 10399 with a mentor's OK","Convert to an order when the PO arrives"]}
 },
-{ id:"price", title:"Price Match Request", tag:"Margin + approval",
-  caller:"Ray", open:"I can get 100R2 dash 12 hose cheaper somewhere else. Can you match it?",
-  fields:[["cust","Customer"],["contact","Contact"],["item","Item / volume"],["comp","Competitor offer"],["ours","Our price / cost"],["proof","Written quote"],["vol","Commitment"],["margin","Margin math"]],
+{ id:"walkin", title:"Counter Walk-In Adapter", tag:"Counter: thread ID", ch:"Counter",
+  caller:"Walk-in customer", open:"I pulled this adapter off a hydraulic pump on a European tractor. I need two of them.",
+  fields:[["cust","Customer"],["end1","Hose end"],["end2","Pump end"],["seal","Sealing"],["qty","Quantity"],["stock","Item / stock"],["pay","Payment"]],
   good:[
-   {q:"Let me look at it with you. Who am I speaking with?",a:"Ray Dobbs, buyer at Capitol Machine Works.",g:{cust:"Capitol Machine Works",contact:"Ray Dobbs, Buyer"},c:"Account first."},
-   {q:"How much of the -12 R2 do you buy, and how often?",a:"About 300 feet a quarter.",g:{item:"-12 100R2AT, ~300 ft/quarter"},c:"Volume tells you how much room you have to work with."},
-   {q:"What price did they give you, and what brand is it?",a:"$5.10 a foot. Not sure of the brand.",g:{comp:"$5.10/ft, brand unknown"},c:"Brand counts for the hose and the fittings it crimps with. Find out."},
-   {q:"Let me check your current price and our cost.",a:"",sys:"Price inquiry, Capitol Machine Works: -12 100R2AT at $6.25/ft.\nReplacement cost $4.30/ft. Margin 31.2%.",g:{ours:"$6.25/ft, cost $4.30 (31.2% margin)"},r:["item"],c:"Know your number before you talk price."},
-   {q:"Can you send me their written quote so I can compare it side by side?",a:"Sure, I'll email it over.",g:{proof:"Written competitor quote requested"},r:["comp"],c:"A written quote confirms brand, quantity, and terms. Verbal prices often leave things out."},
-   {q:"If I can get you a better price, would you commit to the 300 feet a quarter with us?",a:"Yes, if the price is right I'll commit.",g:{vol:"Will commit to 300 ft/quarter"},r:["item"],c:"Trade price for commitment. Never give a discount for nothing."},
-   {q:"Give me a minute to run the numbers at a few price points.",a:"",sys:"At $5.10/ft: (5.10 - 4.30) / 5.10 = 15.7% margin.\nAt $5.60/ft: (5.60 - 4.30) / 5.60 = 23.2% margin.",g:{margin:"$5.10 = 15.7%; $5.60 = 23.2%; needs Greg's approval"},r:["ours","vol"],c:"Margin = (sell - cost) / sell. Both prices fall below normal, so this needs approval."}
+   {q:"Do you have an account with us, or is this cash?",a:"No account. I'll pay with a card.",g:{cust:"Counter cash account (910)"},c:"Walk-ins without an account go on account 910. It's COD."},
+   {q:"Let me measure the end the hose screws onto.",a:"",sys:"Male thread, 9/16-18, straight threads, 37° cone on the nose.",g:{end1:"-6 JIC male (9/16-18, 37°)"},c:"9/16-18 with a 37° cone is -6 JIC."},
+   {q:"Now the pump end. Let me put calipers and a pitch gauge on it.",a:"",sys:"Male thread OD about 0.66\". 19 threads per inch. Threads taper. 55° thread form.",g:{end2:"3/8\" BSPT male"},c:"About 0.66\" and 19 TPI is 3/8\" BSP. The taper makes it BSPT, not BSPP."},
+   {q:"That end seals on the threads. Do you have thread sealant?",a:"No, better give me some.",g:{seal:"Tapered: thread sealant"},r:["end2"],c:"Tapered threads seal on the threads with sealant. No bonded washer needed."},
+   {q:"Two adapters, right?",a:"Two.",g:{qty:"2"},c:"Confirm quantity."},
+   {q:"Let me find it and check stock.",a:"",sys:"7000-06-06 FG: 3/8\" Male JIC x 3/8\" Male BSPT. Stocked at 110.",g:{stock:"7000-06-06 FG in stock"},r:["end1","end2"],c:"Describe both ends and search by description when you don't know the item ID."},
+   {q:"I'll ring it up. Card OK?",a:"That works.",g:{pay:"Card at the counter"},r:["stock","qty"],c:"Close it cleanly."}
   ],
   weak:[
-   {q:"Sure, I'll match it.",a:"Great, change it today.",c:"Never match without checking margin and getting approval."},
-   {q:"Their hose is probably junk.",a:"It's worked fine for others.",c:"Don't knock competitors. Sell on service, spec, and availability."},
-   {q:"That's our price. Take it or leave it.",a:"Then I'll probably leave it.",c:"Work the deal. Volume and commitment give you room to move."}
+   {q:"It's probably NPT. Most are.",a:"Will NPT go in the pump?",c:"Never assume. 3/8 NPT is 18 TPI with a 60° form; it won't seal in a BSPT port."},
+   {q:"Can you leave it and come back?",a:"I've got a tractor down.",c:"Measuring takes two minutes. Do it at the counter."},
+   {q:"What's the part number on it?",a:"Nothing's stamped on it.",c:"Most adapters aren't marked. Measure."}
   ],
-  action:{q:"What do you do next in P21PLAY?",opts:[
-   {t:"Take the competitor quote and margin math to Greg for approval, then build a quote at the approved price tied to 300 ft/quarter, with an expiration date.",ok:true,c:"Correct. Approval first, then a quote that ties the price to the commitment."},
-   {t:"Change his customer price to $5.10 right now.",c:"No approval and no commitment locked in. That's 15.7% margin on every order."},
-   {t:"Tell him no and move on.",c:"You may lose the account over a deal that could have worked."},
+  action:{q:"What do you do in P21PLAY?",opts:[
+   {t:"Enter a counter order on 910: 2 ea 7000-06-06 FG plus thread sealant, and take the card payment.",ok:true,c:"Correct. Quick and right."},
+   {t:"Open a new account for him first.",c:"Cash walk-ins go on 910."},
+   {t:"Sell him a 3/8 NPT x -6 JIC adapter.",c:"Wrong thread. BSPT and NPT differ in pitch and form."},
+   {t:"Quote it by email.",c:"He's at the counter with a machine down."}],
+   steps:["Order Entry: account 910, your own taker ID","Line 1: 2 ea 7000-06-06 FG","Line 2: thread sealant","Take card payment, print receipt"]}
+},
+{ id:"bellows", title:"Where Are the Bellows?", tag:"Phone: order follow-up", ch:"Phone",
+  caller:"Justin Phillips", open:"Justin Phillips at Georgia Pacific Pennington. We got the seal and the paddle blinds on our order, but not the two bellows. Where are they?",
+  fields:[["cust","Customer"],["contact","Contact"],["po","PO"],["status","Order status"],["l6","Line 6"],["l10","Line 10"],["fix","Next steps"],["follow","Follow-up"]],
+  good:[
+   {q:"Hi Justin, let me pull up Georgia Pacific Pennington.",a:"Thanks.",sys:"Customer 10510. Contacts include Justin Phillips.",g:{cust:"Georgia Pacific Pennington (10510)",contact:"Justin Phillips"},c:"Account and caller first."},
+   {q:"Do you have the PO?",a:"4500995240.",g:{po:"4500995240"},c:"The PO is the fastest way to the order."},
+   {q:"Let me open that order.",a:"",sys:"Order 1039780, PO 4500995240:\nLine 1 seal: shipped. Line 2 paddle blinds: shipped.\nLine 6 SS BELLOW 12 X 11 F X FL: open, not shipped.\nLine 10 EXP BELLOW 12X20 FX X FL: disposition B (backorder).",g:{status:"Lines 1-2 shipped; 6 and 10 open"},r:["po"],c:"Read each line and its disposition."},
+   {q:"Let me check the purchase orders behind the bellows.",a:"",sys:"Line 6: vendor PO 4009424, Southeastern Hose: received 1 of 1.\nLine 10: vendor PO 4009425, Kadant Unaflex: received 0 of 1. Read the promise date on the PO.",g:{l6:"Received from vendor, not shipped: find it",l10:"On order from Kadant Unaflex: give PO promise date"},r:["status"],c:"Received but not shipped means it's probably in our building."},
+   {q:"How soon do you need them?",a:"We've got a shutdown coming.",g:{fix:"Find line 6 and ship; confirm line 10 date with vendor"},r:["l6","l10"],c:"Urgency decides how hard you push the vendor."},
+   {q:"I'll get the 12 x 11 moving and confirm the other date with the vendor, then call you back. OK?",a:"That works. Thanks.",g:{follow:"Call Justin back with both dates"},r:["fix"],c:"Commit to a callback with facts, then keep it."}
+  ],
+  weak:[
+   {q:"It's probably on a truck.",a:"Probably? Can you check?",c:"Never guess. Look it up."},
+   {q:"You'll need to call the vendor.",a:"I bought it from you.",c:"We own the order. Chase it for the customer."},
+   {q:"I'll cancel it and enter a new order.",a:"Won't that mess up our PO?",c:"Work the open lines. Don't duplicate orders."}
+  ],
+  action:{q:"What do you do?",opts:[
+   {t:"Ask the warehouse to find the received 12 x 11 bellows and ship it, confirm the Kadant Unaflex promise date on PO 4009425, add a dated note to order 1039780, and call Justin back.",ok:true,c:"Correct. Facts, action, and a callback."},
+   {t:"Tell him both bellows are on backorder.",c:"One is already received. Find it."},
+   {t:"Cancel the open lines and re-enter them.",c:"That breaks the PO match."},
+   {t:"Email him our vendor PO numbers.",c:"He needs dates, not our vendor details."}],
+   steps:["Order Inquiry: 1039780 (PO 4500995240)","Line 6: vendor PO 4009424 received; warehouse finds and ships","Line 10: vendor PO 4009425; confirm promise date with Kadant Unaflex","Dated note on the order","Call Justin with both dates"]}
+},
+{ id:"price", title:"Price Match Request", tag:"Phone: pricing + approval", ch:"Phone",
+  caller:"Rheem buyer", open:"I'm a buyer at Rheem Manufacturing. I can get dash 8 two-wire hydraulic hose cheaper somewhere else. Can you match it?",
+  fields:[["cust","Customer"],["contact","Contact"],["item","Item"],["vol","Volume / history"],["comp","Competitor offer"],["proof","Written quote"],["commit","Commitment"],["margin","Margin check"]],
+  good:[
+   {q:"Let me look at it with you. Who am I speaking with?",a:"Ray Dobbs, buyer.",sys:"Customer 10662, Rheem Manufacturing Co. Contacts on file: none.",g:{cust:"Rheem Manufacturing (10662)",contact:"Ray Dobbs (practice caller): add contact"},c:"Account and caller first. Rheem has no contacts on file; add him."},
+   {q:"That's our HB5K-8. Let me look at what you've bought.",a:"",sys:"Sales history, 10662, HB5K-8, last 12 months: 14 lines, about 160 ft, paid $5.72 to $6.01/ft.",g:{item:"HB5K-8",vol:"~160 ft/yr, $5.72 to $6.01/ft"},r:["cust"],c:"Know the volume and price history before you talk price."},
+   {q:"What price did they give you, and what brand?",a:"$5.10 a foot. Not sure of the brand.",g:{comp:"$5.10/ft, brand unknown"},c:"Brand matters: hose and couplings must match by series."},
+   {q:"Can you send me their written quote?",a:"Sure, I'll email it.",g:{proof:"Written quote requested"},r:["comp"],c:"A written quote confirms brand, quantity, and terms."},
+   {q:"If we get closer on price, would you commit your hose business to us?",a:"If the price is right, yes.",g:{commit:"Will commit if price works"},r:["vol"],c:"Trade price for commitment. Never discount for nothing."},
+   {q:"Let me work the numbers and get back to you.",a:"",sys:"Look up the item's cost in P21PLAY.\nMargin = (price - cost) / price. Work it at $5.10 and at a counter price.\nBelow the margin floor needs Manager approval.",g:{margin:"Work margin at $5.10 and a counter; Manager approval"},r:["proof","commit"],c:"Do the math, then take it to the Manager. Don't promise on the call."}
+  ],
+  weak:[
+   {q:"Sure, I'll match it.",a:"Great, change it today.",c:"Never match without margin math and approval."},
+   {q:"Their hose is probably junk.",a:"It's worked fine for others.",c:"Don't knock competitors. Sell on service and availability."},
+   {q:"That's our price, take it or leave it.",a:"Then I'll probably leave it.",c:"Work the deal. Volume gives you room."}
+  ],
+  action:{q:"What do you do next?",opts:[
+   {t:"Add Ray as a contact, take the written quote and your margin math to the Manager, then quote the approved price tied to the commitment, with an expiration date.",ok:true,c:"Correct. Approval first, then a quote that ties price to the commitment."},
+   {t:"Change his price to $5.10 now.",c:"No approval and nothing in return."},
+   {t:"Tell him no.",c:"You may lose the account over a deal that could work."},
    {t:"Enter an order at $5.10.",c:"He hasn't ordered, and the price isn't approved."}],
-   steps:["Get the competitor's written quote from Ray","Run margin at $5.10 and at a counter price","Bring both to Greg for approval","Quote: -12 100R2AT at the approved price, note the 300 ft/quarter commitment","Set expiration date; send and log a follow-up"]}
+   steps:["Contact Maintenance: add Ray Dobbs to 10662","Get the competitor's written quote","Look up cost; work margin at $5.10 and a counter price","Manager approval","Quote HB5K-8 at the approved price with the commitment noted and an expiration date"]}
 },
-{ id:"return", title:"Wrong Gaskets Shipped", tag:"Return + replacement",
-  caller:"Carla", open:"The gaskets you sent us are the wrong size. They don't fit our flanges.",
-  fields:[["cust","Customer"],["contact","Contact"],["order","Order shipped"],["need","Correct part"],["cause","Cause"],["cond","Condition"],["when","Need-by"],["fix","Resolution"]],
+{ id:"return", title:"Gaskets Don't Fit", tag:"Phone: return + replacement", ch:"Phone",
+  caller:"Blake Wynne", open:"Blake Wynne, purchasing at International Paper Prattville. Those 4-and-a-half-inch gaskets you sent are too narrow for our flanges.",
+  fields:[["cust","Customer"],["contact","Contact"],["order","Order shipped"],["need","What fits"],["cause","Cause"],["cond","Condition"],["credit","Credit check"],["fix","Resolution"]],
   good:[
-   {q:"I'm sorry about that. Let's get it fixed. Who am I speaking with?",a:"Carla Mays, storeroom at Tallapoosa Board Mill.",g:{cust:"Tallapoosa Board Mill",contact:"Carla Mays, Storeroom"},c:"Own it, then get the account."},
-   {q:"What's the PO or order number?",a:"PO 8812.",sys:"Order #1059920, PO 8812: 12 ea 3\" Class 300 RF ring, 1/16 CNA. Shipped 10/9.",g:{order:"#1059920: 12 x 3\" Class 300 RF ring, 1/16 CNA"},c:"Pull the order and see what actually shipped."},
-   {q:"What size and pressure class are the flanges they go on?",a:"Three-inch, 150 pound.",g:{need:"3\" Class 150 RF ring, 1/16 CNA (5.38\" OD)"},c:"A Class 300 ring has a larger OD (5.88\") and won't fit inside a Class 150 bolt circle."},
-   {q:"Let me check what was originally requested.",a:"",sys:"Quote #Q-20455 notes: customer requested 3\" 150#. Order line keyed as Class 300.",g:{cause:"MR&G entry error: keyed 300# instead of 150#"},r:["order","need"],c:"Find the cause before you decide who pays. Here it's on us."},
-   {q:"Are the gaskets unused and still in the package?",a:"Yes, we didn't even get them on.",g:{cond:"Unused, in package"},c:"Condition decides whether they go back to stock."},
-   {q:"When do you need the correct ones?",a:"We have a job on that line next week.",g:{when:"Needed for next week's job"},c:"Get the deadline before you promise a ship date."},
-   {q:"We'll ship the correct gaskets right away at no charge and pick up the wrong ones on delivery. Does that work?",a:"That works. Thank you.",g:{fix:"No-charge replacement; pick up wrong parts at delivery"},r:["cause","cond","when"],c:"Our mistake, our cost. Make it easy for the customer."}
+   {q:"Let's get it fixed. Let me pull up IP Prattville.",a:"Thanks.",sys:"Customer 10549, International Paper Prattville. Contact: Blake Wynne (purchasing).",g:{cust:"International Paper Prattville (10549)",contact:"Blake Wynne, Purchasing"},c:"Own it, then get the account."},
+   {q:"What's the PO?",a:"0019338541.",sys:"Order 1040113, PO 0019338541: 50 ea GSKT RING 4.5 X 5 X .0625 8500 at $1.99.",g:{order:"50 ea ring 4.5\" ID x 5\" OD x 1/16\""},c:"Pull the order and read what actually shipped."},
+   {q:"What size and class are the flanges they go on?",a:"Four-inch, 150 pound, raised face.",g:{need:"4\" Class 150 RF ring: 4.50\" ID x 6.88\" OD"},c:"A 4\" Class 150 ring is 6.88\" OD. A 5\" OD ring is too narrow for that flange."},
+   {q:"Let me check what was requested on the quote or PO copy.",a:"",sys:"Check the PO copy, quote, or order notes in P21PLAY to see what was requested.\nIf we keyed it wrong, it's on us. If it matches what was ordered, it's a new order.",g:{cause:"Find the cause before deciding who pays"},r:["order","need"],c:"Find the cause first. It decides who pays."},
+   {q:"Are the rings unused?",a:"Yes, still in the package.",g:{cond:"Unused, in package"},c:"Condition decides whether they go back to stock."},
+   {q:"Before I promise a ship date, let me check the account.",a:"",sys:"Check credit status on 10549 in P21PLAY before you promise.",g:{credit:"Check credit before promising"},r:["cust"],c:"Always check credit before promising a ship date on a replacement."},
+   {q:"I'll get the right rings cut and set up the return, and call you with a date.",a:"Thank you.",g:{fix:"RMA + correct rings; who pays per cause; Manager approves no-charge"},r:["cause","cond","credit"],c:"Make it easy for the customer, and get approval for anything no-charge."}
   ],
   weak:[
-   {q:"Are you sure you measured right?",a:"Yes. They don't fit.",c:"Check the order first. Questioning the customer before you look sounds defensive."},
-   {q:"There's a restocking fee on returns.",a:"For your mistake?",c:"MR&G keyed the wrong class. No restocking fee on our error."},
-   {q:"Can your guys trim them to fit?",a:"Cut down a gasket?",c:"Never. A trimmed gasket loses its rated dimensions and can blow out."}
+   {q:"Are you sure you measured right?",a:"Yes. They don't fit.",c:"Check the order first. Questioning the customer sounds defensive."},
+   {q:"Can your guys trim them?",a:"Cut down a gasket?",c:"Never. A trimmed gasket loses its rated dimensions."},
+   {q:"I'll ship new ones today at no charge.",a:"Great.",c:"Find the cause and check credit first. No-charge needs approval."}
   ],
   action:{q:"What do you do in P21PLAY?",opts:[
-   {t:"Enter an RMA for the 12 Class 300 gaskets, a no-charge replacement order for 12 ea 3\" Class 150 RF ring 1/16 CNA, note the cause on both, and schedule the pickup with delivery.",ok:true,c:"Correct. Return and replacement are linked, the customer pays nothing, and the cause is on record."},
-   {t:"Enter a new order for the correct gaskets at full price.",c:"Our entry error. The replacement is no charge."},
-   {t:"Issue a credit and tell her to reorder.",c:"She needs parts for next week. Ship the replacement now."},
-   {t:"Tell her to keep the wrong ones.",c:"They're unused and go back to stock. Pick them up."}],
-   steps:["Open order #1059920 and quote #Q-20455","RMA: 12 ea 3\" Class 300 RF ring, reason: MR&G entry error","Replacement order: 12 ea 3\" Class 150 RF ring, 1/16 CNA, no charge, PO 8812 reference","Note cause on both documents","Driver picks up the wrong gaskets at delivery","Confirm ship date with Carla"]}
+   {t:"Find what was requested, enter an RMA for the 50 rings, enter the order for 4\" Class 150 RF rings, set price per the cause (no charge only with Manager approval), check credit, and call Blake with a date.",ok:true,c:"Correct. Cause first, then the paperwork, approval, and a real date."},
+   {t:"Ship replacements at no charge right away.",c:"You don't know the cause yet, and credit isn't checked."},
+   {t:"Tell him to keep the wrong ones.",c:"They're unused and go back to stock."},
+   {t:"Issue a credit and tell him to reorder.",c:"He needs parts. Handle the replacement for him."}],
+   steps:["Order Inquiry: 1040113 (PO 0019338541)","Find what was requested (PO copy, quote, notes)","RMA: 50 ea GSKT RING 4.5 X 5 X .0625 8500","New order: 4\" Class 150 RF rings, 4.50\" ID x 6.88\" OD, cut on the waterjet","Price per cause; Manager approves any no-charge","Check credit on 10549, then call Blake with a date"]}
 }
-
 ];
 
 const $=id=>document.getElementById(id);
@@ -396,7 +387,7 @@ function picker(){
 function start(id){
   cur=S.find(s=>s.id===id); st={vals:{},asked:new Set(),weakUsed:new Set(),score:0,ok:0,bad:0,fresh:new Set(),phase:"ask"};
   picker();
-  $("ctitle").textContent=cur.title; $("cmeta").textContent="Incoming call: "+cur.caller;
+  $("ctitle").textContent=cur.title; $("cmeta").textContent=(cur.ch==="Counter"?"At the counter: ":"Phone: ")+cur.caller;
   $("log").innerHTML=""; add("cust",cur.caller,cur.open);
   render();
 }

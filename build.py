@@ -7,12 +7,14 @@ import html, re, subprocess
 
 PAGES = [
     ("index", "Home", None, ""),
-    ("schedule", "Schedule", "src/schedule.md", "Three-week plan, daily blocks, and mentor hours."),
-    ("guides", "P21 Guides", "src/guides.md", "Step-by-step P21 workflows with fields and common mistakes."),
-    ("reference", "Product Reference", "src/reference.md", "Hose, hydraulics, crimping, threads, gaskets, flanges, and torque."),
-    ("exercises", "Exercises", "src/exercises.md", "Daily practice tasks and simulations to work in P21PLAY."),
+    ("start", "Getting Started", "src/start.md", "Who this is for, how to use the plan, the training team, ground rules, and the daily structure."),
+    ("schedule", "Schedule", "src/schedule.md", "Day-by-day plan for three weeks, with mentor hours."),
+    ("guides", "P21 Guides", "src/guides.md", "Navigation, customer and item inquiry, ship-tos, contacts, order entry, quoting, and order follow-up."),
+    ("products", "Products", "src/products.md", "What we sell, what our shop builds, and who we serve."),
+    ("reference", "Reference", "src/reference.md", "Sizing charts, connection types, threads, hose, gaskets, flanges, O-rings, and our P21 item IDs."),
+    ("exercises", "Exercises", "src/exercises.md", "Daily practice on real accounts in P21PLAY."),
     ("assessments", "Assessments", "src/assessments.md", "Week 1 and Week 2 quizzes, final exam, and sign-off record."),
-    ("trainer", "Call Desk Trainer", None, "Practice customer calls: ask the right questions, build the ticket, pick the P21PLAY action."),
+    ("trainer", "Call & Counter Trainer", None, "Practice customer requests: ask the right questions, build the ticket, pick the P21 action."),
 ]
 
 CSS = """
@@ -83,7 +85,7 @@ def slug(t):
 
 
 def render(src):
-    body = subprocess.run(["pandoc", src, "-f", "gfm", "-t", "html5"], capture_output=True, text=True, check=True).stdout
+    body = subprocess.run(["pandoc", src, "-f", "gfm", "-t", "html5", "--wrap=none"], capture_output=True, text=True, check=True).stdout
     toc, seen = [], {}
 
     def hd(m):
@@ -97,7 +99,7 @@ def render(src):
             toc.append((int(lvl), plain, s))
         return f'<h{lvl} id="{s}">{text}</h{lvl}>'
 
-    body = re.sub(r"<h([1-6])( [^>]*)?>(.*?)</h\1>", hd, body, flags=re.S)
+    body = re.sub(r"<h([1-6])(\s[^>]*)?>(.*?)</h\1>", hd, body, flags=re.S)
     body = body.replace("<table>", '<div class="tw"><table>').replace("</table>", "</table></div>")
     return body, toc
 
@@ -119,9 +121,9 @@ def home():
     )
     out = HEAD.format(title="MR&amp;G Training", css=CSS, nav=nav("index"))
     out += f"""<div class="wrap home"><main>
-<h1>New Hire Onboarding</h1>
-<p>Montgomery Rubber &amp; Gasket's three-week program for inside sales, counter sales, and customer service. The first half of each day is self-taught in P21PLAY and the product reference. The second half is with your mentor.</p>
-<p>Start with the <a href="schedule.html">Schedule</a> to see what's on today, then work the matching guide and reference sheet. Practice calls anytime in the <a href="trainer.html">Call Desk Trainer</a>.</p>
+<h1>New Hire Training</h1>
+<p>Montgomery Rubber &amp; Gasket's three-week program for every newcomer: inside sales, counter, customer service, warehouse, and shop. You'll learn to get around P21, look up customers and items, keep ship-tos and contacts clean, enter orders, and talk about our products and what our shop can build.</p>
+<p>Start with <a href="start.html">Getting Started</a>, then follow the <a href="schedule.html">Schedule</a>. Keep the <a href="reference.html">Reference</a> handy at the desk and the counter. Practice customer requests any time in the <a href="trainer.html">Call &amp; Counter Trainer</a>.</p>
 <div class="cards">{cards}</div>
 <p style="color:var(--muted);font-size:.85rem;margin-top:28px">All practice entries go in P21PLAY, never live P21. Wear safety glasses when cutting or operating shop equipment.</p>
 </main></div></body></html>

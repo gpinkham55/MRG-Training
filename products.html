@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Products | MR&amp;G Training</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#F6F7F6;--panel:#FFFFFF;--ink:#3D4240;--muted:#6A6E6B;--line:#AAB0AA;--steel:#399A4B;--steel-ink:#FFFFFF;--link:#2B7539;--tag:#8DD783;--tag-ink:#3D4240;--code:#E4E7E4;--head:#3D4240;--head-ink:#F6F7F6;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#3D4240;--focus:#399A4B;
+--display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2E3230;--panel:#3D4240;--ink:#E8EBE8;--muted:#AAB0AA;--line:#6A6E6B;--steel:#8DD783;--steel-ink:#2E3230;--link:#8DD783;--tag:#8DD783;--tag-ink:#2E3230;--code:#6A6E6B;--head:#3D4240;--head-ink:#E8EBE8;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#2E3230;--focus:#8DD783;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2E3230;--panel:#3D4240;--ink:#E8EBE8;--muted:#AAB0AA;--line:#6A6E6B;--steel:#8DD783;--steel-ink:#2E3230;--link:#8DD783;--tag:#8DD783;--tag-ink:#2E3230;--code:#6A6E6B;--head:#3D4240;--head-ink:#E8EBE8;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#2E3230;--focus:#8DD783;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+.top{background:var(--head);border-bottom:1px solid var(--head-hover);position:sticky;top:0;z-index:5}
+.top-in{max-width:1180px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+.brand{display:flex;align-items:center;gap:10px;font:700 1.3rem var(--display);color:var(--head-ink);text-decoration:none;letter-spacing:.01em}
+.brand img{display:block;height:40px;width:auto;max-width:100%;background:#FFFFFF;padding:3px 8px;border-radius:5px}
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav a{font-weight:600;font-size:.92rem;color:var(--head-ink);text-decoration:none;padding:6px 10px;border-radius:5px}
+.nav a:hover{background:var(--head-hover)}
+.nav a[aria-current="page"]{background:var(--head-cur);color:var(--head-cur-ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static!important;max-height:none!important}}
+.toc{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;font-size:.88rem;border-left:2px solid var(--line);padding-left:12px}
+.toc b{display:block;font:600 .72rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0}
+.toc a.l3{padding-left:12px;color:var(--muted)}
+.toc a:hover{color:var(--link)}
+main{min-width:0;max-width:78ch}
+main h1{font:700 2.2rem/1.05 var(--display);margin:0 0 16px;text-wrap:balance}
+main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--steel);text-transform:uppercase;letter-spacing:.02em}
+main h3{font:600 1.25rem var(--display);margin:26px 0 8px;letter-spacing:.02em}
+main a{color:var(--link)}
+main table{border-collapse:collapse;font-size:.9rem;width:100%;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;margin:12px 0}
+main th,main td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+main th{background:var(--code);font-weight:600}
+main code{font-family:var(--mono);background:var(--code);padding:1px 4px;border-radius:3px}
+main hr{border:0;border-top:1px dashed var(--line);margin:28px 0}
+main li{margin:3px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
+.card{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--steel)}
+.card b{font:600 1.3rem var(--display);letter-spacing:.02em}
+.card span{color:var(--muted);font-size:.92rem}
+.card.hi{border-top:4px solid var(--steel)}
+.home{grid-template-columns:minmax(0,1fr)}
+.home main{max-width:none}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+</style></head><body>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><img src="img/mrg-logo.png" alt="Montgomery Rubber &amp; Gasket" width="130" height="40"><span>Training</span></a><nav class="nav"><a href="index.html">Home</a><a href="start.html">Getting Started</a><a href="schedule.html">Schedule</a><a href="guides.html">P21 Guides</a><a href="products.html" aria-current="page">Products</a><a href="reference.html">Reference</a><a href="exercises.html">Exercises</a><a href="assessments.html">Assessments</a><a href="trainer.html">Call &amp; Counter Trainer</a></nav></div></header>
+<div class="wrap"><aside class="toc"><b>On this page</b><a class="l2" href="#section-4-products-capabilities">Section 4: Products &amp; Capabilities</a><a class="l2" href="#who-we-are">Who We Are</a><a class="l2" href="#who-we-sell-to">Who We Sell To</a><a class="l2" href="#what-we-sell">What We Sell</a><a class="l2" href="#what-we-make-and-do">What We Make and Do</a><a class="l3" href="#hose-assemblies">Hose assemblies</a><a class="l3" href="#waterjet-cutting">Waterjet cutting</a><a class="l3" href="#custom-fabrication">Custom fabrication</a><a class="l3" href="#emergency-and-after-hours-service">Emergency and after-hours service</a><a class="l3" href="#delivery-and-pickup">Delivery and pickup</a><a class="l3" href="#trg-network">TRG network</a><a class="l2" href="#questions-every-newcomer-should-be-able-to-answer">Questions Every Newcomer Should Be Able to Answer</a></aside><main><h1 id="section-4-products-capabilities">Section 4: Products &amp; Capabilities</h1>
+<h2 id="who-we-are">Who We Are</h2>
+<p>Montgomery Rubber &amp; Gasket has served central Alabama's pulp, paper, and industrial markets since 1973. We're part of the TRG family of companies, which means we can pull stock from other TRG locations when we're short. In P21, Montgomery is <strong>location 110</strong>. We're at 1201 Newell Pkwy, Montgomery, AL 36110.</p>
+<p>Customers come to us three ways: they call, they email a PO, or they walk up to the counter. Every one of them wants the right part, on time, without having to explain it twice.</p>
+<h2 id="who-we-sell-to">Who We Sell To</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Market</th>
+<th>Real accounts you'll see in P21</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pulp and paper mills</td>
+<td>International Paper Prattville, International Paper Selma, Georgia Pacific Pennington, WestRock, Boise Cascade</td>
+</tr>
+<tr class="even">
+<td>Manufacturing and OEM</td>
+<td>Rheem Manufacturing, Knox Kershaw, Steris, Pharmavite, Berry Global</td>
+</tr>
+<tr class="odd">
+<td>Municipal and utilities</td>
+<td>City of Montgomery (Garage, Landfill), Montgomery Water Works</td>
+</tr>
+<tr class="even">
+<td>Distributors</td>
+<td>DXP Enterprises</td>
+</tr>
+<tr class="odd">
+<td>Construction and equipment</td>
+<td>Wiregrass Construction, Boan Contracting, Cowin Equipment</td>
+</tr>
+<tr class="even">
+<td>Industrial maintenance</td>
+<td>A-1 Industrial Maintenance</td>
+</tr>
+<tr class="odd">
+<td>Walk-in counter</td>
+<td>Montgomery Counter Sales (account 910)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Paper mills are the bulk of our business. They run around the clock, and a down machine costs them a lot. That's why speed and accuracy on mill requests come first.</p>
+<h2 id="what-we-sell">What We Sell</h2>
+<p>Our product lines, roughly in order of how often they show up on orders:</p>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Product line</th>
+<th>What it covers</th>
+<th>Where you'll see it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hydraulic fittings and adapters</td>
+<td>Crimp couplings (JIC, ORFS, O-ring boss, NPT, BSPP, Code 61 flange), adapters</td>
+<td>Equipment repair, mobile hydraulics, counter walk-ins</td>
+</tr>
+<tr class="even">
+<td>Gaskets and gasket sheet</td>
+<td>Cut gaskets (ring and full face), compressed and PTFE sheet, rubber sheet</td>
+<td>Every mill and plant; cut on our waterjet</td>
+</tr>
+<tr class="odd">
+<td>Hydraulic hose</td>
+<td>2-wire braid and 4- and 6-wire spiral hose</td>
+<td>Assemblies built in our shop</td>
+</tr>
+<tr class="even">
+<td>Industrial fittings</td>
+<td>Cam and groove, ground joint steam fittings, combination nipples, hose barbs, clamps</td>
+<td>Water, air, steam, chemical, and suction lines</td>
+</tr>
+<tr class="odd">
+<td>Industrial hose</td>
+<td>Water, air, suction, discharge, steam, chemical, layflat, duct</td>
+<td>Mills, municipal, construction</td>
+</tr>
+<tr class="even">
+<td>Belting</td>
+<td>Conveyor and transmission belting</td>
+<td>Mills and plants</td>
+</tr>
+<tr class="odd">
+<td>Rubber products</td>
+<td>Boots, rubber board and sheet, molded parts</td>
+<td>OEM and maintenance</td>
+</tr>
+<tr class="even">
+<td>Metal</td>
+<td>Stainless and carbon sheet, cut to shape on the waterjet</td>
+<td>Custom parts, blinds, plates</td>
+</tr>
+<tr class="odd">
+<td>Seals, O-rings, packing</td>
+<td>Mechanical seals, O-rings and cord stock, compression packing, lantern rings</td>
+<td>Pumps and valves</td>
+</tr>
+<tr class="even">
+<td>Expansion joints and metal hose</td>
+<td>Stainless bellows, rubber expansion joints, stainless braided hose assemblies</td>
+<td>Piping systems in mills</td>
+</tr>
+<tr class="odd">
+<td>Joint sealant, adhesives, lubes</td>
+<td>Thread sealant, adhesives, oils and fluids</td>
+<td>Counter and maintenance</td>
+</tr>
+<tr class="even">
+<td>Valves, gauges, hose reels, hose protection</td>
+<td>Supporting products for hose and piping systems</td>
+<td>Plants and fleets</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="what-we-make-and-do">What We Make and Do</h2>
+<h3 id="hose-assemblies">Hose assemblies</h3>
+<p>We build hydraulic and industrial hose assemblies to spec in our shop: cut, crimp, test, tag. Customers can also bring in a failed hose for us to copy, or a good hose for us to <strong>cut and re-crimp</strong> with new ends. In P21, an assembly is its own item with the hose and fittings on the lines beneath it.</p>
+<p>What we need to build one: the seven STAMPED answers (Reference Sheet A).</p>
+<h3 id="waterjet-cutting">Waterjet cutting</h3>
+<p>Our waterjet cuts gaskets from sheet (ring, full face, and special shapes), and custom parts from rubber, plastic, insulation, and metal. We cut from our stock or from material the customer supplies. Waterjet time is billed as labor on the order.</p>
+<p>What we need: a drawing, a sample, or the flange size and class, plus material and thickness.</p>
+<h3 id="custom-fabrication">Custom fabrication</h3>
+<p>We make repeat parts to drawing for manufacturing customers: special gaskets, insulation panels, spacers, and similar parts. These usually have their own item IDs, often with the customer's part number in the description.</p>
+<h3 id="emergency-and-after-hours-service">Emergency and after-hours service</h3>
+<p>Mills and plants break down at all hours. We offer after-hours and weekend call-out service. Those calls carry an after-hours fee in P21. Your mentor will explain who's on call and how a call-out gets handled.</p>
+<h3 id="delivery-and-pickup">Delivery and pickup</h3>
+<p>We deliver on our own truck, ship by carrier, or hold orders for will call. Ship-to delivery instructions (Guide 3.3) tell the driver what to do.</p>
+<h3 id="trg-network">TRG network</h3>
+<p>When we're short, another TRG location may have stock to transfer (disposition T in Guide 3.6). Always check before you backorder.</p>
+<h2 id="questions-every-newcomer-should-be-able-to-answer">Questions Every Newcomer Should Be Able to Answer</h2>
+<ol type="1">
+<li>Name four product lines we sell and one customer who buys each.</li>
+<li>What do we need from a customer before we can build a hose assembly?</li>
+<li>What can our waterjet cut besides gaskets?</li>
+<li>A customer's line is down after hours. What do you do?</li>
+<li>We're out of an item. What two things do you check before you backorder it?</li>
+</ol>
+</main></div></body></html>

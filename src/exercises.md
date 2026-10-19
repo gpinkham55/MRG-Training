@@ -1,163 +1,176 @@
-# SECTION 3: Daily Practical Exercises & Simulations
+# Section 6: Exercises
 
-Every exercise below uses real MR&G customers, orders, items, and prices pulled from P21 on 10/16/2026. Work them in **P21PLAY**. P21PLAY is a copy of live data, so stock and order status there may differ a little from what's printed here. When they differ, P21PLAY is right; write down what you found.
+Every exercise uses real customers, contacts, orders, and items from P21. Work them in **P21PLAY**. Each request could come by phone or across the counter; handle it the same way.
+
+Stock and order status in P21PLAY change over time. When what you find differs from what's written here, trust P21PLAY and write down what you found. Where a scenario needs a caller who isn't in P21 yet, the name is marked as a practice caller.
 
 Mentor check notes after each exercise are for the mentor reviewing your work in Block D.
 
+## Week 1
+
 ### Exercise 1.1 (Day 1): Navigation Scavenger Hunt
 
-Find and record:
+Using only inquiry windows (Guide 3.1):
 
-1. Search customers by city "Prattville." Record the Customer ID for International Paper Prattville.
-2. That customer's terms and credit status.
-3. Its last three orders: dates, PO numbers, and order totals.
-4. How many ship-tos it has.
-5. Search customers for "Boise Cascade." You'll find two accounts. Record both IDs and bill-to cities, and write one sentence on how you'd tell which one a caller means.
-6. Look up these items and record on-hand at location 110:
-   - `HB5K-8` (hydraulic hose, -8, 2-wire)
-   - `150016595` (gasket sheet, 60" x 63" x 1/16", green)
-   - `HSE WTR 300 RBR SUC` (3" rubber water suction hose)
+1. Add Order Entry, Customer Master Inquiry, Item Master Inquiry, Ship To Maintenance, Contact Maintenance, and Order Inquiry to your favorites.
+2. Search customers by city "Prattville." Record the customer ID for International Paper Prattville.
+3. Record its terms, credit status, and number of ship-tos.
+4. Record its last three orders: PO numbers and order totals.
+5. Search customers for "Boise Cascade." You'll find two accounts. Record both IDs and bill-to cities. Write one sentence on how you'd tell which one a customer means.
+6. Look up these items. Record the description, unit of measure, and available quantity at location 110:
+   - `HB5K-8`
+   - `150016595`
+   - `HSE WTR 300 RBR SUC`
+   - `FIT CAM CPLG 300 ALM C`
 
-**Mentor check:** IP Prattville is 10549, Net 60, 1 ship-to. Confirm the credit status the trainee read in P21PLAY. Boise Cascade 10399 bills to Chapman, AL; 10400 bills to Boise, ID. Ask the caller which mill and match the ship-to. Sheet 150016595 is stocked and sold in square inches (SI).
+**Mentor check:** IP Prattville is 10549, Net 60, one ship-to; ask what credit status the trainee found and what it means for an order. Boise Cascade 10399 bills to Chapman, AL; 10400 bills to Boise, ID; ask which mill and match the ship-to. `150016595` is green gasket sheet sold by the square inch (SI). Check that the trainee read available, not just on hand.
 
 ### Exercise 1.2 (Day 2): Read the Customer
 
 Account: **WestRock Company (10753)**.
 
-Write a one-paragraph account brief covering: credit limit, terms, credit status, salesrep, number of ship-tos and contacts, how many orders in the last 12 months, typical items bought, and any notepads.
+Write a one-paragraph account brief: terms, credit status, salesrep, number of ship-tos and contacts, how often they order, what they typically buy, and any notepads.
 
 Then answer:
 
-1. Four of the five ship-tos show a PO Box in Duluth, GA. Which ship-to is a real delivery address a truck can go to?
-2. WestRock's open order 1040323 (PO 29846666) has a backordered line. What is the item, and what is its disposition?
+1. Four of the five ship-tos show a PO box. Which ship-to is a real delivery address?
+2. List the contacts. Which are real people, and which is a placeholder for an invoice mailbox?
+3. Open order 1040323 (PO 29846666). What is the backordered item, and what is its disposition?
 
-**Mentor check:** Net 120, salesrep 1005, 5 ship-tos, 4 contacts, about 111 orders in 12 months. The deliverable ship-to is 10756, WestRock Mill Company, Demopolis (28270 Hwy 80 West). Order 1040323 line 1 is 150019658, 3" SS braid hose x 8' with 150# flanges, disposition B.
+**Mentor check:** Net 120, salesrep 1005, five ship-tos. The deliverable ship-to is 10756, WestRock Mill Company Demopolis (28270 Highway 80 West). Contacts: Michael Boyd and Vijaya Gangamuni (Purchasing), Charlie Witherspoon, and "WestRock Co. (invoices)" as the AP placeholder. Order 1040323 line 1 is `150019658`, a 3" stainless braided hose x 8' with 150# flanges, disposition B.
 
-### Exercise 1.3 (Day 3): The Account With No Contacts
+### Exercise 1.3 (Day 3): Contacts That Need Work
 
-Account: **City of Montgomery Garage (10440)**.
+**Part A: City of Montgomery Garage (10440).** P21 shows no contacts on this account.
 
-P21 shows **zero** contacts on this account. Its second ship-to (10439, City of Montgomery Landfill) has a person's attention line typed into the address.
+*Request (practice caller, phone or counter):* "I'm Dana Reese, fleet parts buyer for the City garage. I'll be placing your orders now. Invoices still go to the Finance Department, Accounts Division."
 
-*Practice scenario (made-up caller):* "This is Dana Reese, fleet parts buyer for the City garage. I'll be placing your orders now. Invoices still go to the Finance Department, Accounts Division."
+In P21PLAY:
 
-Tasks in P21PLAY:
+1. Search for duplicates on the name and email before adding.
+2. Add Dana Reese as a Purchasing contact on 10440 with practice phone and email.
+3. Set quotes and acknowledgments to go to the new contact.
+4. Open ship-to 10439 (City of Montgomery Landfill). What's typed in Address 1? Why does that belong in Contact Maintenance?
+5. Add a dated note on the customer.
 
-1. Search for duplicates on the caller's name and email before adding.
-2. Add Dana Reese as a Purchasing contact linked to 10440, with phone and email (make up practice values).
-3. Set quote and acknowledgment delivery to Dana.
-4. Look at ship-to 10439. Write down what's in Address 1 and why a contact belongs in Contact Maintenance, not on an address line.
-5. Add a dated note on the customer record.
+**Part B: other accounts.** Look at the contacts on Georgia Pacific Pennington (10510), Montgomery Water Works (10606), and Montgomery Counter Sales (910). For each, write down anything that looks wrong or out of date.
 
-Role play: run a STAMPED interview with your mentor playing Dana asking for "a hose for the shop air reel."
+Role play: run a STAMPED interview with your mentor asking for "a hose for the shop air reel."
 
-**Mentor check:** contact linked to 10440 with Purchasing role; trainee spots "Attn: Noah Johnson" in ship-to 10439's address line and recommends it move to a contact (with a mentor's OK; don't change live data).
+**Mentor check:** Part A: an "Attn:" line with a person's name sits in ship-to 10439's address; it should move to a contact (with a mentor's OK; don't change live data). Part B: GP has two named contacts (Cade Baker, Justin Phillips) plus a "past due" placeholder; Water Works has only an invoice placeholder and no named buyer; 910 still lists a former employee as a contact. All three go on the clean-up list.
 
 ### Exercise 1.4 (Day 4): New Site Ship-To
 
-Account: **Montgomery Water Works (10606)**, Net 30, 1 ship-to.
+Account: **Montgomery Water Works (10606)**, Net 30, one ship-to.
 
-*Practice scenario:* "We're commissioning a new pump station. Use 1500 Practice Rd, Montgomery, Gate 2. Call Marcus at the station before delivering."
+*Request:* "We're commissioning a new pump station at 1500 Practice Rd, Montgomery, Gate 2. Call the station before you deliver."
 
 1. Confirm the site isn't already a ship-to.
 2. Create the ship-to in P21PLAY with Gate 2 in Address 2.
 3. Put the call-ahead in delivery instructions, not the address lines.
-4. Check the customer record for tax exemption status before setting the ship-to's tax fields. Write down what you found and confirm with your mentor.
+4. Check the customer for tax exemption before you set the ship-to's tax fields. Confirm with your mentor.
 5. Set carrier and preferred location 110.
 
-Product question: they want 20 ft of 3" suction hose. Look up `HSE WTR 300 RBR SUC`. How many feet are available (on hand minus allocated)?
+Product questions:
 
-**Mentor check:** as of 10/16, 254 ft on hand with 50 allocated, so 204 ft available. Suction means rigid helix; this item is a rubber suction hose.
+1. They want 20 ft of 3" suction hose. Look up `HSE WTR 300 RBR SUC`. How many feet are available?
+2. Their pump has a 3" male groove adapter. Which cam and groove type goes on the hose, and what's our item ID for it in aluminum? In stainless?
 
-### Exercise 1.5 (Day 5): Three Real Stock Orders
+**Mentor check:** available = on hand minus allocated. Suction means a rigid helix; this item is a rubber suction hose. A coupler goes on the hose: Type C. Aluminum `FIT CAM CPLG 300 ALM C`; stainless `150012302` or the crimp-style `FIT CAM CPLG 300 SS C CRIMP`.
 
-Enter each in P21PLAY, have your mentor review, then release.
+### Exercise 1.5 (Day 5): Three Real Orders
 
-1. **Counter sale (Montgomery Counter Sales, 910):** 25 ft `AW-32-RD` (2" red air & water hose) and 2 ea `150012469` (0808 brass MNPT x hose barb). Note the terms on account 910 and what that means at the counter.
-2. **Phone order (A-1 Industrial Maintenance, 10350):** 50 ft `HSE GP 050 RBR RED` (1/2" red GP hose). Look at their order history first. What does their PO numbering look like?
-3. **International Paper Prattville (10549):** 2 ea `F4-2424-FL`. Check the credit status before you save, then watch what happens at release.
+Enter each in P21PLAY. Your mentor reviews before release.
 
-**Mentor check:** 910 is COD, Due Immediately: payment at the counter. A-1 uses short sequential POs (175, 179, 186, 223, 225 in April). For IP Prattville, the trainee checks credit status first. If the account is on hold, the order holds; the trainee tells the customer politely and routes to accounting (never work around a hold).
+1. **Counter walk-in (Montgomery Counter Sales, 910):** 25 ft `AW-32-RD` (2" red air and water hose) and 2 ea `150012469` (brass MNPT x hose barb). What are the terms on account 910, and what does that mean at the counter?
+2. **Phone order (A-1 Industrial Maintenance, 10350):** 50 ft `HSE GP 050 RBR RED`. Check their history first. What do their PO numbers look like?
+3. **International Paper Prattville (10549), contact Blake Wynne (Purchasing):** 2 ea `F4-2424-FL`. Check credit status before you save, then watch what happens at release.
 
-### Exercise 2.1 (Day 6): Pricing, Margin, Freight
+**Mentor check:** 910 is COD, due immediately: payment at the counter. A-1 uses short sequential PO numbers. For IP Prattville, if the account is on hold, the order holds; the trainee tells the customer politely and routes to accounting (never work around a hold).
 
-1. A customer asks for `HB5K-8` at $5.00/ft. Look up the last price MR&G charged and the moving average cost at location 110. Calculate margin at both prices.
-2. Georgia Pacific Pennington (10510) has terms "2% 15, net 60." Explain those terms in one sentence.
-3. Enter three P21PLAY orders for any real account: one Prepaid & Add, one Collect, one Will Call.
-4. Hydraulic: Boise Cascade buys `HS5K-24`. Read the item description. What is the working pressure and reinforcement? Is it braid or spiral construction?
+## Week 2
 
-**Mentor check:** HB5K-8 last price $6.41. Check the trainee's math against the cost P21PLAY shows: margin = (price − cost) ÷ price. A lower price still needs a reason and approval per MR&G pricing rules. 2% 15 net 60: 2% discount if paid in 15 days, otherwise due in 60. HS5K-24: -24 (1-1/2"), 6-wire, 5,100 psi, spiral.
+### Exercise 2.1 (Day 6): Pricing, Freight, and Hydraulic Hose
+
+1. **Cowin Equipment (10462)** buys `HB5K-8` regularly. Open their sales history for that item. What prices have they paid, and did the price change? Why might it have changed, and what would you check before you answered the customer?
+2. Georgia Pacific Pennington (10510) buys on "2% 15, net 60." Explain those terms in one sentence.
+3. Enter three P21PLAY orders for any real account: one prepaid and add, one collect, one will call.
+4. Boise Cascade buys `HS5K-24`. Read the item description. What size is it, how many wires, what working pressure, and is it braid or spiral?
+
+**Mentor check:** Cowin has paid $6.01/ft and, more recently, $6.41/ft. Check for a supplier cost increase or a pricing change before explaining; don't guess. 2% 15, net 60: 2% off if paid within 15 days, otherwise due in 60. `HS5K-24`: -24 (1-1/2"), 6-wire, 5,100 psi, spiral.
 
 ### Exercise 2.2 (Day 7): Mystery Fittings
 
-Identify 12 fittings from the tray. For each, record OD, threads per inch, seat angle or seal type, and final ID. Then find the matching P21 item. Your tray includes BSPP pieces; these are stocked items:
+Identify 12 fittings from the tray. For each, record OD, threads per inch, seat or seal type, and final ID. Then find the matching item in P21PLAY using Reference Sheet O. The tray includes these stocked pieces:
 
-| Item ID | Description | On hand (10/16) |
-|---|---|---|
-| F2-0808-BSPFS90 | 2-wire 0808 BSPP female swivel 90° | 16 |
-| F2-0606-BSPFS90 | 2-wire 0606 BSPP female swivel 90° | 39 |
-| F2-0404-BSPFS90 | 2-wire 0404 BSPP female swivel 90° | 36 |
-| F2-0405-JFS | 2-wire 0405 JIC female swivel | 54 |
-| F2-0405-JFS90S | 2-wire 0405 JIC female swivel 90° | 20 |
+| Item ID | Description |
+|---|---|
+| F2-0808-JFS | 2-wire, -08 JIC female swivel |
+| F2-0808-OBM | 2-wire, -08 O-ring boss male |
+| F2-0808-OFS | 2-wire, -08 ORFS female swivel |
+| F2-0808-PM | 2-wire, -08 NPT male |
+| F2-0808-BSPFS90 | 2-wire, -08 BSPP female swivel 90° |
+| 7000-06-06 FG | Adapter, 3/8" male JIC x 3/8" male BSPT |
 
 Quote three of your identified fittings in P21PLAY to Montgomery Counter Sales (910).
 
-### Exercise 2.3 (Day 8): Quote to Order
+### Exercise 2.3 (Day 8): Where's My Order?
 
-Account: **Boise Cascade (10399)**, Chapman, AL.
+**Georgia Pacific Pennington (10510)**, contact Justin Phillips, PO 4500995240, our order 1039780.
 
-1. Create a P21PLAY quote for 2 ea `HSE 4W 24 X 6FT 6IN W/ 2424 FL 61 E/E` (-24 hose, 6'6", 2424 Code 61 flange both ends). Use the last price from history. Set a 30-day expiration.
-2. Check stock on the components: `HS5K-24` hose and `F4-2424-FL` couplings. Do we have enough for 2 assemblies?
-3. Calculate material cost per assembly from moving average costs and the margin at the quoted price (before labor).
-4. Customer accepts with PO 4006-PRACTICE. Convert the quote to an order.
-5. Confirm the quote shows converted/closed.
-6. Run your open quote list and write a follow-up plan for anything older than 14 days.
+*Request:* "We got the seal and the paddle blinds. Where are the two bellows?"
 
-**Mentor check:** last price $493.68 each. Stock 10/16: 74.59 ft hose (need 13 ft), 9 couplings (need 4). Material cost per assembly = 6.5 ft of hose plus 2 couplings at P21PLAY moving average cost; check the trainee's margin math against it.
+1. Find the order from the PO.
+2. Read each line and its disposition.
+3. For each bellows, find the purchase order behind it: vendor, promise date, quantity received.
+4. One bellows shows received from the vendor but not shipped to GP. What do you do?
+5. What do you tell the customer about the other one?
+6. Add a dated note to the order.
+
+Then do the same for **WestRock (10753), order 1040323, PO 29846666**, contact Michael Boyd: "When is the stainless braided hose shipping?"
+
+**Mentor check:** order 1039780 line 6 (`SS BELLOW 12 X 11 F X FL`) was received on a vendor PO from Southeastern Hose but hasn't shipped; find it in the building and get it moving. Line 10 (`EXP BELLOW 12X20 FX X FL`) is on backorder against a vendor PO to Kadant Unaflex; give the customer that PO's promise date.
 
 ### Exercise 2.4 (Day 9): Build and Verify
 
-With Eric Jones, build one of the assembly Boan Contracting (10398) bought in April on order 1021835 (PO 1986-SK140):
+With the Shop Mentor, build a copy of the assembly **Cowin Equipment (10462)** bought on order 1035074 (PO SPO025514):
 
-- Item `HB5K-4-0405JFS-0405JFSL-7.6`
-- Hose `HB5K-4` (-4, 2-wire, 5,100 psi), 7.6 ft
-- Fittings `F2-0405-JFS` (straight JIC female swivel) and `F2-0405-JFS90S` (90° JIC female swivel)
+- Item `HB5K-8-0808JFS-0808OBM-7.04`
+- Hose `HB5K-8`, 7.04 ft
+- Fittings `F2-0808-JFS` (JIC female swivel) and `F2-0808-OBM` (O-ring boss male)
 
-Tasks:
-
-1. Look up the crimp spec for HB5K-4 with these couplings. Record die and target diameter.
-2. Calculate cut length from catalog cutoff allowances.
-3. Build it, orient the 90° per Eric's direction, measure two crimp readings per end, and record.
-4. Proof test at 2× working pressure if Eric approves. Record results.
-5. Complete the inspection checklist.
+1. Read the assembly item ID using Reference Sheet O and explain each part.
+2. Look up the crimp spec for this hose and coupling series. Record die and target diameter.
+3. Work out cut length from the catalog cutoff allowances.
+4. Build it, take two crimp readings per end, and record them.
+5. Proof test at 2x working pressure if the Shop Mentor approves.
+6. Complete the inspection checklist (Reference Sheet I, part 8).
 
 ### Simulation 2.5 (Day 10): "The Hoses We Got in April"
 
-*Scenario:* A maintenance planner at Boise Cascade calls: "We got some hoses from y'all back in April. I need some more of the same fittings that were on that hose."
+*Request:* Dewayne Winslett from Boise Cascade: "We got some hoses from y'all back in April. I need some more of the same fittings that were on that hose."
 
-Tasks:
+1. Dewayne is a contact on Boise Cascade **10400**. Search both Boise accounts. Which one has the April hydraulic hose orders?
+2. Search sales history for April. Find the hose assembly orders.
+3. Open them and read the lines. Record order numbers, POs, assembly item, hose item, coupling item, and prices.
+4. "The same fittings" are crimp couplings. Do you sell loose couplings, or build an assembly? Explain.
+5. Check current stock and price on the couplings and hose.
+6. Compare the assembly description to the hose item description. What doesn't match, and who would you ask?
+7. Build a quote in P21PLAY (Guide 3.7) for two assemblies. Then convert it to an order with practice PO 4006-PRACTICE.
 
-1. Figure out which Boise Cascade account (10399 or 10400). Ask the right question.
-2. Search Customer Sales History for April 2026. Find the hydraulic hose assembly orders.
-3. Open the orders and read the lines. Record order numbers, POs, assembly item, hose item, coupling item, and prices.
-4. The caller wants "the same fittings." Couplings like these are crimped. Decide what to offer: loose couplings, or a built assembly. Explain why.
-5. Check current stock and price on the couplings.
-6. **Before you quote, compare the assembly description to the hose item description. Write down what doesn't match and who you'd ask.**
-7. Enter the quote or order in P21PLAY based on what the caller decides.
+**Mentor check:** the April orders are on **10399** (Chapman): 1020742 (PO "JAMES") and 1020846 (PO 163972), each 1 ea `HSE 4W 24 X 6FT 6IN W/ 2424 FL 61 E/E` at $493.68, built from 6.5 ft `HS5K-24` and 2 ea `F4-2424-FL` ($157.36 each). The caller is set up on the other account; confirm which mill and fix the contact with a mentor's OK. Mismatch: the assembly says 4-wire, the hose item says 6-wire; confirm with the Shop Mentor before quoting. "JAMES" in the PO field is a name, not a PO.
 
-**Mentor check:** account 10399 (Chapman). Orders 1020742 (4/13, PO "JAMES") and 1020846 (4/14, PO 163972), each 1 ea `HSE 4W 24 X 6FT 6IN W/ 2424 FL 61 E/E` at $493.68, built from 6.5 ft `HS5K-24` and 2 ea `F4-2424-FL` ($157.36 each, 9 on hand). Mismatch: the assembly says 4-wire; the hose item says 6-wire, 5,100 psi. Confirm with Eric before quoting. Also note "JAMES" was typed as a PO number: a name, not a PO.
+## Week 3
 
 ### Exercise 3.1 (Day 11): Material Match
 
-For each service, pick a gasket material and thickness, explain in one sentence, and find a stocked P21 sheet item that fits:
+For each service, pick a gasket material and thickness, explain in one sentence, and find a stocked sheet item:
 
 1. 3" Class 150 RF, 60 psig, 180°F caustic (white liquor)
 2. 6" Class 150 RF, 150 psig saturated steam (366°F)
 3. 4" FF cast iron water pump flange, 80 psig ambient water
 4. 2" Class 300 RF, 400 psig, 600°F hot oil
-5. 3" FRP flange, chlorine dioxide service, low pressure
-
-Stocked sheets to choose from (sold by the square inch):
+5. 3" FRP flange, chlorine dioxide, low pressure
 
 | Item ID | Description |
 |---|---|
@@ -171,43 +184,45 @@ Stocked sheets to choose from (sold by the square inch):
 | SHT PAK 48X0125 VITON | Viton, 48" wide x 1/8" |
 | SHT 48X0125 RED SBR | Red SBR, 48" wide x 1/8" |
 
-Confirm the grade of the green and black sheets with Kevin Johnson before you count on them for steam or oil.
+Confirm the grade of the green and black sheets with the Shop Mentor before you count on them for steam or oil.
 
-**Mentor check:** (1) EPDM 1/8" or ePTFE; (2) a steam-rated compressed sheet after P×T check, or graphite; (3) full-face neoprene or SBR 1/8"; (4) graphite with insert, CNA out of range; (5) ePTFE full face (SHT INERTECH).
+**Mentor check:** (1) EPDM or ePTFE; (2) a steam-rated compressed or filled PTFE sheet after the P×T check, or graphite; (3) full-face neoprene or SBR 1/8"; (4) graphite with insert; (5) ePTFE full face.
 
-### Exercise 3.2 (Day 12): Yield and Price a Real Gasket Run
+### Exercise 3.2 (Day 12): Yield and Price a Real Gasket Order
 
-*Scenario:* Georgia Pacific Pennington (10510) asks for 40 ea 4" Class 150 RF ring gaskets and 20 ea 2", 1/16" green sheet.
+**Georgia Pacific Pennington (10510)**, contact Cade Baker, order 1040693 (PO 4500998301): 10 ea `GSKT FF 4 150# X .125 9000`.
 
-1. Look up `150016595` in P21PLAY: sheet size, selling unit, and moving average cost.
-2. Calculate the sheet cost: 60 × 63 = 3,780 SI × cost per SI.
-3. Yield of 4" rings (OD 6.88") per sheet with 0.125" spacing.
-4. How many 2" rings (OD 4.12") come from the 4" ring centers (ID 4.50")?
-5. Material cost per 4" ring two ways: (a) sheet cost ÷ yield, (b) pitch square (7.005" × 7.005") × cost per SI. Which way does P21 bill if the item sells by SI?
-6. Quote both lines in P21PLAY at target margin. Check GP Pennington's terms.
-7. Shadow Kevin as he nests the job and compare his yield to yours.
+1. Read the item ID (Reference Sheet O). What is it?
+2. What sheet item is it cut from? Find the sheet size and selling unit.
+3. Using Reference Sheet K, what are the gasket's OD and ID, and how many bolt holes does it need?
+4. How many fit on one sheet (square grid, 0.125" spacing)?
+5. How many sheets does the order of 10 use?
+6. What else is billed on a cut gasket order besides material?
+7. Shadow the Shop Mentor as they nest a full-face job. Compare their yield to yours.
 
-**Mentor check:** pitch 7.005": 60 ÷ 7.005 = 8 across, 63 ÷ 7.005 = 8.99, so 8 down; 64 rings per sheet. Method (b) uses 49.07 SI per ring. Check the trainee's cost math against the P21PLAY cost per SI. All 20 of the 2" rings nest in the 4" centers. Terms 2% 15, net 60.
+**Mentor check:** a full-face 4" Class 150 gasket, 1/8" Durlon 9000, cut from `GSKT SHT DURLO PTFE` (60" x 60", sold by SI). OD 9.00", ID 4.50", 8 bolt holes. Pitch 9.125": 6 across x 6 down = 36 per sheet, so 10 fit on one sheet. Waterjet labor (`OCI WATER JET LABOR`) goes on the order too.
 
 ### Exercise 3.3 (Day 13): Leak Call
 
-*Scenario:* International Paper Selma (10552) calls: "Your gasket leaked on our 6-inch steam line. We put it in yesterday." (Class 150, 150 psig steam, 1/16" compressed sheet ring.)
+**International Paper Selma (10552)**, contact Kevin Pugh (Purchasing): "Your gasket leaked on our 6-inch steam line. We put it in yesterday." (Class 150, 150 psig steam, compressed sheet ring.)
 
-1. Pull IP Selma's recent orders and find gasket purchases. Record the order and PO.
-2. Walk through the troubleshooting questions from Reference Sheet J.
-3. Discover: installer reused the old bolts dry, tightened in a circle in one pass, and used anti-seize on the gasket face.
-4. Write the reply: professional, helpful, no blame, with correct installation steps and the 8-bolt star sequence.
-5. Enter a no-charge replacement order in P21PLAY only if your mentor approves. Note IP Selma's terms (Net 90).
+1. Search IP Selma's recent orders for gaskets. Record what you find.
+2. Walk through the troubleshooting questions in Reference Sheet M.
+3. You learn the installer reused old bolts dry, tightened in a circle in one pass, and put anti-seize on the gasket face.
+4. Write the reply: helpful, no blame, with the correct steps and the 8-bolt star sequence.
+5. Enter a no-charge replacement in P21PLAY only if your mentor approves. Note IP Selma's terms.
 
-### Simulation 3.4 (Day 14): Six-Call Desk Simulation (Real Accounts)
+### Simulation 3.4 (Day 14): Six-Request Simulation
 
-Mentor plays the callers. Work each start to finish in P21PLAY.
+Your mentor plays the customers, some on the phone and some at the counter. Work each in P21PLAY.
 
-1. **Montgomery Water Works (10606):** "We need a 3-inch suction hose assembly, 20 feet, female cam and groove on one end, male NPT on the other, delivered to our new pump station." Run STAMPED, check `HSE WTR 300 RBR SUC` availability, create the practice ship-to, quote.
-2. **Georgia Pacific Pennington (10510), order 1039780, PO 4500995240:** "We got the seal and the paddle blinds. Where are the two bellows?" Find: line 6 (`SS BELLOW 12 X 11 F X FL`) was received from Southeastern Hose on vendor PO 4009424 (10/13) but hasn't shipped. Line 10 (`EXP BELLOW 12X20 FX X FL`) is on backorder against vendor PO 4009425, Kadant Unaflex, due 11/3. Get line 6 moving and give the customer the line 10 date.
-3. **Walk-in at the counter (910):** customer brings a hose end with a female swivel 90°: 14 TPI, about 0.83" thread, 55° form, 60° cone seat. Identify it (1/2" BSPP female swivel 90°, item `F2-0808-BSPFS90`), check stock, and quote a replacement assembly on `HB5K-8`.
-4. **International Paper Prattville (10549):** buyer wants an order shipped today. Check credit status before promising anything. If the account is on hold, enter the order, explain the hold politely, and route to accounting.
-5. **City of Montgomery Garage (10440):** "Who do you have as our contact?" P21 shows none. Add the caller as a contact and set document delivery.
-6. **WestRock (10753), order 1040323, PO 29846666:** "When is the stainless braided hose shipping?" Find the line, check for a vendor PO, and call back with a date.
+1. **Montgomery Water Works (10606), phone:** "We need a 3-inch suction hose, 20 feet, female cam and groove on one end and male pipe thread on the other, delivered to our new pump station." Run STAMPED, check stock, create the practice ship-to, add the caller as a contact, and quote.
+2. **Georgia Pacific Pennington (10510), Justin Phillips, phone:** "Where are the bellows on PO 4500995240?" (Exercise 2.3.)
+3. **Counter walk-in (910):** a customer brings an adapter: one end 9/16-18 with a 37° cone, the other end tapered, 19 threads per inch, about 0.66". Identify it, find it in P21PLAY, and ring it up.
+4. **International Paper Prattville (10549), Blake Wynne, phone:** wants an order shipped today. Check credit before you promise anything.
+5. **City of Montgomery Garage (10440), counter:** "Who do you have as our contact?" Add them and set document delivery.
+6. **Cowin Equipment (10462), counter:** brings in a blown hose: "Same as the one you made us before." Find it in their history and enter the order.
 
-Scored on accuracy, customer communication, and data clean-up (anything you notice that should be fixed in live P21 goes on a list for your mentor, not changed by you).
+**Mentor check (item 3):** -6 JIC male x 3/8" BSPT male: `7000-06-06 FG`. **(Item 6):** history shows `HB5K-8-0808JFS-0808OBM-7.04` and a 30 ft `HB5K-8-0808JFS-0808JFS-30`; ask the customer to confirm length and ends before you pick one.
+
+Scored on accuracy, customer communication, and data clean-up. Anything you notice that should be fixed in live P21 goes on a list for your mentor.

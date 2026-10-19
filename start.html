@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Getting Started | MR&amp;G Training</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#F6F7F6;--panel:#FFFFFF;--ink:#3D4240;--muted:#6A6E6B;--line:#AAB0AA;--steel:#399A4B;--steel-ink:#FFFFFF;--link:#2B7539;--tag:#8DD783;--tag-ink:#3D4240;--code:#E4E7E4;--head:#3D4240;--head-ink:#F6F7F6;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#3D4240;--focus:#399A4B;
+--display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2E3230;--panel:#3D4240;--ink:#E8EBE8;--muted:#AAB0AA;--line:#6A6E6B;--steel:#8DD783;--steel-ink:#2E3230;--link:#8DD783;--tag:#8DD783;--tag-ink:#2E3230;--code:#6A6E6B;--head:#3D4240;--head-ink:#E8EBE8;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#2E3230;--focus:#8DD783;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2E3230;--panel:#3D4240;--ink:#E8EBE8;--muted:#AAB0AA;--line:#6A6E6B;--steel:#8DD783;--steel-ink:#2E3230;--link:#8DD783;--tag:#8DD783;--tag-ink:#2E3230;--code:#6A6E6B;--head:#3D4240;--head-ink:#E8EBE8;--head-hover:#6A6E6B;--head-cur:#8DD783;--head-cur-ink:#2E3230;--focus:#8DD783;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
+.top{background:var(--head);border-bottom:1px solid var(--head-hover);position:sticky;top:0;z-index:5}
+.top-in{max-width:1180px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+.brand{display:flex;align-items:center;gap:10px;font:700 1.3rem var(--display);color:var(--head-ink);text-decoration:none;letter-spacing:.01em}
+.brand img{display:block;height:40px;width:auto;max-width:100%;background:#FFFFFF;padding:3px 8px;border-radius:5px}
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav a{font-weight:600;font-size:.92rem;color:var(--head-ink);text-decoration:none;padding:6px 10px;border-radius:5px}
+.nav a:hover{background:var(--head-hover)}
+.nav a[aria-current="page"]{background:var(--head-cur);color:var(--head-cur-ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static!important;max-height:none!important}}
+.toc{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;font-size:.88rem;border-left:2px solid var(--line);padding-left:12px}
+.toc b{display:block;font:600 .72rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0}
+.toc a.l3{padding-left:12px;color:var(--muted)}
+.toc a:hover{color:var(--link)}
+main{min-width:0;max-width:78ch}
+main h1{font:700 2.2rem/1.05 var(--display);margin:0 0 16px;text-wrap:balance}
+main h2{font:600 1.6rem/1.15 var(--display);margin:36px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--steel);text-transform:uppercase;letter-spacing:.02em}
+main h3{font:600 1.25rem var(--display);margin:26px 0 8px;letter-spacing:.02em}
+main a{color:var(--link)}
+main table{border-collapse:collapse;font-size:.9rem;width:100%;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;margin:12px 0}
+main th,main td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+main th{background:var(--code);font-weight:600}
+main code{font-family:var(--mono);background:var(--code);padding:1px 4px;border-radius:3px}
+main hr{border:0;border-top:1px dashed var(--line);margin:28px 0}
+main li{margin:3px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
+.card{display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--steel)}
+.card b{font:600 1.3rem var(--display);letter-spacing:.02em}
+.card span{color:var(--muted);font-size:.92rem}
+.card.hi{border-top:4px solid var(--steel)}
+.home{grid-template-columns:minmax(0,1fr)}
+.home main{max-width:none}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+</style></head><body>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><img src="img/mrg-logo.png" alt="Montgomery Rubber &amp; Gasket" width="130" height="40"><span>Training</span></a><nav class="nav"><a href="index.html">Home</a><a href="start.html" aria-current="page">Getting Started</a><a href="schedule.html">Schedule</a><a href="guides.html">P21 Guides</a><a href="products.html">Products</a><a href="reference.html">Reference</a><a href="exercises.html">Exercises</a><a href="assessments.html">Assessments</a><a href="trainer.html">Call &amp; Counter Trainer</a></nav></div></header>
+<div class="wrap"><aside class="toc"><b>On this page</b><a class="l2" href="#section-1-getting-started">Section 1: Getting Started</a><a class="l2" href="#who-this-training-is-for">Who This Training Is For</a><a class="l2" href="#how-to-use-this-plan">How to Use This Plan</a><a class="l2" href="#training-team">Training Team</a><a class="l2" href="#ground-rules">Ground Rules</a><a class="l2" href="#p21play">P21PLAY</a><a class="l2" href="#daily-structure">Daily Structure</a></aside><main><h1 id="section-1-getting-started">Section 1: Getting Started</h1>
+<h2 id="who-this-training-is-for">Who This Training Is For</h2>
+<p>This program is for every newcomer at Montgomery Rubber &amp; Gasket: inside sales, counter sales, customer service, warehouse, and shop. Not everyone answers the phone, but everyone gets the same requests. A customer at the counter asks the same questions a buyer on the phone does.</p>
+<p>By the end of three weeks you should be able to:</p>
+<ul>
+<li>Find your way around Prophet 21 (P21) without help</li>
+<li>Look up a customer, its ship-tos, contacts, credit, and buying history</li>
+<li>Look up an item: stock, price, location, open orders, and where else in TRG it's stocked</li>
+<li>Add and fix ship-tos and contacts</li>
+<li>Enter a clean order, and build a quote when the customer needs a price first</li>
+<li>Talk about our products and what our shop can build</li>
+<li>Use the reference charts to size hose, identify a fitting, and pick a gasket</li>
+</ul>
+<h2 id="how-to-use-this-plan">How to Use This Plan</h2>
+<p>Each day pairs one P21 skill with one product skill, then puts both to work with a mentor. Go section by section:</p>
+<ol type="1">
+<li><strong>Schedule:</strong> what's on today</li>
+<li><strong>P21 Guides:</strong> step-by-step workflows to practice in P21PLAY</li>
+<li><strong>Products &amp; Capabilities:</strong> what we sell and what we make</li>
+<li><strong>Reference:</strong> sizing charts, connection types, and quick lookups to keep handy</li>
+<li><strong>Exercises:</strong> real-account practice tasks for each day</li>
+<li><strong>Assessments:</strong> quizzes and the final exam</li>
+</ol>
+<p>The <strong>Call &amp; Counter Trainer</strong> is a practice tool. A customer makes a request; you pick the right questions and build a ticket until you know what to do in P21. Use it any time.</p>
+<h2 id="training-team">Training Team</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>What they cover</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Manager</td>
+<td>Orientation, assessments, final sign-off, pricing and credit approvals</td>
+</tr>
+<tr class="even">
+<td>Sales Mentor</td>
+<td>Customer and item inquiries, order entry, quoting, phone and counter shadowing</td>
+</tr>
+<tr class="odd">
+<td>Shop Mentor</td>
+<td>Hose and fitting ID, crimping, assembly, receiving, stock locations, waterjet and gasket cutting</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="ground-rules">Ground Rules</h2>
+<ol type="1">
+<li>Wear safety glasses any time you cut hose or sheet, or operate shop equipment.</li>
+<li>The first half of each day is self-taught. Work the assigned guide in P21PLAY and the assigned reference sheet on your own. Write down questions for your mentor.</li>
+<li>In Weeks 1 and 2, every live order or quote you key gets a mentor review before it is saved or released.</li>
+<li>Ask early. A two-minute question beats a wrong part on a truck to a paper mill.</li>
+<li>Keep a training notebook. Write down every new term, part number family, and P21 tip.</li>
+<li>If you spot bad data in live P21 (a wrong address, a contact who left, a PO field with a name in it), write it down for your mentor. Don't change it yourself until you're signed off.</li>
+</ol>
+<h2 id="p21play">P21PLAY</h2>
+<p>P21PLAY is our P21 test system. It's a copy of live data. All practice orders, quotes, ship-tos, and contacts go in P21PLAY, never in live P21, until your mentor moves you to the live system.</p>
+<p>Stock and order status in P21PLAY may differ a little from what the exercises show. When they differ, trust P21PLAY and write down what you found.</p>
+<p><strong>A note on field labels.</strong> The guides follow standard P21 labels. Our window layouts, security roles, and custom fields may differ slightly. On Day 1 your mentor walks each window with you; mark any differences in your notebook.</p>
+<h2 id="daily-structure">Daily Structure</h2>
+<div class="tw"><table>
+<thead>
+<tr class="header">
+<th>Half</th>
+<th>Block</th>
+<th>Length</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First half (self-taught)</td>
+<td>Block A</td>
+<td>2.0 hrs</td>
+<td>P21 self-study: work the assigned guide step by step in P21PLAY</td>
+</tr>
+<tr class="even">
+<td>First half (self-taught)</td>
+<td>Block B</td>
+<td>2.0 hrs</td>
+<td>Product self-study: reference sheets, catalogs, parts on the sample table</td>
+</tr>
+<tr class="odd">
+<td>Second half (with mentor)</td>
+<td>Block C</td>
+<td>2.5 to 3.0 hrs</td>
+<td>Shadowing: phones, counter, warehouse, or shop</td>
+</tr>
+<tr class="even">
+<td>Second half (with mentor)</td>
+<td>Block D</td>
+<td>0.5 to 1.0 hr</td>
+<td>Daily exercise, questions from your notebook, recap</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each Block D opens with your questions from the self-taught half. Your mentor checks the P21PLAY records you created that day.</p>
+<p><strong>Counter, warehouse, and shop hires:</strong> Block C shifts toward the counter, warehouse, and shop. Block A stays the same; everyone learns the same P21 basics.</p>
+</main></div></body></html>

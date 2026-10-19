@@ -1,225 +1,267 @@
-# SECTION 2: Module Documentation & Instructional Guides
+# Section 3: P21 Guides
 
-## Part A: P21 Workflow Guides
+Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor will point out where our screens differ. The same steps apply whether the customer is on the phone or standing at the counter.
 
-### Guide 2.1: Customer Lookup & Navigation
+## Guide 3.1: Navigation
 
-**Purpose:** Before quoting, entering an order, or answering a question, know who you're talking to, what they're allowed to buy on, and how they're priced.
+**Purpose:** Get comfortable moving around P21 before you touch a customer's order.
 
 **Steps**
 
-1. Open **Customer Master Inquiry** (or Customer Maintenance in view mode if your role allows).
-2. In the **Customer ID** field, search one of three ways:
-   - Exact Customer ID, then Tab.
-   - Partial customer name, then Tab or the lookup button. Use the shortest unique piece ("WESTROCK" beats "WestRock Mahrt Mill").
-   - Phone number or city using the search window's filter columns.
-3. Confirm the right account. Many mills have several accounts (by mill, by department, by bill-to). Check the **bill-to address** and the **ship-to list** before choosing.
-4. Read the **Credit** information:
-   - **Credit Limit** and **Credit Limit Used / Available**
-   - **Credit Status** (for example: normal, COD, Cash Only, Hold)
-   - **Terms ID** (Net 30, 1% 10 Net 30, COD, Credit Card)
-5. Read the **Notepads**. Notes marked mandatory pop up in Order Entry. Look for: PO required, release numbers required, receiving hours restrictions, tax exemption details, preferred brands.
-6. Review **Order History** (Sales History / Order Inquiry tab): last 10 orders, items bought, prices paid, PO numbers used. This is the fastest way to find "the same hose as last time."
-7. Review **Open Orders** and **Open Quotes** for this customer before creating new ones. Avoid duplicates.
-8. Review the **Pricing** setup: pricing library or price page assignment, any contract pricing, and **Customer Part Numbers** (their number mapped to our Item ID).
-9. Check the **Salesrep** and **inside sales owner** assigned to the account so you know who to loop in.
+1. Log in with **your own user ID**. Never use a shared counter login. Every order and quote carries the ID of the person who keyed it.
+2. Find the main menu. Windows are grouped by area: order processing (orders, quotes, order inquiry), customers (customer, ship-to, and contact maintenance and inquiry), and inventory (item inquiry, stock by location).
+3. Add the windows you'll use every day to your favorites or toolbar: Order Entry, Customer Master Inquiry, Item Master Inquiry, Ship To Maintenance, Contact Maintenance, Order Inquiry. Your mentor shows you where each one lives on our menu.
+4. **Search fields:** most ID fields (customer, ship-to, item, contact) open a search window. Type part of the value and tab out, or use the lookup button. Search on the shortest piece that's unique.
+5. **Tabs:** most windows have tabs across the top. The header tab holds the main record; other tabs hold related detail (ship-tos, contacts, history, notes). Click through every tab the first time you open a window.
+6. **Multiple windows:** you can keep Customer Inquiry open beside Order Entry. Do it; you'll check history and credit while you take an order.
+7. **Inquiry vs. Maintenance:** inquiry windows only let you look. Maintenance windows change records. When you only need to look, use the inquiry window so nothing changes by accident.
+8. **Save:** changes aren't kept until you save. When you close a window with unsaved changes, P21 asks. Read the prompt before you answer.
+9. **Notepads:** customers, items, and orders can carry notes. A mandatory note pops up when you open the record. Read every one.
 
-**Key fields to know**
+**Common mistakes to avoid**
+
+- Working in live P21 when you meant P21PLAY. Check the system name in the title bar before you start.
+- Using a maintenance window "just to look" and saving a change by accident.
+- Clicking past a pop-up note without reading it.
+
+## Guide 3.2: Customer Inquiry & Sales History
+
+**Purpose:** Before you quote, enter an order, or answer a question, know who the customer is, what terms they buy on, and what they've bought before.
+
+**Steps**
+
+1. Open **Customer Master Inquiry**.
+2. Search for the customer by ID, by part of the name, or by phone or city. Use the shortest unique piece ("WESTROCK" beats "WestRock Mill Company").
+3. **Confirm the right account.** Many customers have more than one account (Boise Cascade has two, billing to different cities). Check the bill-to address and the ship-to list before you pick.
+4. Read the **credit** information: credit limit, credit status (for example normal, COD, hold), and terms.
+5. Read the **notepads**: PO required, release numbers, receiving hours, tax exemption, preferred brands.
+6. Look at **ship-tos** and **contacts**. Do you know who you're talking to? Are they on the account?
+7. Open **sales history** for the customer. Filter by date range and by item or description. This is the fastest way to find "the same hose as last time" or "what we bought back in April."
+8. Open the order from history and read the lines: item IDs, quantities, units, prices, PO.
+9. Check **open orders** and **open quotes** before you create anything new. Avoid duplicates.
+10. Note the **salesrep** on the account so you know who to loop in.
+
+**Key fields**
 
 | Field | Why you check it |
 |---|---|
-| Customer ID | The unique account key; every order and quote hangs on it |
+| Customer ID | The account every order and quote hangs on |
 | Credit Status | Hold or COD changes what you can promise |
-| Terms ID | Tells you how the customer pays |
+| Terms | How the customer pays |
 | Notepads | Customer-specific rules you must follow |
-| Pricing Library | Controls the price P21 offers automatically |
 | Customer Part No. | Lets you enter their part number and land on our item |
-| Salesrep ID | Who owns the relationship |
+| Salesrep | Who owns the relationship |
 
 **Common mistakes to avoid**
 
-- Picking the first account that pops up without confirming the bill-to. Mills often have parallel accounts.
+- Picking the first account that comes up without checking the bill-to.
 - Skipping notepads, then missing a required release number.
-- Quoting a price from memory instead of letting P21 price it, then checking it.
-- Creating a new customer when one already sits in P21 under a slightly different spelling. Search by phone and city before asking for a new account.
+- Quoting a price from memory instead of checking history and letting P21 price it.
+- Asking for a new account when one already sits in P21 under another spelling. Search by phone and city first.
 - Promising a ship date to a customer on credit hold.
 
----
+## Guide 3.3: Ship-To Maintenance
 
-### Guide 2.2: Ship-To Creation & Maintenance
+**Purpose:** Get product to the right dock with the right tax.
 
-**Purpose:** Get product delivered to the right dock with the right tax.
-
-**Before you start:** Search the customer's current ship-to list. Most "new" addresses turn out to be a building or gate already on file.
+**Before you start:** search the customer's current ship-to list. Most "new" addresses turn out to be a building or gate already on file.
 
 **Steps (new ship-to)**
 
-1. Open **Ship To Maintenance**.
-2. Enter the **Customer ID**. Leave **Ship To ID** blank for P21 to assign the next number (or follow MR&G's numbering convention if your trainer shows one).
-3. Enter the **Ship To description/name line** exactly as the customer wants it on the packing list (for example, "IP Prattville, Storeroom Dock 3").
-4. Enter **Address 1, Address 2, City, State, Zip**. Use Address 2 for building, gate, or dock. Verify the zip against USPS lookup.
-5. Enter **Phone** and a receiving **Contact** if the customer gives one.
-6. Set **Tax Group ID** based on the delivery address (state, county, city jurisdiction). Set **Taxable** to Yes unless a valid exemption certificate is on file.
-7. If exempt, enter the **Exemption Number** and confirm a copy of the certificate is on file with accounting. No certificate, no exemption.
-8. Set **Salesrep ID** and **Territory** to match the account owner.
-9. Set **Default Carrier / Ship Via** (our truck, UPS Ground, LTL carrier, customer pickup).
-10. Set **Freight Code** (Prepaid & Add, Prepaid, Collect, Third Party, Will Call) per the customer agreement.
-11. Enter **Delivery/Shipping Instructions** (receiving window, PO must be on label, call before delivery, gate pass required).
-12. Set **Preferred/Default Location** to 110 (Montgomery) unless instructed otherwise.
-13. Save. Reopen the ship-to and confirm every field saved.
+1. Open **Ship To Maintenance** and enter the customer ID.
+2. Enter the ship-to name exactly as it should print on the packing list (for example, "WestRock Mill Company, Demopolis").
+3. Enter Address 1, Address 2, City, State, Zip. Use Address 2 for building, gate, or dock.
+4. Enter a phone number and a receiving contact if the customer gives one.
+5. Set the **tax** fields for the delivery address. Mark it exempt only when a valid certificate is on file with accounting.
+6. Set **salesrep** and **territory** to match the account.
+7. Set the default **carrier** (our truck, UPS, LTL, will call) and the **freight** terms the customer buys on.
+8. Enter **delivery instructions** (receiving hours, call ahead, gate pass, PO on label).
+9. Set the preferred location to **110** (Montgomery) unless told otherwise.
+10. Save, then reopen the ship-to and confirm every field saved.
 
 **Steps (update a ship-to)**
 
-1. Open the ship-to and note the current values in your notebook.
-2. Make the change. If the address changes to a new physical site, create a new ship-to instead of overwriting; overwriting rewrites history on old orders.
-3. Add a notepad entry with the date, your initials, and who requested the change.
-4. If tax group changes, alert accounting.
+1. Note the current values in your notebook.
+2. If the customer moved to a new physical site, create a new ship-to instead of overwriting. Overwriting rewrites history on old orders.
+3. Add a note with the date, your initials, and who asked for the change.
+4. If the tax setup changes, tell accounting.
 
 **Common mistakes to avoid**
 
-- Overwriting an old ship-to with a new location. History and tax records get scrambled.
-- Using the bill-to tax setup for a ship-to in another county or state.
-- Marking a ship-to exempt on a verbal promise.
-- Typing delivery instructions in the address lines, which then print on labels and confuse carriers.
-- Creating duplicates (same address, different ID). Search first.
+- Overwriting an old ship-to with a new location.
+- Using a PO box as a delivery address. Several of our accounts bill to a PO box; trucks need a street address.
+- Typing a person's name or delivery instructions in the address lines. Names belong in contacts; instructions belong in delivery instructions.
+- Creating a duplicate ship-to for an address already on file.
 
----
+## Guide 3.4: Contact Maintenance
 
-### Guide 2.3: Order Entry
+**Purpose:** Every quote, acknowledgment, and invoice reaches the right person.
 
-**Purpose:** Turn a customer request into an accurate order that picks, ships, and bills correctly the first time.
+**Steps (add a contact)**
+
+1. Search first: open **Contact Maintenance** and search by last name, email, and phone.
+2. Enter first name, last name, and title.
+3. Link the contact to the customer (and to a ship-to if they work at one site).
+4. Enter direct phone, extension, mobile, and email. Read the email back letter by letter.
+5. Assign the contact's role: AP (invoices, statements), Purchasing (POs, quotes, acknowledgments), Maintenance (technical questions), or others your mentor shows you.
+6. Set which documents this contact gets by email.
+7. Save, then reopen the customer and confirm the contact shows.
+
+**Steps (edit or retire a contact)**
+
+1. Don't delete a contact who left. Mark them inactive and move their document roles to their replacement.
+2. Add a dated note with your initials.
+3. If they received invoices, tell accounting.
+
+**Common mistakes to avoid**
+
+- One contact used for everything, so invoices land with a maintenance planner.
+- A departed contact still set to receive invoices.
+- Generic placeholder contacts ("Invoices," "past due") with no real person behind them. They have their place for AP mailboxes, but the account still needs a named buyer.
+- A typo in the email.
+
+## Guide 3.5: Item Inquiry
+
+**Purpose:** Answer "do you have it, where is it, and what does it cost?" fast and correctly.
+
+**Steps**
+
+1. Open **Item Master Inquiry**.
+2. Search by item ID, by part of the description, or by a supplier or customer part number. Reference Sheet O explains how our item IDs are built, which makes searching much faster.
+3. Read the description and the **unit of measure**. Hose sells by the foot (FT); gasket sheet sells by the square inch (SI); fittings sell each (EA).
+4. Check stock at **location 110**: on hand, allocated (already promised to orders), and available.
+5. Check **other locations**. TRG locations can transfer stock to us. If we're short, another branch may have it.
+6. Check **open purchase orders** for the item: how many are coming and when.
+7. Check the **price** for the customer you're helping (price inquiry with their customer ID), not a list price.
+8. Look at recent sales of the item to see who buys it and in what quantities.
+
+**Common mistakes to avoid**
+
+- Promising on-hand stock that's already allocated to another order.
+- Reading the wrong unit: 100 SI of sheet is about a 10" x 10" piece, not 100 sheets.
+- Telling a customer "we don't have it" without checking other TRG locations and open POs.
+- Quoting price without the customer ID, so the customer's pricing doesn't apply.
+
+## Guide 3.6: Order Entry
+
+**Purpose:** Turn a request into an order that picks, ships, and bills correctly the first time.
 
 **Header (steps 1 to 12)**
 
 1. Open **Order Entry**.
-2. Confirm your **Taker** shows your own ID.
-3. Enter **Customer ID**. Read any mandatory notepad pop-ups.
-4. Select **Ship To ID**. If the address is new, stop and run Guide 2.2 first.
-5. Select **Contact ID** (who placed the order). If the caller isn't in P21, add them per Guide 2.5 now.
-6. Enter **PO Number** exactly as the customer gives it. If the customer requires a PO and has none, the order waits.
-7. Enter any **Release Number / Job Number** fields the customer requires.
-8. Confirm **Location** = 110.
-9. Set **Requested Date** (when the customer needs it) and **Promise Date** if your configuration uses it.
-10. Confirm **Carrier / Ship Via** and **Freight Code** pulled from the ship-to; change only if the customer asks for this order.
-11. Confirm **Terms** pulled correctly.
-12. Add an **order-level note** for anything picking, shipping, or billing needs to know.
+2. Confirm the **taker** shows your own ID.
+3. Enter the **customer ID**. Read any pop-up notes.
+4. Pick the **ship-to**. If the address is new, stop and run Guide 3.3 first.
+5. Pick the **contact** placing the order. If they aren't in P21, add them (Guide 3.4).
+6. Enter the **PO number** exactly as given. A name or phone number is not a PO. If the customer requires a PO and has none, the order waits.
+7. Enter any release or job numbers the customer requires.
+8. Confirm the **location** is 110.
+9. Set the **requested date** (when the customer needs it).
+10. Confirm carrier and freight terms pulled from the ship-to.
+11. Confirm terms.
+12. Add an order note for anything picking, shipping, or billing needs to know.
 
-**Lines (steps 13 to 22)**
+**Lines (steps 13 to 23)**
 
-13. Enter **Item ID**. If the customer gives their own part number, enter it; P21 resolves it through **Customer Part Number** cross-reference. If they give a competitor or manufacturer number, use **Item Search** with the number in the description or alternate code columns.
-14. Enter **Quantity Ordered** and confirm **Unit of Measure** (EA, FT, RL, SH). Hose sold by the foot vs by the reel is a classic error.
-15. Check **Quantity Available** at location 110.
-16. Set **Disposition** when stock is short. Common P21 dispositions:
+13. Enter the **item ID**. If the customer gives their own part number, enter it; the cross-reference finds our item. If they give a competitor's number, use item search.
+14. Enter **quantity** and confirm the **unit** (EA, FT, SI).
+15. Check **available** quantity at 110.
+16. Set the **disposition** when stock is short:
     - **B** Backorder: ship what we have, backorder the rest
     - **H** Hold: hold the whole line
-    - **S** Special Order: non-stock item, creates a purchase need
-    - **D** Direct Ship: vendor ships straight to the customer
+    - **S** Special order: non-stock item, creates a purchase need
+    - **D** Direct ship: vendor ships to the customer
     - **T** Transfer: pull from another TRG location
     - **C** Cancel
-    Confirm MR&G's active codes with your mentor.
-17. Review **Unit Price**. Look at where the price came from (pricing service/price inquiry). Compare to order history.
-18. **Price overrides:** Change Unit Price only with a reason (quote number, contract, manager approval). Check the line **Gross Profit / Margin %** after the change. If margin drops below MR&G's floor, get approval from your mentor or Greg before saving.
-19. **Tax overrides:** Change the order or line taxable status only with a certificate on file or accounting approval. Note the reason on the order.
-20. **Freight:** Add freight lines per freight code (Prepaid & Add gets a freight charge; Prepaid does not; Collect and Third Party need the account number in the shipping instructions).
-21. Review the order total. Read every line out loud back to the customer for phone orders: item, quantity, price, ship date.
-22. **Release:** Save. If the customer is on credit hold, the order holds; tell the customer and notify accounting. Otherwise, confirm the pick ticket prints (or prints in the next pick ticket run) for location 110.
 
-**Hose assemblies (step 23)**
+    Confirm our active codes with your mentor.
+17. Review the **unit price** and where it came from. Compare to history.
+18. **Price overrides** need a reason (quote, contract, or Manager approval). Check the line margin after any change.
+19. **Tax overrides** need a certificate on file or accounting's approval. Note the reason on the order.
+20. **Freight:** add freight per the freight terms.
+21. Read every line back to the customer: item, quantity, price, ship date. At the counter, show them the screen.
+22. Check the **order total**. If it looks wrong, it is.
+23. **Save and release.** If the customer is on credit hold, the order holds. Tell the customer politely and route to accounting.
 
-23. Enter the assembly item (or build the assembly using MR&G's assembly item setup) with hose, both fittings, and any protective sleeve or guard. Enter the overall length and fitting orientation in the line note if not built into the item. Confirm with Eric Jones how assemblies route to the shop (production order or assembly ticket). Never promise same-day assemblies without checking the bench queue.
+**Hose assemblies (step 24)**
 
-**Special account handling:** United Rentals hose orders tied to the Bay Area contract follow their own MR&G process. Route those to your mentor until trained on that SOP.
+24. Enter the assembly item with its hose, both fittings, and any guard or sleeve. Put length and fitting orientation in the line note if the item doesn't carry them. Confirm with the Shop Mentor how assemblies route to the shop, and never promise a same-day assembly without checking the bench.
+
+**Counter sales**
+
+- Walk-in customers without an account go on the **counter cash account (910)**. It's COD: payment at the counter.
+- Customers with an account who walk in still go on their own account, with their PO.
+
+**Special handling:** some accounts and contracts have their own order process (for example, rental company hose orders that fall under another TRG location's contract). Route those to your Sales Mentor until you're trained on that process.
 
 **Common mistakes to avoid**
 
-- Wrong unit of measure (FT vs RL, EA vs PK).
-- Backordering when another TRG location has stock (check transfer option first).
-- Changing price without checking margin.
-- Leaving the PO field blank for a PO-required customer; the invoice gets rejected and payment stalls.
-- Entering a customer part number into the quantity field (it happens, and it creates absurd order totals). Always glance at the extended total.
-- Not telling the customer about a backorder before they hang up.
+- Wrong unit (FT vs. a reel, EA vs. a pack).
+- Backordering when another TRG location has stock.
+- Changing a price without checking margin.
+- A name, phone number, or "PLEASE UPDATE PO" in the PO field.
+- Not telling the customer about a backorder before they leave or hang up.
 
----
+## Guide 3.7: Quoting
 
-### Guide 2.4: Quoting
-
-**Purpose:** Give the customer a clear, accurate, profitable price they can act on.
+**Purpose:** Give the customer a clear, accurate price they can act on.
 
 **Create a quote (steps 1 to 10)**
 
-1. Open **Order Entry** and mark the document as a **Quote** (or open Quote Entry, depending on MR&G's menu).
-2. Enter **Customer ID**, **Ship To ID**, and **Contact ID** (the requester).
-3. Enter the customer's **RFQ number or reference** in the PO/Reference field.
-4. Set **Quote Expiration Date**. MR&G default guidance: 30 days for stock items; shorter for metals, PTFE, and anything tied to volatile supplier pricing. Confirm current guidance with Greg.
-5. Enter each **Item ID** and **Quantity**. Quote exactly what was asked; add alternates as separate, clearly noted lines.
-6. For non-stock items, get current vendor cost and lead time before quoting. Note the source (vendor quote number, date).
-7. Enter **Lead Time / Ship Date** per line ("Stock," "3 to 5 days," "2 weeks ARO").
-8. Review **Unit Price** and **Margin %** per line (see margin analysis below).
-9. Add quote notes: freight terms, validity, any assumptions ("Quote assumes 150# RF flanges, 1/16" thickness").
-10. **Check the extended total before saving.** A quantity typo once created a quote line worth tens of millions of dollars in MR&G's system and distorted the open quote pipeline for months. Read the total; if it looks wrong, it is.
+1. Open Order Entry and mark it as a **quote** (or open Quote Entry, depending on our menu).
+2. Enter customer, ship-to, and contact.
+3. Enter the customer's RFQ or reference number.
+4. Set the **expiration date**. Ask the Manager for current guidance on standard validity.
+5. Enter each item and quantity. Quote exactly what was asked; add alternates as separate, clearly noted lines.
+6. For non-stock items, get current vendor cost and lead time before you quote.
+7. Enter lead time per line ("Stock," "3 to 5 days," "2 weeks ARO").
+8. Review price and margin per line.
+9. Add notes: freight terms, validity, assumptions ("Quote assumes 150# RF flanges").
+10. **Check the extended total before saving.** A quantity typo once created a quote line worth tens of millions of dollars and distorted the open quote report for months.
 
 **Send and track (steps 11 to 14)**
 
-11. Save and send the quote using the contact's document delivery preference (email PDF).
-12. Log a follow-up: high-value quotes in 2 business days, all others within 5.
-13. Run the **open quote report / quote inquiry** for your accounts weekly. Follow up, revise, or close.
-14. Close or cancel dead quotes with a reason (lost to price, lost to lead time, project canceled). Clean data makes the pipeline report trustworthy.
+11. Send the quote to the contact by their preferred method.
+12. Set a follow-up: big quotes in 2 business days, others within 5.
+13. Review your open quotes weekly. Follow up, revise, or close.
+14. Close dead quotes with a reason (lost on price, lead time, or project canceled).
 
 **Convert to an order (steps 15 to 18)**
 
-15. When the customer accepts, open the quote and use the **convert quote to order** function (your trainer shows the exact menu path on MR&G's setup). Do not retype the quote as a new order; you lose the link and the quote stays open.
-16. Enter the customer's **PO number** on the new order.
-17. Re-check quantity, price, and expiration. If the quote expired, re-confirm cost before honoring.
-18. Confirm the quote shows as converted/closed.
+15. When the customer accepts, open the quote and **convert** it to an order. Don't retype it.
+16. Enter the customer's PO.
+17. Re-check quantity, price, and expiration. If it expired, re-confirm cost first.
+18. Confirm the quote shows as converted.
 
-**Margin analysis**
+**Margin math**
 
-- **Gross margin % = (Sell − Cost) ÷ Sell × 100.**
-- Know which cost P21 shows (moving average, replacement, or vendor cost) and use replacement cost on items with recent price increases.
-- Example: Cost $42.00, sell $60.00. Margin = (60 − 42) ÷ 60 = 30%.
-- Do not confuse margin with markup. A 30% markup on $42.00 is $54.60, which is only a 23.1% margin.
-- Anything below MR&G's margin floor needs approval before the quote goes out.
+- Gross margin % = (Sell − Cost) ÷ Sell × 100.
+- Margin is not markup. A 30% markup is only a 23.1% margin.
+- Anything below our margin floor needs Manager approval before it goes out.
 
 **Common mistakes to avoid**
 
-- No expiration date, then honoring a year-old price after a cost increase.
-- Retyping instead of converting, which leaves orphaned open quotes.
+- No expiration date.
+- Retyping a quote as an order, leaving the quote open.
 - Quoting non-stock items from old cost.
-- Leaving quotes open forever. Dead quotes make the pipeline look bigger than it is.
-- Quoting a hose assembly without confirming all STAMPED details.
+- Quoting a hose assembly without all seven STAMPED answers.
 
----
+## Guide 3.8: Order Inquiry & Follow-Up
 
-### Guide 2.5: Contact Maintenance
+**Purpose:** Answer "where's my order?" with facts, and fix what's stuck.
 
-**Purpose:** Every customer call, quote, acknowledgment, and invoice reaches the right human. This guide aligns with MR&G's Contact Maintenance SOP.
+**Steps**
 
-**Steps (add a contact)**
-
-1. Search first: open **Contact Maintenance** and search by last name, email, and phone. Duplicates cause missed invoices.
-2. Enter **First Name** and **Last Name**, **Title**.
-3. **Link** the contact to the **Customer ID** (and ship-to, if the contact works at a specific site).
-4. Enter **Direct Phone**, **Extension**, **Mobile**, and **Email Address**. Confirm spelling by reading the email back letter by letter.
-5. Assign the **role tag** (contact class or user-defined field on MR&G's setup):
-   - **AP** (receives invoices, statements)
-   - **Purchasing** (sends POs, receives quotes and acknowledgments)
-   - **Maintenance** (technical questions, end user)
-   - Others your trainer shows (Storeroom, Engineering)
-6. Set **document delivery preferences**: which documents go to this contact by email (quotes, order acknowledgments, invoices, statements).
-7. Add a contact note if relevant ("Prefers text for pickup notices").
-8. Save. Reopen the customer and confirm the contact appears.
-
-**Steps (edit or retire a contact)**
-
-1. If a contact leaves the company, do not delete. Mark inactive per MR&G practice and move their document delivery roles to the replacement contact.
-2. Add a note with date and your initials.
-3. If the departing contact received invoices, alert accounting.
+1. Get the customer's **PO** or our order number. If they have neither, search the customer's open orders by date and item.
+2. Open **Order Inquiry** and read each line: shipped, open, and the disposition (B, S, T, H).
+3. For backordered or special-order lines, check the **purchase order** behind it: vendor, promise date, and quantity received.
+4. If the PO shows **received** but the line hasn't shipped, the product is probably in the building. Ask the warehouse to find it and get it moving.
+5. Check **other TRG locations** for stock you could transfer.
+6. Tell the customer what you found and when they'll hear from you next. Then call back when you said you would.
+7. Add a dated note to the order.
 
 **Common mistakes to avoid**
 
-- One contact used for everything, so invoices land in a maintenance planner's inbox.
-- Leaving a departed contact active as the invoice recipient.
-- Typos in email addresses (always read back).
-- Creating a second record for a contact already in P21.
-
----
+- Guessing ("it's probably on a truck").
+- Sending the customer to the vendor. They bought it from us.
+- Cancelling and re-entering an order, which breaks the PO match and the history.

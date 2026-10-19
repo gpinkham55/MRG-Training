@@ -1,6 +1,8 @@
-## Part B: Technical Reference Sheets
+# Section 5: Reference
 
-### Reference Sheet A: The STAMPED Hose Selection Method
+Quick lookups for the counter and the desk. Every sheet applies to phone and counter requests alike. When a catalog or manufacturer chart disagrees with these sheets, the catalog wins.
+
+## Reference Sheet A: STAMPED Hose Selection
 
 Ask all seven every time. Missing one is how hoses fail early.
 
@@ -14,15 +16,89 @@ Ask all seven every time. Missing one is how hoses fail early.
 | **E** | Ends | Fitting types, sizes, thread, orientation (for two elbows), material (steel, stainless, brass, aluminum)? | Wrong end means a return trip |
 | **D** | Delivery | When needed? Quantity? Any testing, tagging, or certification required? | Sets quote, priority, and paperwork |
 
-**Sizing notes**
-- Industrial hose is sized by **inside diameter in inches** (1-1/2" water discharge hose = 1.5" ID).
-- Hydraulic hose uses **dash sizes**: the dash number is the ID in sixteenths of an inch. -4 = 1/4", -6 = 3/8", -8 = 1/2", -10 = 5/8", -12 = 3/4", -16 = 1", -20 = 1-1/4", -24 = 1-1/2", -32 = 2".
-- Exception to remember: SAE 100R5 hose uses tube OD-based dash sizing; a -8 R5 is not a 1/2" ID. When in doubt, check the catalog.
-- On hydraulic fittings, the dash size of the thread end refers to the tube OD it would mate with, so a -8 JIC thread is 3/4-16, not 1/2".
+## Reference Sheet B: Hose Sizing & Dash Sizes
 
----
+**Industrial hose** is sized by **inside diameter (ID) in inches**. A 1-1/2" water discharge hose has a 1.5" ID. Always measure the old hose's ID, not its OD.
 
-### Reference Sheet B: Industrial Hose Fittings & Attachment Methods
+**Hydraulic hose** uses **dash sizes**. The dash number is the ID in sixteenths of an inch.
+
+| Dash | ID (inch) | ID (fraction) | ID (mm, approx.) |
+|---|---|---|---|
+| -3 | 0.188 | 3/16 | 5 |
+| -4 | 0.250 | 1/4 | 6 |
+| -5 | 0.313 | 5/16 | 8 |
+| -6 | 0.375 | 3/8 | 10 |
+| -8 | 0.500 | 1/2 | 13 |
+| -10 | 0.625 | 5/8 | 16 |
+| -12 | 0.750 | 3/4 | 19 |
+| -16 | 1.000 | 1 | 25 |
+| -20 | 1.250 | 1-1/4 | 32 |
+| -24 | 1.500 | 1-1/2 | 38 |
+| -32 | 2.000 | 2 | 51 |
+
+**Notes**
+- SAE 100R5 hose is the exception: its dash size follows tube OD, so a -8 R5 is not a 1/2" ID. Check the catalog.
+- On fittings, the thread end's dash size refers to the tube it would mate with, not the hose ID. A -8 JIC thread is 3/4-16 (see Reference Sheet H).
+- Our coupling item IDs show both sizes: in `F2-0808-JFS`, the first `08` is the hose size and the second `08` is the thread size (see Reference Sheet O).
+
+**Length**
+- Hose sold off the reel is entered in **feet** (FT), decimals allowed (6.5 ft).
+- Assembly **overall length (OAL)** runs from the sealing face of one fitting to the sealing face of the other (Reference Sheet I).
+
+## Reference Sheet C: Pipe Sizes & Pipe Threads
+
+Pipe is called out by **nominal pipe size (NPS)**, which is not the actual OD. Use the OD column when you put calipers on a pipe or a male thread.
+
+| NPS | Actual OD (inch) | NPT threads per inch | BSP threads per inch | BSP male OD (inch, approx.) |
+|---|---|---|---|---|
+| 1/8 | 0.405 | 27 | 28 | 0.383 |
+| 1/4 | 0.540 | 18 | 19 | 0.518 |
+| 3/8 | 0.675 | 18 | 19 | 0.656 |
+| 1/2 | 0.840 | 14 | 14 | 0.825 |
+| 3/4 | 1.050 | 14 | 14 | 1.041 |
+| 1 | 1.315 | 11.5 | 11 | 1.309 |
+| 1-1/4 | 1.660 | 11.5 | 11 | 1.650 |
+| 1-1/2 | 1.900 | 11.5 | 11 | 1.882 |
+| 2 | 2.375 | 11.5 | 11 | 2.347 |
+| 2-1/2 | 2.875 | 8 | 11 | 2.960 |
+| 3 | 3.500 | 8 | 11 | 3.460 |
+| 4 | 4.500 | 8 | 11 | 4.450 |
+| 6 | 6.625 | n/a (flanged) | | |
+| 8 | 8.625 | n/a (flanged) | | |
+| 10 | 10.750 | n/a (flanged) | | |
+| 12 | 12.750 | n/a (flanged) | | |
+
+**Rules of thumb**
+- A male pipe thread always measures bigger than its nominal size, about 1/4" to 3/8" bigger across the common sizes. A thread that measures 1.05" is 3/4" pipe.
+- Above 2" to 4", most piping is flanged rather than threaded. Flange sizes follow NPS too (Reference Sheet K).
+- Hose ID and pipe size usually match: a 2" hose goes on 2" pipe fittings.
+
+## Reference Sheet D: Connection Types
+
+A quick guide to the connections customers bring to the counter or ask about on the phone. Reference Sheets E and H have details.
+
+| Connection | Where you'll see it | How it seals | How to recognize it |
+|---|---|---|---|
+| NPT (pipe thread) | Pipe, valves, pumps, air and water fittings | Tapered threads, with sealant or tape | Threads taper; no seat or O-ring |
+| JIC 37° flare | Hydraulics, very common in the US | 37° cone metal to metal | Straight threads, 37° cone on the nose |
+| ORFS (O-ring face seal) | Hydraulics, high pressure, leak-free | O-ring in a groove on the flat face | Flat nose with an O-ring groove |
+| SAE O-ring boss (ORB) | Hydraulic ports (pumps, valves, cylinders) | O-ring at the base of the threads | Straight threads, O-ring near the hex |
+| BSPP | European and Asian equipment | Bonded washer, O-ring, or 30° cone | Straight threads, 55° thread form |
+| BSPT | European and Asian equipment | Tapered threads | Looks like NPT; pitch differs on most sizes |
+| Metric (DIN 24° cone) | European equipment | 24° cone with a cutting ring or O-ring | Metric pitch; ask the Shop Mentor |
+| SAE Code 61 / Code 62 flange | Large hydraulic lines, pumps | O-ring in the flange face, 4-bolt split flange | Flange head on the fitting, no threads |
+| Cam and groove (camlock) | Water, chemical, fuel, transfer hose | Gasket in the coupler | Cam arms on one half, a groove on the other |
+| Ground joint (steam) | Steam hose | Metal-to-metal ground seat with a wing nut | Three-piece: stem, spud, wing nut |
+| Universal (crowfoot, "Chicago") | Air hose on compressors and tools | Gasket; two-lug twist-lock | Two lugs; same coupling fits all hose sizes |
+| Quick disconnect | Hydraulic tools and attachments; shop air | O-ring or gasket inside the coupler | Sleeve that pulls back; check interchange type |
+| Hose barb / hose mender | Low pressure water and air | Barb under a clamp | Ribbed stem, no threads on one end |
+| Garden hose (GHT) | Water | Washer | 3/4" hose thread, coarse; not interchangeable with NPT |
+| Sanitary tri-clamp | Food, pharmaceutical | Gasket between two ferrules with a clamp | Flat ferrule faces, hinged clamp |
+| Pipe flange (ASME 150#, 300#) | Large piping, pumps, tanks, mills | Gasket between flanges | Bolt holes; size by NPS and class (Reference Sheet K) |
+
+**At the counter:** when a customer hands you a fitting, identify both ends, measure before you guess, and check if it seals on the threads, a cone, an O-ring, or a gasket.
+
+## Reference Sheet E: Industrial Fittings & Attachment
 
 **Shank (stem) selection**
 - The shank must match the hose ID and the attachment method. A shank built for bands may be too short for interlocking clamps, and vice versa.
@@ -56,9 +132,7 @@ Memory aid: couplers have the arms; adapters have the groove. C and E go on hose
 
 **Steam safety rule:** Steam assemblies use steam-rated hose, ground joint (or approved steam) fittings, and interlocking clamps. Never cam and groove, never bands, never worm gear clamps. Clamp bolts get re-tightened after the first heat-up cycle per the clamp maker. Steam hose design factor is 10:1; general industrial hose is typically 4:1.
 
----
-
-### Reference Sheet C: Hose Material Compatibility (Tube Compounds)
+## Reference Sheet F: Hose Compatibility
 
 Always confirm against the manufacturer's chemical resistance chart for the exact media, concentration, and temperature.
 
@@ -78,9 +152,7 @@ Always confirm against the manufacturer's chemical resistance chart for the exac
 - Water: SBR or EPDM. Steam: EPDM steam hose only. Oil and fuel: NBR. Chemicals: check chart, often UHMWPE or XLPE.
 - Fittings must be compatible too: brass with ammonia is a problem; stainless for most chemical service.
 
----
-
-### Reference Sheet D: Hydraulic Hose (SAE J517 Types)
+## Reference Sheet G: Hydraulic Hose (SAE Types)
 
 **Construction families**
 - **Braided** (wire woven in a crisscross): more flexible, tighter bend radius, good for low to medium pressure.
@@ -108,9 +180,7 @@ Always use the manufacturer's catalog for the exact rated working pressure by si
 **Safety: fluid injection hazard**
 Never run a hand along a pressurized hydraulic hose to find a leak. A pinhole jet can inject oil through skin and cause severe injury that requires emergency surgery. Use cardboard or wood to locate leaks, with the system depressurized whenever possible.
 
----
-
-### Reference Sheet E: Thread Identification
+## Reference Sheet H: Thread Identification
 
 **Tools:** calipers, thread pitch gauge (inch and metric), seat angle gauge, thread ID chart.
 
@@ -133,7 +203,7 @@ Never run a hand along a pressurized hydraulic hose to find a leak. A pinhole je
 
 **Common thread sizes**
 
-| Dash | JIC (37°) thread | ORFS thread | NPT size: threads per inch, male OD (approx.) |
+| Dash | JIC (37°) and ORB thread | ORFS thread | NPT size: threads per inch, male OD (approx.) |
 |---|---|---|---|
 | -4 | 7/16-20 | 9/16-18 | 1/4 NPT: 18 TPI, 0.54" |
 | -6 | 9/16-18 | 11/16-16 | 3/8 NPT: 18 TPI, 0.68" |
@@ -144,11 +214,11 @@ Never run a hand along a pressurized hydraulic hose to find a leak. A pinhole je
 | -20 | 1-5/8-12 | 1-11/16-12 | 1-1/4 NPT: 11.5 TPI, 1.66" |
 | -24 | 1-7/8-12 | 2-12 | 1-1/2 NPT: 11.5 TPI, 1.90" |
 
+JIC and SAE O-ring boss use the same thread for each dash size; the seal is what differs (37° cone vs. O-ring at the thread base).
+
 **BSPP vs NPT trap:** 1/2" BSPP is 14 TPI with about a 0.825" OD; 1/2" NPT is also 14 TPI with about a 0.840" OD. Calipers alone won't separate them. Check taper (NPT tapers, BSPP doesn't), thread form (55° vs 60°), and seat. On 1/4 and 3/8 sizes, BSP uses 19 TPI vs NPT's 18 TPI.
 
----
-
-### Reference Sheet F: Assembly & Crimping Standards
+## Reference Sheet I: Assembly & Crimping
 
 **Part 1: Reading a crimp spec chart**
 Every chart lists, per hose type and dash size: the fitting series, the **die set**, the **crimper setting**, the **target crimp diameter**, and the **tolerance** (often about ±0.005", but use the chart's value). Some charts also list insertion depth and whether the hose needs skiving.
@@ -156,15 +226,15 @@ Every chart lists, per hose type and dash size: the fitting series, the **die se
 **Part 2: Die selection and settings**
 1. Match hose part number and fitting part number to the same manufacturer series on the chart.
 2. Select the die set the chart specifies for that dash size (dies are usually color or number coded).
-3. Set the crimper to the chart setting (or the micrometer/ring setting for MR&G's machine).
-4. Every crimper drifts a little. Eric keeps a log of the actual diameters each setting produces on MR&G's machine. If a setting consistently runs 0.004" large, the log shows the adjusted setting to use.
+3. Set the crimper to the chart setting (or the ring setting on our crimper).
+4. Every crimper drifts a little. The Shop Mentor keeps a log of the actual diameters each setting produces on our crimper. If a setting consistently runs 0.004" large, the log shows the adjusted setting to use.
 
 **Part 3: Cut length and overall length (cutoff allowance)**
 - **Overall length (OAL)** runs from the sealing end of one fitting to the sealing end of the other. For elbows, measure to the centerline of the sealing face.
 - **Cutoff allowance (C/O)**, sometimes called drop or fitting allowance: the length a fitting adds beyond the end of the hose. Each fitting's C/O comes from the catalog.
 - **Cut length = OAL − (C/O of fitting 1 + C/O of fitting 2).**
 - Example (illustrative values): OAL 36.00". Fitting 1, female JIC swivel, C/O 1.25". Fitting 2, male NPT, C/O 1.50". Cut length = 36.00 − 2.75 = **33.25"**.
-- Standard length tolerance for most assemblies: check MR&G's shop standard (commonly ±1/8" on short assemblies, more on long ones).
+- Standard length tolerance for most assemblies: check our shop standard with the Shop Mentor (commonly ±1/8" on short assemblies, more on long ones).
 
 **Part 4: Skive vs no-skive**
 - **No-skive** fittings crimp directly over the hose cover. Most modern hydraulic fittings are no-skive.
@@ -217,9 +287,7 @@ Example: Target 1.025", tolerance ±0.005" (pass range 1.020" to 1.030"). Readin
 - Proof test record (if required)
 - No cuts, kinks, or cover damage
 
----
-
-### Reference Sheet G: Gasket Material Selection Guide
+## Reference Sheet J: Gasket Materials
 
 Use **STAMP** for gaskets: Size (pipe size, flange class, ring vs full face), Temperature, Application (flange material, condition, bolt load), Media, Pressure.
 
@@ -254,9 +322,7 @@ Example: 150 psig × 350°F = 52,500. Compare to the chart for the specific grad
 - Steam headers: CNA (moderate) or graphite (high pressure/temperature)
 - White water and general process water: EPDM or neoprene
 
----
-
-### Reference Sheet H: Flanges, Pressure Classes & Gasket Dimensions
+## Reference Sheet K: Flanges, Pressure Classes & Gasket Sizes
 
 **Flange facings**
 - **Raised Face (RF):** most common on steel flanges. Uses a **ring gasket** that sits inside the bolt circle.
@@ -291,9 +357,7 @@ Ratings fall as temperature rises. The gasket must also meet these conditions.
 
 **Gasket ID rule:** the gasket ID should not intrude into the pipe bore. An undersized ID gets eroded by flow and can break off into the process.
 
----
-
-### Reference Sheet I: Sheet Yield Calculations
+## Reference Sheet L: Sheet Yield
 
 **Square grid method (conservative)**
 1. Pitch = gasket OD + spacing (use 0.125" unless the waterjet program calls for more).
@@ -311,17 +375,15 @@ Pitch = 9.125". 60 ÷ 9.125 = 6.58, round down to 6. Yield = 6 × 6 = **36 gaske
 
 **Cost per piece**
 Material cost per gasket = sheet cost ÷ yield. Add cutting time and handling.
-Example: sheet cost $480. $480 ÷ 64 = **$7.50 material per 4" ring** before cutting labor and margin.
+Example: if a sheet cost $480, then $480 ÷ 64 = **$7.50 material per 4" ring** before cutting labor and margin. (Practice number; use the cost P21PLAY shows.)
 
 **Notes**
 - Confirm actual sheet size: CNA and PTFE sheets often come in sizes other than 60" × 60" (check the item in P21 and the rack).
-- Kevin Johnson nests waterjet programs; ask him for the real yield on large runs. Staggered nesting often beats the square grid.
+- The Shop Mentor nests waterjet programs; ask for the real yield on large runs. Staggered nesting often beats the square grid.
 
----
+## Reference Sheet M: Bolt Torque & Installation
 
-### Reference Sheet J: Bolt Torque Patterns & Installation
-
-MR&G gives installation guidance, not engineered torque values. Torque values come from the gasket manufacturer's data or the customer's engineering standard. Never guess a torque number for a customer.
+We give installation guidance, not engineered torque values. Torque values come from the gasket manufacturer's data or the customer's engineering standard. Never guess a torque number for a customer.
 
 **Installation steps**
 1. Inspect flange faces: clean, no radial scratches across the sealing surface, no warping.
@@ -356,4 +418,97 @@ MR&G gives installation guidance, not engineered torque values. Torque values co
 - Flange faces damaged or misaligned?
 - Bolts lubricated? Right grade?
 
----
+## Reference Sheet N: O-Rings
+
+**Sizing.** Most standard O-rings follow the **AS568** dash-number system. The dash number sets both inside diameter and cross-section.
+
+| AS568 series | Cross-section (inch) | Cross-section (fraction) |
+|---|---|---|
+| -004 to -050 | 0.070 | about 1/16 |
+| -102 to -178 | 0.103 | about 3/32 |
+| -201 to -284 | 0.139 | about 9/64 |
+| -309 to -395 | 0.210 | about 13/64 |
+| -425 to -475 | 0.275 | about 9/32 |
+
+To identify an O-ring, measure its **inside diameter** and **cross-section** (thickness), then look up the AS568 size. Metric O-rings are called out as ID x cross-section in millimeters.
+
+**Durometer.** Hardness on the Shore A scale. **70A** is standard; **90A** resists extrusion at higher pressure.
+
+**Materials**
+
+| Material | Good for | Avoid |
+|---|---|---|
+| Nitrile (Buna-N) | Oil, hydraulic fluid, fuel, water | Ozone, brake fluid, ketones |
+| FKM (Viton type) | High temperature, fuels, many chemicals | Hot water, steam, ketones |
+| EPDM | Water, steam, brake fluid | Petroleum oil and fuel |
+| Silicone | Wide temperature range, food contact | Abrasion, dynamic seals, fuel |
+| Neoprene | Refrigerants, weather | Strong acids |
+
+**Cord stock.** For large or odd sizes we sell O-ring cord by cross-section and length, for example a 0.750" cross-section nitrile cord in 70 durometer, cut to length and spliced.
+
+## Reference Sheet O: Our P21 Item IDs & Units
+
+Most of our item IDs follow patterns. Learn them and searching gets much faster. Confirm any pattern you're unsure of with your Sales Mentor.
+
+**Hydraulic hose**
+
+| Example item ID | Means |
+|---|---|
+| `HB5K-4`, `HB5K-6`, `HB5K-8` | Hydraulic hose, 2-wire braid, 5,100 psi family, sizes -4, -6, -8 |
+| `HS5K-24` | Hydraulic hose, 6-wire spiral, -24 (1-1/2") |
+
+**Hydraulic couplings (crimp fittings)**
+
+| Example item ID | Means |
+|---|---|
+| `F2-0808-JFS` | 2-wire coupling, -08 hose, -08 thread, **J**IC **F**emale **S**wivel |
+| `F2-0808-JFS90M` | Same, 90° elbow |
+| `F2-0808-OBM` | 2-wire coupling, -08, **O**-ring **B**oss **M**ale |
+| `F2-0808-OFS` | 2-wire coupling, -08, **O**RFS **F**emale **S**wivel |
+| `F2-0808-PM` | 2-wire coupling, -08, **P**ipe (NPT) **M**ale |
+| `F2-0808-BSPFS90` | 2-wire coupling, -08, **BSP**P **F**emale **S**wivel 90° |
+| `F2-0808-FL` | 2-wire coupling, -08, Code 61 **FL**ange |
+| `F4-2424-FL` | 4-wire/spiral coupling, -24 hose, -24 Code 61 flange |
+
+`F2` couplings go on 2-wire hose; `F4` couplings go on 4- and 6-wire spiral hose.
+
+**Hose assemblies**
+
+| Example item ID | Means |
+|---|---|
+| `HB5K-8-0808JFS-0808OBM-7.04` | `HB5K-8` hose, a -08 JIC female swivel on one end, a -08 O-ring boss male on the other, 7.04 ft long |
+
+**Industrial fittings, gaskets, and sheet**
+
+| Example item ID | Means |
+|---|---|
+| `FIT CAM CPLG 300 ALM C` | Cam and groove, 3", aluminum, Type C |
+| `FIT CAM CPLG 300 SS C CRIMP` | Cam and groove, 3", stainless, Type C, crimp style |
+| `GSKT FF 4 150# X .125 9000` | Full-face gasket, 4", Class 150, 1/8" thick, Durlon 9000 |
+| `GSKT RING 10.625 X 17 X .125 EPDM` | Ring gasket, 10.625" ID x 17" OD, 1/8" thick, EPDM |
+| `GSKT SHT DURLO PTFE` | Gasket sheet, Durlon 9000, 60" x 60" x 1/8" |
+| `HSE WTR 300 RBR SUC` | Hose, water, 3", rubber, suction |
+| `HSE STM 200 RBR EPDM` | Hose, steam, 2", rubber, EPDM |
+
+Older and vendor items often use plain numbers (`150016595`). Search those by description.
+
+**Units of measure you'll see**
+
+| Unit | Means | Used for |
+|---|---|---|
+| EA | Each | Fittings, gaskets, assemblies |
+| FT | Feet | Bulk hose, cord stock |
+| SI | Square inches | Gasket sheet, rubber sheet sold cut |
+| SH | Sheet | Full sheets (often the purchasing unit) |
+
+A full 60" x 60" sheet is 3,600 SI. When a sheet item sells by SI but buys by SH, check both units before you quote.
+
+**Labor and service items**
+
+| Item ID | Used for |
+|---|---|
+| `OCI WATER JET LABOR` | Waterjet cutting time |
+| `LABOR` | Shop labor |
+| `CUT & RECRIMP` | Re-ending a customer's hose |
+| `AFTERHOURS` | After-hours service fee |
+| `SHIPPING` | Shipping and handling |

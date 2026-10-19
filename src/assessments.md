@@ -1,6 +1,6 @@
-# SECTION 4: Knowledge Assessments & Testing Battery
+# Section 7: Assessments
 
-## Week 1 Quiz: P21 Navigation, Order Entry, Basic Industrial Hose
+## Week 1 Quiz: P21 Navigation, Customers, Items, and Industrial Hose
 **Time:** 60 minutes | **Pass:** 8 of 10 written + both scenarios correct
 
 **Written questions**
@@ -29,11 +29,11 @@
    c) A valid exemption certificate is on file with accounting
    d) The order is over $1,000
 
-5. Which unit of measure error is most common on hose orders?
-   a) EA vs PK
-   b) FT vs RL
-   c) LB vs KG
-   d) SH vs EA
+5. A gasket sheet item sells by the square inch (SI). A customer wants one 10" x 10" piece. What quantity do you enter?
+   a) 1
+   b) 10
+   c) 100
+   d) 3,600
 
 6. In STAMPED, the "M" stands for:
    a) Manufacturer
@@ -41,11 +41,11 @@
    c) Measurement
    d) Maximum pressure
 
-7. The three layers of a hose, from inside out, are:
-   a) Cover, reinforcement, tube
-   b) Tube, cover, reinforcement
-   c) Tube, reinforcement, cover
-   d) Reinforcement, tube, cover
+7. Item Inquiry shows 254 ft on hand and 50 ft allocated at location 110. How many feet can you promise a new customer?
+   a) 254
+   b) 204
+   c) 50
+   d) 304
 
 8. Which tube compound should never be used for petroleum oil?
    a) Nitrile (NBR)
@@ -65,13 +65,13 @@
     c) Ground joint fittings with interlocking clamps
     d) Cam and groove Type E with bands
 
-**Practical ERP scenarios**
+**Practical P21 scenarios**
 
-**Scenario 1W-A:** "This is Dale at River Bend Mill. I need 3 of the 1-1/2 inch cam and groove Type C couplers in aluminum and 100 feet of the 1-1/2 inch water discharge hose we bought in June. PO 55120. Ship to the storeroom like usual."
-Perform in P21PLAY: customer lookup, confirm ship-to, check notepads, find the June hose in history, enter the order with correct UOM, PO, carrier, and freight. You have only 60 ft of hose in stock.
+**Scenario 1W-A (counter or phone):** A practice caller from **Alexander Sealcoating & Striping (10364)**: "I need 2 of the 3-inch aluminum Type C cam and groove couplers and 20 more feet of the same 3-inch suction hose we got back in April. Use PO A15200."
+Perform in P21PLAY: customer lookup, confirm ship-to, check notepads, find the April hose in history, check available stock on both items, and enter the order with the right units, PO, carrier, and freight.
 
-**Scenario 1W-B:** "Hi, I'm Rachel Kim, the new AP specialist at Southern Fabrication. We aren't getting invoices. They should come to me at rkim@sofab-example.com."
-Perform in P21PLAY: search for duplicates, add contact, assign AP role, set invoice delivery, check who currently receives invoices and correct it, add notes.
+**Scenario 1W-B:** A practice caller from **Montgomery Water Works (10606)**: "I'm Rachel Kim, the new AP specialist. Invoices should come to me at rkim@practice-example.com."
+Perform in P21PLAY: search for duplicates, look at the contacts already on the account, add the new contact with the AP role, decide what to do with the existing invoice contact, set invoice delivery, and add notes.
 
 
 ---
@@ -252,13 +252,14 @@ Identify every cause and state what MR&G does differently.
 
 | Requirement | Date | Mentor initials | Trainee initials |
 |---|---|---|---|
-| OK to crimp without Eric at the bench (Eric Jones) | | | |
-| P21 Customer, Ship-To, Contact (Guides 2.1, 2.2, 2.5) | | | |
-| P21 Order Entry (Guide 2.3) | | | |
-| P21 Quoting (Guide 2.4) | | | |
+| OK to crimp without the Shop Mentor at the bench (Shop Mentor) | | | |
+| P21 Navigation and Item Inquiry (Guides 3.1, 3.5) | | | |
+| P21 Customer, Ship-To, Contact (Guides 3.2, 3.3, 3.4) | | | |
+| P21 Order Entry and Order Inquiry (Guides 3.6, 3.8) | | | |
+| P21 Quoting (Guide 3.7) | | | |
 | Week 1 Quiz (score) | | | |
 | Week 2 Quiz (score) | | | |
 | Final Exam (score) | | | |
-| Approved for independent desk (Greg) | | | |
+| Approved to work on your own (Manager) | | | |
 
-**Week 4 and beyond:** Weekly check-in with Greg for 30 days. Mentor spot checks on 10% of orders and all quotes over a value set by Greg. Any remediation topic gets a re-test within two weeks.
+**Week 4 and beyond:** Weekly check-in with the Manager for 30 days. Mentor spot checks on 10% of orders and all quotes over a value set by the Manager. Any remediation topic gets a re-test within two weeks.
