@@ -24,8 +24,8 @@ CSS = """
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body)}
 .top{background:var(--head);border-bottom:1px solid var(--head-hover);position:sticky;top:0;z-index:5}
 .top-in{max-width:1180px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
-.brand{font:700 1.3rem var(--display);color:var(--head-ink);text-decoration:none;letter-spacing:.01em}
-.brand span{background:var(--tag);color:var(--tag-ink);padding:0 .25em;border-radius:3px}
+.brand{display:flex;align-items:center;gap:10px;font:700 1.3rem var(--display);color:var(--head-ink);text-decoration:none;letter-spacing:.01em}
+.brand img{display:block;height:40px;width:auto;max-width:100%;background:#FFFFFF;padding:3px 8px;border-radius:5px}
 .nav{display:flex;flex-wrap:wrap;gap:4px}
 .nav a{font-weight:600;font-size:.92rem;color:var(--head-ink);text-decoration:none;padding:6px 10px;border-radius:5px}
 .nav a:hover{background:var(--head-hover)}
@@ -66,7 +66,7 @@ HEAD = """<!doctype html>
 <title>{title}</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>{css}</style></head><body>
-<header class="top"><div class="top-in"><a class="brand" href="index.html"><span>MR&amp;G</span> Training</a><nav class="nav">{nav}</nav></div></header>
+<header class="top"><div class="top-in"><a class="brand" href="index.html"><img src="img/mrg-logo.png" alt="Montgomery Rubber &amp; Gasket" width="130" height="40"><span>Training</span></a><nav class="nav">{nav}</nav></div></header>
 """
 
 
