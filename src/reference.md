@@ -26,20 +26,6 @@ Quick lookups for the counter and the desk. Every sheet applies to phone and cou
 | SAE | Society of Automotive Engineers: sets hydraulic hose and fitting standards (100R types, J514, J1453) |
 | Code 61 / 62 | SAE 4-bolt split flange, standard / high pressure |
 
-**Fitting codes in our item IDs** (see Sheet O)
-
-| Code | Means |
-|---|---|
-| F2 / F4 | Coupling for 2-wire hose / for 4- and 6-wire spiral hose |
-| JFS | JIC female swivel |
-| JM | JIC male |
-| OBM | O-ring boss male |
-| OFS | ORFS female swivel |
-| PM | Pipe (NPT) male |
-| BSPFS | BSPP female swivel |
-| FL | Code 61 flange |
-| 45 / 90 | 45° or 90° elbow |
-
 **Hose and assemblies**
 
 | Abbreviation | Means |
