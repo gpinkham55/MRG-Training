@@ -1,6 +1,6 @@
 # Section 2: Three-Week Schedule
 
-Each day follows the Daily Structure in Section 1: self-taught P21 and product study in the first half, mentor time in the second. Guide numbers refer to Section 3; reference sheet letters refer to Section 5.
+Each day follows the Daily Structure in Section 1: self-taught P21 and product study in the first half, mentor time in the second. Guide numbers refer to Section 3; reference sheet letters refer to Section 6.
 
 ## Week 1: P21 Basics, Customers, and Industrial Hose
 
@@ -110,7 +110,7 @@ Each day follows the Daily Structure in Section 1: self-taught P21 and product s
 
 - **Focus:** Belting, expansion joints, metal hose, O-rings, seals, packing; helping a customer with a leak.
 - **Block A (P21):** Review day: open orders, open quotes, backorder follow-up, and contact clean-up on one assigned account.
-- **Block B (Product):** Reference Sheets M (Bolt Torque & Installation) and N (O-Rings). Re-read the product lines in Section 4.
+- **Block B (Product):** Reference Sheets M (Bolt Torque & Installation) and N (O-Rings). Re-read Sections 4 and 5.
 - **Block C (2.5 hrs):** You take requests; your mentor listens and steps in only when asked.
 - **Block D:** Exercise 3.3.
 

@@ -1,4 +1,4 @@
-# Section 6: Exercises
+# Section 7: Exercises
 
 Every exercise uses real customers, contacts, orders, and items from P21. Work them in **P21PLAY**. Each request could come by phone or across the counter; handle it the same way.
 

@@ -21,9 +21,10 @@ Each day pairs one P21 skill with one product skill, then puts both to work with
 1. **Schedule:** what's on today
 2. **P21 Guides:** step-by-step workflows to practice in P21PLAY
 3. **Products & Capabilities:** what we sell and what we make
-4. **Reference:** sizing charts, connection types, and quick lookups to keep handy
-5. **Exercises:** real-account practice tasks for each day
-6. **Assessments:** quizzes and the final exam
+4. **Product Samples:** what each product looks like, where it's used, and example item IDs
+5. **Reference:** sizing charts, connection types, and quick lookups to keep handy
+6. **Exercises:** real-account practice tasks for each day
+7. **Assessments:** quizzes and the final exam
 
 The **Call & Counter Trainer** is a practice tool. A customer makes a request; you pick the right questions and build a ticket until you know what to do in P21. Use it any time.
 
@@ -57,7 +58,7 @@ Stock and order status in P21PLAY may differ a little from what the exercises sh
 | Half | Block | Length | Content |
 |---|---|---|---|
 | First half (self-taught) | Block A | 2.0 hrs | P21 self-study: work the assigned guide step by step in P21PLAY |
-| First half (self-taught) | Block B | 2.0 hrs | Product self-study: reference sheets, catalogs, parts on the sample table |
+| First half (self-taught) | Block B | 2.0 hrs | Product self-study: Product Samples page, reference sheets, catalogs |
 | Second half (with mentor) | Block C | 2.5 to 3.0 hrs | Shadowing: phones, counter, warehouse, or shop |
 | Second half (with mentor) | Block D | 0.5 to 1.0 hr | Daily exercise, questions from your notebook, recap |
 

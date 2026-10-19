@@ -1,4 +1,4 @@
-# Section 7: Assessments
+# Section 8: Assessments
 
 ## Week 1 Quiz: P21 Navigation, Customers, Items, and Industrial Hose
 **Time:** 60 minutes | **Pass:** 8 of 10 written + both scenarios correct
