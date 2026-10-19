@@ -156,7 +156,7 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 
 **Lines (steps 13 to 23)**
 
-13. Enter the **item ID**. If the customer gives their own part number, enter it; the cross-reference finds our item. If they give a competitor's number, use item search.
+13. Enter the **item ID**. If the customer gives their own part number, enter it; the cross-reference finds our item. If they give a competitor's number, use item search. If the item isn't in P21 at all, create a temporary item (steps 25 to 34).
 14. Enter **quantity** and confirm the **unit** (EA, FT, SI).
 15. Check **available** quantity at 110.
 16. Set the **disposition** when stock is short:
@@ -179,6 +179,30 @@ Work every guide in **P21PLAY**. Labels follow standard Prophet 21; your mentor 
 **Hose assemblies (step 24)**
 
 24. Enter the assembly item with its hose, both fittings, and any guard or sleeve. Put length and fitting orientation in the line note if the item doesn't carry them. Confirm with the Shop Mentor how assemblies route to the shop, and never promise a same-day assembly without checking the bench.
+
+**Item not in P21: temporary item for special order (steps 25 to 34)**
+
+Use this when a customer needs something we don't carry and P21 has no item for it. P21 calls these items created "on the fly" from Order Entry. They stay in P21 after the order, so the next person can find and reuse them.
+
+25. **Search before you create.** Use Item Master Inquiry (Guide 3.5) by description, supplier part number, and customer part number, and check other TRG locations. Many "new" items are already in P21 under another ID.
+26. **Get the details first.** From the customer: exact size, material, rating, ends, and quantity (STAMPED for hose on Reference Sheet A, STAMP for gaskets on Sheet J). From the vendor: their part number, cost, unit, and lead time. Ask your Sales Mentor which vendor to use.
+27. On the order line, type your new **item ID** in the item field and tab out. P21 tells you the item isn't found and offers to create it. Choose to create the item, and the new item window opens.
+28. **Item ID:** build it the way our other IDs are built (Reference Sheet O): product type first, then size, rating, material, and ends. Examples from P21: `GSKT FF 10 150# X .125 8600`, `EXP JT 8X6 EPDM`, `BELT 3PLY 36IN X 120FT`, `HSE SSB 1.5 X 72IN W/ SS MPT E/E`. No customer names and no vague IDs like "BELT" or "BOOT".
+29. **Description:** plain words the picker and the customer can both read, with size, material, rating, and ends. For example: `Gskt FF 10" 150# x .125 8600`.
+30. **Product group:** pick the group that matches the product. Our most common ones: 01 Industrial Hose, 02 Hydraulic Hose, 03 Industrial Fittings, 05 Gaskets, 06 Belting, 13 Expansion Joints, 14 Gasket Sheet, 17 Metal Hose, 20 O-Rings, 23 Seals, 24 Rubber Boot/Board/Products, 32 Packing. Ask your mentor if nothing fits.
+31. **Supplier:** the vendor we're buying from, their part number, the purchase unit, and the vendor cost.
+32. **Selling unit and price:** set the unit we sell in (EA, FT, SI) and the price from the quote or your Sales Mentor. Check the line margin before you save.
+33. Leave the item **non-stock** (not stockable) and save. You're back on the order line with the new item.
+34. Set the line **disposition** to **S** (Special order) so P21 creates the purchase need. Put the vendor lead time in the line note, give the customer a realistic ship date, and confirm with your Sales Mentor that the PO gets placed.
+
+**Common mistakes with temporary items**
+
+- Creating a second item for something already in P21 under another ID.
+- A vague item ID or description that nobody can search for later.
+- Leaving out the vendor part number, so purchasing has to call the customer back.
+- Wrong selling unit (EA when the vendor sells by the foot, or the reverse).
+- Forgetting the S disposition, so no purchase need is created and the order sits.
+- Using a temporary item for a hose assembly we build in the shop. Those follow step 24.
 
 **Counter sales**
 

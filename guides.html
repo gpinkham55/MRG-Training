@@ -89,29 +89,29 @@ a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 <p><strong>Key fields</strong></p>
 <div class="tw"><table>
 <thead>
-<tr class="header">
+<tr>
 <th>Field</th>
 <th>Why you check it</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Customer ID</td>
 <td>Get this wrong and we may not get paid</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Credit Status</td>
 <td>Hold or COD changes what you can promise</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Open Orders/Open Quotes</td>
 <td>Don't duplicate work</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Notepads</td>
 <td>Customer-specific rules you must follow</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Salesrep</td>
 <td>Who owns the relationship</td>
 </tr>
@@ -213,7 +213,7 @@ a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 </ol>
 <p><strong>Lines (steps 13 to 23)</strong></p>
 <ol start="13" type="1">
-<li><p>Enter the <strong>item ID</strong>. If the customer gives their own part number, enter it; the cross-reference finds our item. If they give a competitor's number, use item search.</p></li>
+<li><p>Enter the <strong>item ID</strong>. If the customer gives their own part number, enter it; the cross-reference finds our item. If they give a competitor's number, use item search. If the item isn't in P21 at all, create a temporary item (steps 25 to 34).</p></li>
 <li><p>Enter <strong>quantity</strong> and confirm the <strong>unit</strong> (EA, FT, SI).</p></li>
 <li><p>Check <strong>available</strong> quantity at 110.</p></li>
 <li><p>Set the <strong>disposition</strong> when stock is short:</p>
@@ -238,6 +238,29 @@ a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 <ol start="24" type="1">
 <li>Enter the assembly item with its hose, both fittings, and any guard or sleeve. Put length and fitting orientation in the line note if the item doesn't carry them. Confirm with the Shop Mentor how assemblies route to the shop, and never promise a same-day assembly without checking the bench.</li>
 </ol>
+<p><strong>Item not in P21: temporary item for special order (steps 25 to 34)</strong></p>
+<p>Use this when a customer needs something we don't carry and P21 has no item for it. P21 calls these items created "on the fly" from Order Entry. They stay in P21 after the order, so the next person can find and reuse them.</p>
+<ol start="25" type="1">
+<li><strong>Search before you create.</strong> Use Item Master Inquiry (Guide 3.5) by description, supplier part number, and customer part number, and check other TRG locations. Many "new" items are already in P21 under another ID.</li>
+<li><strong>Get the details first.</strong> From the customer: exact size, material, rating, ends, and quantity (STAMPED for hose on Reference Sheet A, STAMP for gaskets on Sheet J). From the vendor: their part number, cost, unit, and lead time. Ask your Sales Mentor which vendor to use.</li>
+<li>On the order line, type your new <strong>item ID</strong> in the item field and tab out. P21 tells you the item isn't found and offers to create it. Choose to create the item, and the new item window opens.</li>
+<li><strong>Item ID:</strong> build it the way our other IDs are built (Reference Sheet O): product type first, then size, rating, material, and ends. Examples from P21: <code>GSKT FF 10 150# X .125 8600</code>, <code>EXP JT 8X6 EPDM</code>, <code>BELT 3PLY 36IN X 120FT</code>, <code>HSE SSB 1.5 X 72IN W/ SS MPT E/E</code>. No customer names and no vague IDs like "BELT" or "BOOT".</li>
+<li><strong>Description:</strong> plain words the picker and the customer can both read, with size, material, rating, and ends. For example: <code>Gskt FF 10" 150# x .125 8600</code>.</li>
+<li><strong>Product group:</strong> pick the group that matches the product. Our most common ones: 01 Industrial Hose, 02 Hydraulic Hose, 03 Industrial Fittings, 05 Gaskets, 06 Belting, 13 Expansion Joints, 14 Gasket Sheet, 17 Metal Hose, 20 O-Rings, 23 Seals, 24 Rubber Boot/Board/Products, 32 Packing. Ask your mentor if nothing fits.</li>
+<li><strong>Supplier:</strong> the vendor we're buying from, their part number, the purchase unit, and the vendor cost.</li>
+<li><strong>Selling unit and price:</strong> set the unit we sell in (EA, FT, SI) and the price from the quote or your Sales Mentor. Check the line margin before you save.</li>
+<li>Leave the item <strong>non-stock</strong> (not stockable) and save. You're back on the order line with the new item.</li>
+<li>Set the line <strong>disposition</strong> to <strong>S</strong> (Special order) so P21 creates the purchase need. Put the vendor lead time in the line note, give the customer a realistic ship date, and confirm with your Sales Mentor that the PO gets placed.</li>
+</ol>
+<p><strong>Common mistakes with temporary items</strong></p>
+<ul>
+<li>Creating a second item for something already in P21 under another ID.</li>
+<li>A vague item ID or description that nobody can search for later.</li>
+<li>Leaving out the vendor part number, so purchasing has to call the customer back.</li>
+<li>Wrong selling unit (EA when the vendor sells by the foot, or the reverse).</li>
+<li>Forgetting the S disposition, so no purchase need is created and the order sits.</li>
+<li>Using a temporary item for a hose assembly we build in the shop. Those follow step 24.</li>
+</ul>
 <p><strong>Counter sales</strong></p>
 <ul>
 <li>Walk-in customers without an account go on the <strong>counter cash account (910)</strong>. It's COD: payment at the counter.</li>

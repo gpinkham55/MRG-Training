@@ -233,12 +233,3 @@ What our products look like, where customers use them, and example item IDs to l
 **Applications:** Cut gaskets, paddle blinds, plates, OEM parts to drawing.
 
 **Example items:** `OCI WATER JET LABOR` (cutting time), `MTL SHT 316SS 0125 11GA` (stainless sheet), `150015559` (10" 150# stainless paddle blind)
-
-## Adding Photos of Our Own Samples
-
-To swap a picture for a photo of our own sample:
-
-1. Take the photo on a plain background, landscape, about 1200 pixels wide.
-2. Give it the same file name as the picture it replaces (for example `suction-hose.jpg`).
-3. On github.com, open the `img/samples` folder, choose **Add file**, then **Upload files**, and upload it. It replaces the old picture.
-4. Commit. The page rebuilds in a minute or two.
